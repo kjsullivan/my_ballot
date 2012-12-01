@@ -5,8 +5,9 @@
 		<li><%= election["name"]  %></li>
 		<% end %>
 	</ul>
-<h2>Federal</h2>
-<p>President:</p>
+<section class="office">
+<h3>Federal</h3>
+<p><%= Position.find_by_name("President").name %></p>
 	<ul>
 	<% @candidatelist.each do |candidate| %>
 		<% if "2012-11-06" == candidate["electionDate"] %>
@@ -23,9 +24,10 @@
 		</br>
 		<div>[THIS IS A COMMENT BOX]</div>
 	</ul>
+	</section>
 	
 	
-<p>U.S. House of Representatives:</p>
+<p><%= Position.find_by_name("U.S. House").name %></p>
 	<ul>
 			<% @candidatelist.each do |candidate| %>
 				<% if "2012-11-06" == candidate["electionDate"] %>
@@ -41,22 +43,8 @@
 			</ul>
 			
 <h2>State</h2>
-<p>State House of Representatives:</p>
-	<ul>
-		  <% @candidatelist.each do |candidate| %>
-		  <% if "2012-11-06" == candidate["electionDate"] %>
-		  <% if "State House" == candidate["electionOffice"] %>
-		  <li>
-		  <%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %>: <%=candidate["electionOffice"]  %>
-		  </li>
-		  <% end %>
-		  <% end %>
-		  <% end %>
-		  </br>
-		  <div>[THIS IS A COMMENT BOX]</div>
-	</ul>
 
-<p>State Senate:</p>
+<p><%= Position.find_by_name("State Senate").name %></p>
 	<ul>
 	   <% @candidatelist.each do |candidate| %>
 	   <% if "2012-11-06" == candidate["electionDate"] %>
@@ -70,12 +58,25 @@
 	   </br>
 	   <div>[THIS IS A COMMENT BOX]</div>
 	</ul>
-
-
 	
+<p><%= Position.find_by_name("State House").name %></p>
+	<ul>
+		  <% @candidatelist.each do |candidate| %>
+		  <% if "2012-11-06" == candidate["electionDate"] %>
+		  <% if "State House" == candidate["electionOffice"] %>
+		  <li>
+		  <%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %>: <%=candidate["electionOffice"]  %>
+		  </li>
+		  <% end %>
+		  <% end %>
+		  <% end %>
+		  </br>
+		  <div>[THIS IS A COMMENT BOX]</div>
+	</ul>
+		
 <h2>County</h2>
-<h3>Metropolitan Water Reclamation District Commissioners</h3>
-		<h4>Vote for up to three candidates (6-year term)</h4>
+<h3><%= Position.find_by_name("Metropolitan Water Reclamation District Commissioners").name %></h3>
+		<h4><%= Position.find_by_name("Metropolitan Water Reclamation District Commissioners").note %></h4>
 			<ul class="candidates">
 				<li>Debra Shore <span class="party">Democratic</span></li>
 				<li>Kari K. Steele <span class="party">Democratic</span></li>
@@ -88,7 +89,7 @@
 			</ul>
 		
 
-<h3>Clerk of the Circuit Court</h3>
+<h3><%= Position.find_by_name("Clerk of the Circuit Court").name %></h3>
 			<ul class="candidates">
 				<li>Dorothy A. Brown <span class="party">Democratic</span></li>
 				<li>Diane S. Shapiro <span class="party">Republican</span></li>
@@ -96,7 +97,7 @@
 
 
 <section class="office">
-	<h3>Recorder</h3>
+	<h3><%= Position.find_by_name("Recorder").name %></h3>
 			<ul class="candidates">
 				<li>Karen A. Yarbrough <span class="party">Democratic</span></li>
 				<li>Sherri Griffith <span class="party">Republican</span></li>
@@ -104,7 +105,7 @@
 </section>
 
 <section class="office">
- 	<h3>State's Attorney</h3>
+ 	<h3><%= Position.find_by_name("State's Attorney").name %></h3>
  	<ul class="candidates">
  		<li>Anita Alvarez <span class="party">Democratic</span></li>
  		<li>Lori S. Yokoyama <span class="party">Republican</span></li>
@@ -115,9 +116,7 @@
 <li class="level">
 	<h2>Judicial</h2>
 	<section class="office">
-		<h3>Judge, Illinois Supreme Court</h3>
-		<h4>(Vacancy of Fitzgerald)</h4>
-		<h5>Illinois</h5>
+		<h3><%= Position.find_by_name("Judge, Illinois Supreme Court (Vacancy of Fitzgerald)").name %></h3>
 		<ul class="candidates">
 			<li>Mary Jane Theis <span class="party">Democratic</span></li>
 			<li>James Gerard Riley <span class="party">Republican</span></li>
@@ -126,104 +125,86 @@
 	</section>
 
 	<section class="office">
-		<h3>Judge, Cook County Judicial Circuit</h3>
-		<h4>(Vacancy of Stralka)</h4>
-		<h5>Cook County, Illinois</h5>
+		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Stralka)").name %></h3>
 		<ul class="candidates">
 			<li>Michael Tully Mullen <span class="party">Democratic</span></li>
 		</ul>
 	</section>
 
 	<section class="office">
-		<h3>Judge, Cook County Judicial Circuit</h3>
-		<h4>(Vacancy of Ward)</h4>
-		<h5>Cook County, Illinois</h5>
+		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Ward)").name %></h3>
 		<ul class="candidates">
 			<li>Elizabeth Mary Hayes <span class="party">Democratic</span></li>
 		</ul>
 	</section>
 
 	<section class="office">
-		<h3>Judge, Cook County Judicial Circuit</h3>
-		<h4>(Vacancy of Conlon)</h4>
-		<h5>Cook County, Illinois</h5>
+		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Conlon)").name %></h3>
 		<ul class="candidates">
 			<li>Karen Lynn O'Malley <span class="party">Democratic</span></li>
 		</ul>
 	</section>
 
 	<section class="office">
-		<h3>Judge, Cook County Judicial Circuit</h3>
-		<h4>(Vacancy of Jordan)</h4>
-		<h5>Cook County, Illinois</h5>
+		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Jordan)").name %></h3>
 		<ul class="candidates">
 			<li>Jean Prendergast Rooney <span class="party">Democratic</span></li>
 		</ul>
 	</section>
 
 	<section class="office">
-		<h3>Judge, Cook County Judicial Circuit</h3>
-		<h4>(Vacancy of Kirie Kinnaird)</h4>
-		<h5>Cook County, Illinois</h5>
+		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Kirie Kinnaird)").name %></h3>
 		<ul class="candidates">
 			<li>Erica L. Reddick <span class="party">Democratic</span></li>
 		</ul>
 	</section>
 
 	<section class="office">
-		<h3>Judge, Cook County Judicial Circuit</h3>
-		<h4>(Vacancy of Moran)</h4>
-		<h5>Cook County, Illinois</h5>
+		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Moran)").name %></h3>
 		<ul class="candidates">
 			<li>Russell L. Hartigan <span class="party">Democratic</span></li>
 		</ul>
 	</section>
 
 	<section class="office">
-		<h3>Judge, Cook County Judicial Circuit</h3>
-		<h4>(Vacancy of O'Brien, Jr.)</h4>
-		<h5>Cook County, Illinois</h5>
+		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of O'Brien, Jr.)").name %></h3>
 		<ul class="candidates">
 			<li>Cynthia Ramirez <span class="party">Democratic</span></li>
 		</ul>
 	</section>
 
 	<section class="office">
-		<h3>Judge, Cook County Judicial Circuit</h3>
-		<h4>(Vacancy of O'Mara Frossard)</h4>
-		<h5>Cook County, Illinois</h5>
+		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of O'Mara Frossard)").name %></h3>
 		<ul class="candidates">
 			<li>Diann Karen Marsalek <span class="party">Democratic</span></li>
 		</ul>
 	</section>
 
 	<section class="office">
-		<h3>Judge, Cook County Judicial Circuit</h3>
-		<h4>(Vacancy of Pucinski)</h4>
-		<h5>Cook County, Illinois</h5>
+		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Pucinski)").name %></h3>
 		<ul class="candidates">
 			<li>Lorna Ellen Propes <span class="party">Democratic</span></li>
 		</ul>
 	</section>
 
 	<section class="office">
-		<h3>Judge, Cook County Judicial Circuit</h3>
-		<h4>(Vacancy of Simmons, Jr.)</h4>
-		<h5>Cook County, Illinois</h5>
+		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Simmons, Jr.)").name %></h3>
 		<ul class="candidates">
 			<li>Pamela M. Leeming <span class="party">Democratic</span></li>
 		</ul>
 	</section>
-
-	<section class="office">
-		<h3>Judicial Retention, Appellate Court </h3>
-		<ul class="candidates yesno">
+	
+<li class="level">
+	<h2>Judicial Retention</h2>
+		<section class="office">
+			<h3><%= Position.find_by_name("Appellate Court").name %></h3>
+			<ul class="candidates yesno">
 			<li>James Fitzgerald Smith</li>
 		</ul>
 	</section>
 
 	<section class="office">
-		<h3>Judicial Retention, Circuit Court</h3>
+		<h3><%= Position.find_by_name("Circuit Court").name %></h3>
 		<ul class="candidates yesno">
 			<li>Carole Kamin Bellows</li>
 			<li>Kathy M. Flanagan</li>
@@ -284,6 +265,7 @@
 			<li>Diane M. Shelley</li>
 		</ul>
 	</section>
+	</li>
 		</ul>
 	</section>
 </li>

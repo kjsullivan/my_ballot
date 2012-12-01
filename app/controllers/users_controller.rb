@@ -1,4 +1,13 @@
 class UsersController < ApplicationController
+  
+  before_filter :ensure_correct_user, :except => [:new, :create]
+
+   def ensure_correct_user
+     if session[:id] != params[:id].to_i
+       redirect_to root_url #todo , :notice => "You must be a User"
+     end
+   end
+  
   # GET /users
   # GET /users.json
   def index

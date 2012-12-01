@@ -12,6 +12,7 @@ class PagesController < ApplicationController
   end
 
   def ballot
+    
     if params["zip"] != nil
         @zip = params["zip"].to_i
       end
