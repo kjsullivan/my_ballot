@@ -1,23 +1,23 @@
 class UsersController < ApplicationController
   
-  before_filter :ensure_admin, :only => [:index]
-  before_filter :ensure_correct_user, :except => [:new, :create]
-  
+  before_filter :ensure_correct_user, :except => [:new, :create, :index]
+  before_filter :require_admin, :only => [:index]
 
    def ensure_correct_user
      if session[:id] != params[:id].to_i
        redirect_to root_url #todo , :notice => "You must be a User"
      end
    end
+   # if you are trying to go to users/1 then you better be user #1
    
-    def ensure_admin
-        @user = User.find(session[:id])
-        if @user.email != "admin@my-ballot.org"
-          redirect_to root_url
-      end
-    end
-   
-   
+   def require_admin
+     # User.find_by_id(session[:id]) do |user|
+       
+     if User.find(session[:id]).email != "admin@my-ballot.org"
+       redirect_to root_url, :notice => 'Must be admin.'
+     end
+   end
+   # we're running this check only on the index page
   
   # GET /users
   # GET /users.json
@@ -106,9 +106,9 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-
+    
     respond_to do |format|
-      format.html { redirect_to users_url }
+      format.html { redirect_to root_url }
       format.json { head :no_content }
     end
   end
