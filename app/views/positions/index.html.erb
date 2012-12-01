@@ -3,8 +3,9 @@
 <table>
   <tr>
     <th>Name</th>
+	<th>Note</th>
     <th>Description</th>
-    <th>Note</th>
+    
     <th></th>
     <th></th>
     <th></th>
@@ -13,8 +14,10 @@
 <% @positions.each do |position| %>
   <tr>
     <td><%= position.name %></td>
+	<td><%= position.note %></td>
     <td><%= position.description %></td>
-    <td><%= position.note %></td>
+    
+
     <td><%= link_to 'Show', position %></td>
     <td><%= link_to 'Edit', edit_position_path(position) %></td>
     <td><%= link_to 'Destroy', position, method: :delete, data: { confirm: 'Are you sure?' } %></td>

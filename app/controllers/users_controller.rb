@@ -1,12 +1,23 @@
 class UsersController < ApplicationController
   
+  before_filter :ensure_admin, :only => [:index]
   before_filter :ensure_correct_user, :except => [:new, :create]
+  
 
    def ensure_correct_user
      if session[:id] != params[:id].to_i
        redirect_to root_url #todo , :notice => "You must be a User"
      end
    end
+   
+    def ensure_admin
+        @user = User.find(session[:id])
+        if @user.email != "admin@my-ballot.org"
+          redirect_to root_url
+      end
+    end
+   
+   
   
   # GET /users
   # GET /users.json
