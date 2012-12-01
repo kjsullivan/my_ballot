@@ -8,7 +8,7 @@ MyBallot::Application.routes.draw do
 
   get "/login" => 'Sessions#new', :as => 'login'
 
-  post "sessions/create" => 'Sessions#create'
+  post "/sessions" => 'Sessions#create'
 
   get "/logout" => 'Sessions#destroy', :as => 'logout'
 

@@ -1,2 +1,14 @@
-<h1>Pages#candidatebio</h1>
-<p>Find me in app/views/pages/candidatebio.html.erb</p>
+<h1><%= @candidatebio["firstName"] %> <%= @candidatebio["middleName"] %> <%= @candidatebio["lastName"] %></h1>
+<img src="<%= @candidatebio['photo'] %>">
+<ul>                                  
+<li><b>DOB: </b><%= @candidatebio["birthDate"] %></li>
+<li><b>Birth Place: </b><%= @candidatebio["birthPlace"] %></li>
+<li><b>Family Info: </b><%= @candidatebio["family"] %></li>
+<li><b>Hometown: </b><%= @candidatebio["homeCity"] %>, <%= @candidatebio["homeState"] %></li>
+<li><b>Education Info: </b><%= @candidatebio["education"] %></li>
+<li><b>Profession: </b><%= @candidatebio["profession"] %></li>
+<li><b>Political Status: </b><%= @candidatebio["political"] %></li>
+<li><b>Religion: </b><%= @candidatebio["religion"] %></li>
+<li><b>Congressional Membership: </b><%= @candidatebio["congMembership"] %></li>
+<li><b>Organizational Membership: </b><%= @candidatebio["orgMembership"] %></li>
+</ul>

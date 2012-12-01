@@ -1,10 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Password digest:</b>
-  <%= @user.password_digest %>
-</p>
-
+<h1>Hi, <%= User.find(session[:id]).first_name %></h1>
+<p><%= link_to 'Logout', logout_url %></p>
 <p>
   <b>Email:</b>
   <%= @user.email %>
