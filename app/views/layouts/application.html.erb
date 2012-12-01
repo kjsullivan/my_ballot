@@ -5,18 +5,20 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
+
 <body>
 	<nav>
 		<ul>
 			<% if current_user %>
 				<li><%=	link_to "My Profile", user_url(current_user)%></li>
 				<li><%=	link_to "Resources", resources_url%></li>
-				<li><%=	link_to "Logout", logout_url%></li>
+				<li><%=	link_to "Log out", logout_url%></li>
 			<% else %> 
-				<li><%=	link_to "Signup", new_user_url%></li>
+				<li><%=	link_to "Sign up", new_user_url%></li>
 				<li><%=	link_to "Resources", resources_url%></li>
-				<li><%=	link_to "Login", login_url %></li>
+				<li><%=	link_to "Log in", login_url %></li>
 				
 			<% end %>
 		</ul>
