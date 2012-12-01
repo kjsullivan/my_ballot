@@ -6,40 +6,33 @@
 <div class="profile">
 <div class="profileContent clearfix">
 
-	<section class="person">
-		<h3>
-		<!--   <b>Name:</b>
-		 -->  <%= @user.last_name %> <%= @user.first_name %>
-		</h3>
-
-		<p>
-		  <b>Email:</b>
-		  <%= @user.email %>
-		</p>
-
-		<p>
-		  <b>Zipcode:</b>
-		  <%= @user.zipcode %>
-		</p>
-
-		<p>
-		  <b>Description:</b>
-		  <%= @user.description %>
-		</p>
-
-		<%= link_to 'Edit', edit_user_path(@user) %> |
-		<%= link_to 'Back', users_path %>
-
+	<section class="person clearfix">
+		<img src="/assets/GJ.jpg" class="idphoto">
+		<section class="person-info">
+			<h3><!--   <b>Name:</b>-->  
+				<%= @user.first_name %> <%= @user.last_name %>
+			</h3>
+			<ul>
+				<li><b>Email:</b> <%= @user.email %></li>
+				<li><b>Zip Code:</b> <%= @user.zipcode %></li>
+				<li><b>Description:</b> <%= @user.description %></li>
+				<li><%= link_to 'Edit', edit_user_path(@user) %> |
+			<%= link_to 'Back', users_path %></li>
+			</ul>
+	</section> <!-- Close person-info -->
 	</section> <!-- Close person -->
 	
 	<section class="voteCounter">
+		<h3>Vote Counter</h3>
+        <div class="number">80</div>
+        <p>Votes left to cast</p>
 	</section> <!-- Close voteCounter -->
 
 	<section class="calendar">
-		<h2>Your next elections are:</h2>
+		<h3>Calendar</h3>
 			<ul>
 				<% @elections.each do |election|%>
-				<li><%= election["name"]  %></li>
+				<li><b><%= election["name"]  %></b></li>
 				<% end %>
 			</ul>
 	</section> <!-- Close calendar -->
@@ -47,31 +40,36 @@
 </div> <!-- Close profileContent, clearfix -->
 </div> <!-- Close profile -->
 
-<h1>MyBallot</h1>
 
-<section class="office">
-<h3>Federal</h3>
-<p><%= Position.find_by_name("President").name %></p>
-	<ul>
-	<% @candidatelist.each do |candidate| %>
-		<% if "2012-11-06" == candidate["electionDate"] %>
-		<% if "President" == candidate["electionOffice"] %>
-		<li>
-		<%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %>:<%= candidate["electionParties"] %>
-		<% if candidate["runningMateName"].present? %>
-		<br />Vice President: <%= candidate["runningMateName"] %>
-		<% end %>
-		</li>
-		<% end %>
-		<% end %>
-		<% end %>
-		</br>
-		<div>[THIS IS A COMMENT BOX]</div>
-	</ul>
-	</section>
-	
-	
-<p><%= Position.find_by_name("U.S. House").name %></p>
+<div class="col-1-3"> <!-- Col 1 -->
+
+<section class="contentBox"><!-- Box -->
+
+	<h2>Federal</h2>
+	<h3><%= Position.find_by_name("President").name %> / Vice President</h3>
+		<ul class="candidates">
+		<% @candidatelist.each do |candidate| %>
+			<% if "2012-11-06" == candidate["electionDate"] %>
+			<% if "President" == candidate["electionOffice"] %>
+			<li>
+			<%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %> 
+			<% if candidate["runningMateName"].present? %>
+			/ <%= candidate["runningMateName"] %>
+			<% end %> <span class="party"><%= candidate["electionParties"] %></span>
+			</li>
+			<% end %>
+			<% end %>
+			<% end %>
+		</ul>
+		
+		<div class="slideContent"> 
+          <textarea class="comments">Comment here</textarea>
+          <a href="#" class="saveBtn">save</a>
+        </div> 
+        
+        <p class="slideBtn">▼</p> 
+
+		<p><%= Position.find_by_name("U.S. House").name %></p>
 	<ul>
 			<% @candidatelist.each do |candidate| %>
 				<% if "2012-11-06" == candidate["electionDate"] %>
@@ -85,6 +83,12 @@
 				</br>
 				<div>[THIS IS A COMMENT BOX]</div>
 			</ul>
+
+
+</section> <!-- END BOX -->
+	
+	
+
 			
 <h2>State</h2>
 

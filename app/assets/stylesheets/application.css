@@ -148,10 +148,26 @@
   	-moz-box-sizing: border-box;
   	box-sizing: border-box;
 	}
+
 /*LAYOUT END*/
 
+.contentBox {
+	background: rgba(255, 255, 255, 0.5);
+	box-shadow: inset 2px 2px 0 rgba(255, 255, 255, .1), 
+				2px 2px 0 rgba(255, 255, 255, .7);
+	margin-bottom: 25px;
+	padding: 20px;
+	border-radius: 10px;
+	}
+
+.candidates {
+	margin-top: 10px;
+	margin-bottom: 15px;
+	}
+
+
 /*TEXT BEGIN*/
-h1, h2, h3, h4, h5, strong {
+h1, h2, h3, h4, h5, b, strong {
 	font-weight: bold;
 	}
 
@@ -182,6 +198,18 @@ h4, h5 {
 	font-size: 14px;
 	}
 
+a {
+	color: #3380b8
+	}
+
+.party {
+	font-size: 12px;
+	font-style: italic;
+	display: inline block;
+	padding-left: 5px;
+	margin-bottom: 10px;
+	}
+
 /*TEXT END*/
 
 
@@ -196,6 +224,147 @@ h4, h5 {
 
 /*LOGO END*/
 
+/*PROFILE BEGIN*/
+
+.profile {
+	padding: 25px 0;	
+	margin: 0 auto 5px auto;
+	border-top:1px solid rgba(255, 255, 255, .9);
+ 	border-bottom:1px solid rgba(0, 0, 0, .1);
+ 	position: relative;
+ 	font-size: 14px;
+ 	line-height: 140%;
+}
+
+.profile:after {
+  	content:'';
+    position:absolute;
+    bottom:-2px;
+    left:0;
+    right:0;
+    border-bottom:1px solid rgba(255, 255, 255, .9);
+}
+
+.profile:before {
+  	content:'';
+    position:absolute;
+    top: -2px;
+    left:0;
+    right:0;
+    border-top:1px solid rgba(0, 0, 0, .1);
+}
+
+.profile ul {
+	margin-top: 12px;
+}
+
+.profile li {
+	margin-bottom: 5px;
+}
+
+.profile li:last-child {
+	margin-bottom: 0;
+}
+
+	/*PERSON BEGIN*/
+
+	.idphoto {
+		display: block;
+		float: left;
+		margin: 0;
+		border-radius: 6px;
+		box-shadow: 2px 2px 1px rgba(255, 255, 255, .7);
+	}
+
+	.person-info {
+		padding-left: 135px;
+	}
+	/*PERSON END*/
+
+	/*COUNTER BEGIN*/
+
+	.voteCounter {
+	text-align: center;
+	font-weight: bold;
+	}
+
+	.number {
+	color: #99c7e8;
+	font-size: 100px;
+	line-height: 100%;
+	margin: 5px 0 10px 0;
+	text-shadow: 1px 2px white;
+	border-bottom:1px dashed rgba(0, 0, 0, .1);
+ 	position: relative;
+	}
+
+	/*COUNTER END*/
+
+/*PROFILE END*/
+
+/*COMMENT SLIDER BEGIN*/
+
+	.slideContent {
+		height: 225px;
+		display: none;
+		text-align: center;
+		}
+
+	.comments {
+		width: 100%;
+		height: 180px;
+		margin: 0;
+		padding: 15px;
+		border-radius: 10px;
+		border: none;
+		box-shadow: inset 1px 1px 0px rgba(0, 0, 0, .05), 
+					inset 2px 2px 6px rgba(0, 0, 0, .05), 
+					2px 2px 0 rgba(255, 255, 255, .3),
+					inset -1px -1px 0px rgba(0, 0, 0, .05); 
+				
+		background-color: rgba(255, 255, 255, .6);
+		overflow:auto;
+
+		/*text style*/
+		font-family: 'Droid Sans', sans-serif;
+		font-size: 14px;
+		color: rgba(0, 0, 0, .3);
+		}
+
+	.saveBtn {
+		display: block;
+		margin-top: 15px;
+		font-weight: bold;
+		color: #d2232a;
+		}
+	 
+	.slideBtn {
+		font-size: 14px;
+		text-align: center;
+		font-weight: bold;
+		display: block;
+		color: #d2232a;
+		margin: 0 auto 10px auto;
+		padding: 0;
+		border-top:1px solid rgba(255, 255, 255, .9);
+	 	position: relative;
+		}
+
+	.slideBtn:last-of-type {
+		margin-bottom:-5px;
+		}
+
+	.slideBtn:after {
+	  content:'';
+	    position:absolute;
+	    top:-2px;
+	    left:0;
+	    right:0;
+	    border-top: 1px solid rgba(0, 0, 0, .1);
+		}
+
+/*COMMENT SLIDER END*/
+
 /*THIS IS A FAKE STYLE AND PLEASE DELETE LATER BEGIN*/
 .test {
 	margin-top: 100px;
@@ -206,7 +375,84 @@ h4, h5 {
 
 
 
+/*MEDIA QUERIES BEGIN*/
 
+@media all and (min-width: 990px) {
+	
+	/*three-column layout*/	
+
+	.grid-pad {
+	  	padding: 0 25px;
+		}
+
+	/*.col-1-3,
+	.col-2-3,
+	.col-3-3 {
+		float:left;
+		width: 34%;
+	  	padding-right: 25px;
+	  	padding-top: 25px;
+	  	margin-bottom: 0;
+		}
+
+	.col-3-3 {
+		width: 32%;
+		padding-right: 0;
+		}
+*/
+	/*profile*/
+	.profile{
+		padding: 25px 0;
+		}
+
+	.person {
+		float: left;
+		width: 45%;
+		padding-right: 25px;
+		border-right: 1px dashed rgba(0, 0, 0, .1);
+		}
+
+	.voteCounter {
+		float: left;
+		width: 20%;
+		padding: 0 25px;
+		}
+
+	.calendar {
+		float: right;
+		width: 35%;
+		padding-left: 25px;
+		border-left: 1px dashed rgba(0, 0, 0, .1);
+		}
+
+	}
+
+@media all and (max-width: 989px) {
+
+	.profile {
+		margin-bottom: 30px;
+		}
+
+	.person {
+		padding-bottom: 25px;
+		margin-bottom: 25px;
+		border-bottom: 1px dashed rgba(0, 0, 0, .1);
+		}
+
+	.voteCounter {
+		padding-left: 25px;
+		border-left: 1px dashed rgba(0, 0, 0, .1);
+		margin-left: 25px;
+		float: right;
+		}
+
+	.calendar {
+		padding-right: 25px;
+		}
+}
+
+
+/*MEDIA QUERIES END*/
 
 
 
