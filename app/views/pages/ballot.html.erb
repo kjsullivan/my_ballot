@@ -13,7 +13,7 @@
 		<% if "2012-11-06" == candidate["electionDate"] %>
 		<% if "President" == candidate["electionOffice"] %>
 		<li>
-		<%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %>
+		<%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %>:<%= candidate["electionParties"] %>
 		<% if candidate["runningMateName"].present? %>
 		<br />Vice President: <%= candidate["runningMateName"] %>
 		<% end %>
