@@ -22,6 +22,7 @@
 		font-size: 100%;
 		font: inherit;
 		vertical-align: baseline;
+		text-decoration: none;
 	}
 	/* HTML5 display-role reset for older browsers */
 	article, aside, details, figcaption, figure, 
@@ -84,6 +85,7 @@
 		z-index: 99;
 		text-align: center;
 		box-shadow: 0px 0px 5px rgba(0, 0, 0, .5);
+		text-transform: lowercase;
 		}
 
 	nav {
@@ -122,6 +124,31 @@
 	}
 /* NAV & FOOTER END*/
 
+/*LAYOUT BEGIN*/
+
+.grid {
+	background: rgba(255, 255, 255, 0.2);
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, .1);
+	border-radius: 10px;
+	margin: 25px;
+	}
+
+.grid:after {
+  	content: "";
+  	display: table;
+  	clear: both;
+	}
+
+.grid-pad {
+  	padding: 60px 25px 25px 25px;
+	}
+
+*, *:after, *:before {
+  	-webkit-box-sizing: border-box;
+  	-moz-box-sizing: border-box;
+  	box-sizing: border-box;
+	}
+/*LAYOUT END*/
 
 /*TEXT BEGIN*/
 h1, h2, h3, h4, h5, strong {
@@ -154,13 +181,27 @@ h3 {
 h4, h5 {
 	font-size: 14px;
 	}
+
 /*TEXT END*/
 
+
+/*LOGO BEGIN*/
+
+.logo {
+	display: block;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 0 0 30px 0;
+	}
+
+/*LOGO END*/
 
 /*THIS IS A FAKE STYLE AND PLEASE DELETE LATER BEGIN*/
 .test {
 	margin-top: 100px;
 }
+
+
 /*THIS IS A FAKE STYLE AND PLEASE DELETE LATER END*/
 
 

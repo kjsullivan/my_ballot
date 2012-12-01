@@ -1,40 +1,51 @@
-<p id="notice"><%= notice %></p>
+<div class="grid grid-pad"> <!-- main wrapper -->
+<img src="/assets/myBallotLogo.png" alt="My Ballot Chicago Logo" class="logo">
 
-<h1>Hi, <%= User.find(session[:id]).first_name %></h1>
+<!-- <p><%= notice %></p>-->
 
-<p>
-  <b>Name:</b>
-  <%= @user.last_name %> <%= @user.first_name %>
-</p>
+<div class="profile">
+<div class="profileContent clearfix">
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
+	<section class="person">
+		<h3>
+		<!--   <b>Name:</b>
+		 -->  <%= @user.last_name %> <%= @user.first_name %>
+		</h3>
 
-<p>
-  <b>Zipcode:</b>
-  <%= @user.zipcode %>
-</p>
+		<p>
+		  <b>Email:</b>
+		  <%= @user.email %>
+		</p>
 
-<p>
-  <b>Description:</b>
-  <%= @user.description %>
-</p>
+		<p>
+		  <b>Zipcode:</b>
+		  <%= @user.zipcode %>
+		</p>
 
+		<p>
+		  <b>Description:</b>
+		  <%= @user.description %>
+		</p>
 
+		<%= link_to 'Edit', edit_user_path(@user) %> |
+		<%= link_to 'Back', users_path %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
-
-<h2>Your next elections are:</h2>
-	<ul>
-		<% @elections.each do |election|%>
-		<li><%= election["name"]  %></li>
-		<% end %>
-	</ul>
+	</section> <!-- Close person -->
 	
+	<section class="voteCounter">
+	</section> <!-- Close voteCounter -->
 
+	<section class="calendar">
+		<h2>Your next elections are:</h2>
+			<ul>
+				<% @elections.each do |election|%>
+				<li><%= election["name"]  %></li>
+				<% end %>
+			</ul>
+	</section> <!-- Close calendar -->
+	
+</div> <!-- Close profileContent, clearfix -->
+</div> <!-- Close profile -->
 
 <h1>MyBallot</h1>
 
@@ -303,3 +314,5 @@
 	</section>
 </li>
 </ul>
+
+</div> <!-- Closing wrapper -->
