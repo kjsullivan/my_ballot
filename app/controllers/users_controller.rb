@@ -23,7 +23,18 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-
+    @zip = User.find(params[:id]).zipcode
+    
+    s = Net::HTTP.get_response(URI.parse("http://api.votesmart.org/Candidates.getByZip?key=80ed23c61d678115ead4c4c5f2a3c055&zip5=#{@zip}")).body
+    json = Hash.from_xml(s).to_json
+    @candidatelist = JSON.parse(json)
+    @candidatelist = @candidatelist["candidateList"]["candidate"]
+    
+    e = Net::HTTP.get_response(URI.parse("http://api.votesmart.org/Election.getElectionByZip?key=80ed23c61d678115ead4c4c5f2a3c055&zip5=#{@zip}")).body
+    json = Hash.from_xml(e).to_json
+    @elections = JSON.parse(json)
+    @elections = @elections["elections"]["election"]
+  
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
