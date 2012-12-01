@@ -1,13 +1,134 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
- */
+/*STYLE RESET START*/
+	/* http://meyerweb.com/eric/tools/css/reset/ 
+	   v2.0 | 20110126
+	   License: none (public domain)
+	*/
+	html, body, div, span, applet, object, iframe,
+	h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+	a, abbr, acronym, address, big, cite, code,
+	del, dfn, em, img, ins, kbd, q, s, samp,
+	small, strike, strong, sub, sup, tt, var,
+	b, u, i, center,
+	dl, dt, dd, ol, ul, li,
+	fieldset, form, label, legend,
+	table, caption, tbody, tfoot, thead, tr, th, td,
+	article, aside, canvas, details, embed, 
+	figure, figcaption, footer, header, hgroup, 
+	menu, nav, output, ruby, section, summary,
+	time, mark, audio, video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+	/* HTML5 display-role reset for older browsers */
+	article, aside, details, figcaption, figure, 
+	footer, header, hgroup, menu, nav, section {
+		display: block;
+	}
+	body {
+		line-height: 1;
+	}
+	ol, ul {
+		list-style: none;
+	}
+	blockquote, q {
+		quotes: none;
+	}
+	blockquote:before, blockquote:after,
+	q:before, q:after {
+		content: '';
+		content: none;
+	}
+	table {
+		border-collapse: collapse;
+		border-spacing: 0;
+	}
+/*STYLE RESET END*/
+
+
+
+/*NEW STYLES START HERE*/
+
+
+
+/*CLEARFIX START*/
+.clearfix:after {
+	clear: both;
+	content: " ";
+	display: block;  
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+/*CLEARFIX END*/
+
+
+/*BODY START*/
+	body {
+		background: #cde4f4 url("grid4.png");
+		font-family: 'Droid Sans', sans-serif;
+		font-size: 16px;
+		line-height: 140%;
+		color: rgba(0, 0, 0, .75);
+		text-shadow: 1px 1px white;
+		}
+/*BODY END*/
+
+
+
+
+/* NAV & FOOTER START*/
+	nav, footer {
+		width: 100%;
+		z-index: 99;
+		background-color: #d2232a;
+		text-align: center;
+		box-shadow: 0px 0px 5px rgba(0, 0, 0, .5);
+		}
+
+	nav {
+		top: 0;
+		position: fixed;
+	}
+
+	footer {
+		bottom: 0;
+		background-color: #d2232a;
+	}
+
+	nav li, footer li {
+		display: inline-block;
+		color: white;
+		font-weight: normal;
+		font-size: 14px;
+		text-shadow: 1px 1px rgba(0, 0, 0, .1);
+		padding: 10px 30px 10px 20px;
+		background: url(star2.png) no-repeat 0 50%;
+		}
+
+	nav li:last-child, footer li:last-child {
+		margin-right: 0;
+		padding-right: 0;
+		}
+
+	nav a, footer a {
+		color: white;
+		}
+
+	/*nav .logo {
+		float: left;
+		margin-left: 40px;
+	}*/
+/* NAV & FOOTER END*/
+
+
+
+
+
+
+
+
+
