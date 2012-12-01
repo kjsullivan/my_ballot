@@ -1,4 +1,4 @@
-/*STYLE RESET START*/
+/*RESET BEGIN*/
 	/* http://meyerweb.com/eric/tools/css/reset/ 
 	   v2.0 | 20110126
 	   License: none (public domain)
@@ -46,15 +46,15 @@
 		border-collapse: collapse;
 		border-spacing: 0;
 	}
-/*STYLE RESET END*/
+/*RESET END*/
 
 
 
-/*NEW STYLES START HERE*/
+/*NEW STYLES BEGIN*/
 
 
 
-/*CLEARFIX START*/
+/*CLEARFIX BEGIN*/
 .clearfix:after {
 	clear: both;
 	content: " ";
@@ -66,9 +66,9 @@
 /*CLEARFIX END*/
 
 
-/*BODY START*/
+/*BODY BEGIN*/
 	body {
-		background: #cde4f4 url("grid4.png");
+		background: #cde4f4 url("grid.png");
 		font-family: 'Droid Sans', sans-serif;
 		font-size: 16px;
 		line-height: 140%;
@@ -78,9 +78,7 @@
 /*BODY END*/
 
 
-
-
-/* NAV & FOOTER START*/
+/* NAV & FOOTER BEGIN*/
 	nav, footer {
 		width: 100%;
 		z-index: 99;
@@ -125,6 +123,38 @@
 /* NAV & FOOTER END*/
 
 
+/*TEXT BEGIN*/
+h1, h2, h3, h4, h5, strong {
+	font-weight: bold;
+	}
+
+h2 {
+	color: #d2232a;
+	font-size: 24px;
+	margin: 5px 0 20px 0;
+	padding-bottom: 20px;
+ 	border-bottom: 1px solid rgba(0, 0, 0, .1);
+ 	position: relative;
+	}
+
+h2:after {
+  content:'';
+    position:absolute;
+    bottom:-2px;
+    left:0;
+    right:0;
+    border-bottom:1px solid rgba(255, 255, 255, .9);
+	}
+
+h3 {
+	font-size: 19px;
+	position: relative;
+	}
+
+h4, h5 {
+	font-size: 14px;
+	}
+/*TEXT END*/
 
 
 
