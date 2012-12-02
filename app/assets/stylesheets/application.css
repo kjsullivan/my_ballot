@@ -196,8 +196,17 @@
 	}
 
 .homeContentBox {
+	padding-top: 30px;
 	width: 65%;
-	margin: 0 auto;
+	margin: 10px auto;
+}
+
+input, .homeContentBox, .FindRegister, .pageTitle, .aboutLinks {
+	text-align: center;
+}
+
+.FindRegister {
+	margin: 60px 0 30px;
 }
 
 .candidates {
@@ -207,18 +216,21 @@
 
 
 /*TEXT BEGIN*/
-h1, h2, h3, h4, h5, b, strong {
+h1, h2, h3, h4, h5, b, strong, .error {
 	font-weight: bold;
 	}
 
-h1 {
+h1, .error {
 	font-size: 20px;
 	line-height: 120%;
-}
+	}
+
+h1, h2, .error {
+	color: #d2232a;
+	}
 
 h1, h2 {
 	margin: 5px 0 20px 0;
-	color: #d2232a;
 	}
 
 h2 {
@@ -236,6 +248,12 @@ h2:after {
     right:0;
     border-bottom:1px solid rgba(255, 255, 255, .9);
 	}
+
+.homeContentBox h2,
+.pageTitle {
+	color:  #3380b8;
+	margin-bottom: 30px;
+}
 
 h3 {
 	font-size: 19px;
@@ -272,7 +290,6 @@ a {
 	display: inline block;
 	margin-bottom: 10px;
 	}
-
 
 /*TEXT END*/
 
@@ -384,11 +401,7 @@ a {
 		text-align: center;
 		}
 
-	.comments {
-		width: 100%;
-		height: 180px;
-		margin: 0;
-		padding: 15px;
+	input, .comments, .button {
 		border-radius: 10px;
 		border: none;
 		box-shadow: inset 1px 1px 0px rgba(0, 0, 0, .05), 
@@ -399,11 +412,43 @@ a {
 		background-color: rgba(255, 255, 255, .6);
 		overflow:auto;
 
-		/*text style*/
+		/*text style for input for some browsers*/
 		font-family: 'Droid Sans', sans-serif;
-		font-size: 14px;
 		color: rgba(0, 0, 0, .3);
 		}
+
+	input, .comments {
+		padding: 15px;
+	}
+
+	input, .button {
+		margin: 15px 8px;
+		font-size: 18px;
+	}
+
+	.comments {
+		width: 100%;
+		height: 180px;
+		margin: 0;
+		font-size: 14px;
+	}
+
+	.button {
+		padding: 13px;
+		background-color: #99c7e8;
+		text-decoration: none;
+		font-weight: bold;
+		color: white;
+		text-shadow: 0px 0px 5px rgba(0, 0, 0, .3);
+	}
+
+	.button:hover {
+		background-color: #3380b8;
+	}
+
+	.ZIPinput {
+		width: 60%;
+	}
 
 	.saveBtn {
 		display: block;
@@ -437,6 +482,35 @@ a {
 	    border-top: 1px solid rgba(0, 0, 0, .1);
 		}
 
+/*login styles*/
+
+.login {
+	display: block;
+	margin: 0 auto;
+	font-weight: bold;
+	text-align: center;
+}
+
+.login .textinput {
+	display: block;
+	text-align: center;
+	margin: 5px auto 20px;
+	width: 280px;
+	padding: 5px;
+}
+
+.login .button {
+	display: inline;
+	padding: 13px;
+	background-color: #99c7e8;
+	text-decoration: none;
+	font-weight: bold;
+	color: white;
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, .3);
+}
+
+/*login styles end*/
+
 /*COMMENT SLIDER END*/
 
 /*BIO STYLES BEGIN*/
@@ -457,9 +531,6 @@ a {
 	}
 
 /*END BIO STYLES*/
-
-
-
 
 
 /*MEDIA QUERIES BEGIN*/
@@ -521,17 +592,25 @@ a {
 		padding: 25px 0;
 		}
 
+	.profileContent {
+		overflow: hidden;
+	}
+
 	.person {
 		float: left;
 		width: 45%;
 		padding-right: 25px;
 		border-right: 1px dashed rgba(0, 0, 0, .1);
+		margin-bottom: -1000px;
+		padding-bottom: 1000px;
 		}
 
 	.voteCounter {
 		float: left;
 		width: 20%;
 		padding: 0 25px;
+		margin-bottom: -1000px;
+		padding-bottom: 1000px;
 		}
 
 	.calendar {
@@ -539,6 +618,8 @@ a {
 		width: 35%;
 		padding-left: 25px;
 		border-left: 1px dashed rgba(0, 0, 0, .1);
+		margin-bottom: -1000px;
+		padding-bottom: 1000px;
 		}
 
 
@@ -597,6 +678,20 @@ a {
 @media all and (max-width: 660px) {
 
 	/*layout*/	
+
+	.grid {
+		margin: 0px;
+		border-radius: 0;
+		}
+
+	.grid-pad {
+		padding: 75px 20px 20px 20px;
+		}
+
+	.contentBox {
+		margin-bottom: 20px;
+		}
+
 	.grid-single {
 		margin: 0px;
 		border-radius: 0;
@@ -605,8 +700,23 @@ a {
 	.grid-single-pad {
 		padding: 75px 20px 20px 20px;
 		}
+
+	/*logo*/
+	.logo {
+		width: 90%;
 	}
 
+	}
+
+@media all and (max-width: 450px){
+		/*text styles*/
+	.party {
+		display: block;
+		padding: 0;
+		line-height: 100%;
+		}
+	
+}
 
 /*MEDIA QUERIES END*/
 

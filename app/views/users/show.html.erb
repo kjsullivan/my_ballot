@@ -14,7 +14,7 @@
 			</h3>
 			<ul>
 				<li><b>Email:</b> <%= @user.email %></li>
-				<li><b>Zip Code:</b> <%= @user.zipcode %></li>
+				<li><b>ZIP Code:</b> <%= @user.zipcode %></li>
 				<li><b>Description:</b> <%= @user.description %></li>
 				<li><%= link_to 'Edit', edit_user_path(@user) %> |
 			<%= link_to 'Back', users_path %></li>
@@ -106,7 +106,7 @@
 		   <% if "2012-11-06" == candidate["electionDate"] %>
 		   <% if "State Senate" == candidate["electionOffice"] %>
 		   <li>
-		   <%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %><span class="party"><span class="district">Congressional District <%= candidate["electionDistrictName"] %>, </span><%= candidate["electionParties"] %></span> 
+		   <%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %><span class="party"><span class="district">State Senate District <%= candidate["electionDistrictName"] %>, </span><%= candidate["electionParties"] %></span> 
 				</li>
 		   </li>
 		   <% end %>
@@ -128,7 +128,7 @@
 		  <% if "2012-11-06" == candidate["electionDate"] %>
 		  <% if "State House" == candidate["electionOffice"] %>
 		  <li>
-		  <%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %><span class="party"><span class="district">Congressional District <%= candidate["electionDistrictName"] %>, </span><%= candidate["electionParties"] %></span> 
+		  <%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %><span class="party"><span class="district">State House District <%= candidate["electionDistrictName"] %>, </span><%= candidate["electionParties"] %></span> 
 				</li>
 		  </li>
 		  <% end %>
