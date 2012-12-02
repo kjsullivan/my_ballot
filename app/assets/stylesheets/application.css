@@ -216,20 +216,45 @@ input, .homeContentBox, .FindRegister, .pageTitle, .aboutLinks {
 
 
 /*TEXT BEGIN*/
-h1, h2, h3, h4, h5, b, strong, .error {
+h1, h2, h3, h4, h5, b, strong, {
 	font-weight: bold;
 	}
 
-h1, .error {
+h1 {
 	font-size: 20px;
 	line-height: 120%;
 	}
 
-h1, h2, .error {
-	color: #d2232a;
+.error {
+	font-size: 16px;
+	line-height: 120%;
+		color: #d2232a;
+
 	}
 
-h1, h2 {
+p.error {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+ul.error {
+	margin-bottom: 20px;
+	padding-bottom: 30px;
+ 	border-bottom: 1px solid rgba(0, 0, 0, .1);
+ 	position: relative;
+}
+
+ul.error:after {
+  content:'';
+    position:absolute;
+    bottom:-2px;
+    left:0;
+    right:0;
+    border-bottom:1px solid rgba(255, 255, 255, .9);
+	}
+
+h1, h2, {
+	color: #d2232a;
 	margin: 5px 0 20px 0;
 	}
 
@@ -253,6 +278,7 @@ h2:after {
 .pageTitle {
 	color:  #3380b8;
 	margin-bottom: 30px;
+	font-weight: bold;
 }
 
 h3 {
@@ -433,6 +459,8 @@ a {
 		font-size: 14px;
 	}
 
+
+
 	.button {
 		padding: 13px;
 		background-color: #99c7e8;
@@ -484,6 +512,10 @@ a {
 
 /*login styles*/
 
+.newUserForm {
+	background: pink;
+}
+
 .login {
 	display: block;
 	margin: 0 auto;
@@ -491,12 +523,28 @@ a {
 	text-align: center;
 }
 
-.login .textinput {
+.field {
+	font-weight: bold;
+	text-align: left;
+}
+
+.login .textinput,
+.field .textinput {
 	display: block;
 	text-align: center;
 	margin: 5px auto 20px;
 	width: 280px;
 	padding: 5px;
+}
+
+.field .comments {
+	width: 100%;
+	height: 140px;
+	margin: 5px auto 20px;
+	}
+
+.field .textinput {
+	width: 100%;
 }
 
 .login .button {
