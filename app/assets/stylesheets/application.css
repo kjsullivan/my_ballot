@@ -15,7 +15,7 @@
 	article, aside, canvas, details, embed, 
 	figure, figcaption, footer, header, hgroup, 
 	menu, nav, output, ruby, section, summary,
-	time, mark, audio, video {
+	time, mark, audio, video, input {
 		margin: 0;
 		padding: 0;
 		border: 0;
@@ -415,10 +415,13 @@ a {
 		/*text style for input for some browsers*/
 		font-family: 'Droid Sans', sans-serif;
 		color: rgba(0, 0, 0, .3);
+		/*line-height: 1em;*/
 		}
 
 	input, .comments {
+		padding: 0;
 		padding: 15px;
+
 	}
 
 	input, .button {
