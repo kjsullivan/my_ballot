@@ -557,17 +557,25 @@ a {
 		padding: 25px 0;
 		}
 
+	.profileContent {
+		overflow: hidden;
+	}
+
 	.person {
 		float: left;
 		width: 45%;
 		padding-right: 25px;
 		border-right: 1px dashed rgba(0, 0, 0, .1);
+		margin-bottom: -1000px;
+		padding-bottom: 1000px;
 		}
 
 	.voteCounter {
 		float: left;
 		width: 20%;
 		padding: 0 25px;
+		margin-bottom: -1000px;
+		padding-bottom: 1000px;
 		}
 
 	.calendar {
@@ -575,6 +583,8 @@ a {
 		width: 35%;
 		padding-left: 25px;
 		border-left: 1px dashed rgba(0, 0, 0, .1);
+		margin-bottom: -1000px;
+		padding-bottom: 1000px;
 		}
 
 
