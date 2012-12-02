@@ -196,12 +196,17 @@
 	}
 
 .homeContentBox {
+	padding-top: 30px;
 	width: 65%;
-	margin: 0 auto;
+	margin: 10px auto;
 }
 
-.homeContentBox, input {
+input, .homeContentBox, .FindRegister {
 	text-align: center;
+}
+
+.FindRegister {
+	margin: 60px 0 30px;
 }
 
 .candidates {
@@ -388,7 +393,7 @@ a {
 		text-align: center;
 		}
 
-	input, .comments {
+	input, .comments, .button {
 		border-radius: 10px;
 		border: none;
 		box-shadow: inset 1px 1px 0px rgba(0, 0, 0, .05), 
@@ -401,29 +406,40 @@ a {
 
 		/*text style for input for some browsers*/
 		font-family: 'Droid Sans', sans-serif;
-		font-size: 14px;
 		color: rgba(0, 0, 0, .3);
 		}
 
-	input {
-		margin: 15px 8px;
+	input, .comments {
 		padding: 15px;
+	}
+
+	input, .button {
+		margin: 15px 8px;
+		font-size: 18px;
 	}
 
 	.comments {
 		width: 100%;
 		height: 180px;
 		margin: 0;
-		padding: 15px;
+		font-size: 14px;
 	}
 
-	input.button {
-		display: inline-block;
+	.button {
+		padding: 13px;
 		background-color: #99c7e8;
 		text-decoration: none;
 		font-weight: bold;
 		color: white;
 		text-shadow: 0px 0px 5px rgba(0, 0, 0, .3);
+	}
+
+	.button:hover {
+		background-color: #3380b8;
+	}
+
+	.ZIPinput {
+		width: 60%;
 	}
 
 	.saveBtn {
