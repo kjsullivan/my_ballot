@@ -1,4 +1,4 @@
-<div class="grid grid-pad"> <!-- main wrapper -->
+<div class="grid grid-pad clearfix"> <!-- main wrapper -->
 <img src="/assets/myBallotLogo.png" alt="My Ballot Chicago Logo" class="logo">
 
 <!-- <p><%= notice %></p>-->
@@ -46,6 +46,7 @@
 <section class="contentBox"><!-- Box -->
 
 	<h2>Federal</h2>
+
 	<h3><%= Position.find_by_name("President").name %> / Vice President</h3>
 		<ul class="candidates">
 		<% @candidatelist.each do |candidate| %>
@@ -54,8 +55,7 @@
 			<li>
 			<%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %> 
 			<% if candidate["runningMateName"].present? %>
-			/ <%= candidate["runningMateName"] %>
-			<% end %> <span class="party"><%= candidate["electionParties"] %></span>
+			/ <%= candidate["runningMateName"] %><% end %><span class="party"><%= candidate["electionParties"] %></span>
 			</li>
 			<% end %>
 			<% end %>
@@ -69,61 +69,83 @@
         
         <p class="slideBtn">▼</p> 
 
-		<p><%= Position.find_by_name("U.S. House").name %></p>
-	<ul>
+	<h3><%= Position.find_by_name("U.S. House").name %></h3>
+		<ul class="candidates">
 			<% @candidatelist.each do |candidate| %>
 				<% if "2012-11-06" == candidate["electionDate"] %>
 				<% if "U.S. House" == candidate["electionOffice"] %>
 				<li>
-				<%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %>: <%=candidate["electionOffice"]  %>
+				<%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %><span class="party"><span class="district">Congressional District <%= candidate["electionDistrictName"] %>, </span><%= candidate["electionParties"] %></span> 
 				</li>
 				<% end %>
 				<% end %>
 				<% end %>
-				</br>
-				<div>[THIS IS A COMMENT BOX]</div>
-			</ul>
+		</ul>
+				
+		<div class="slideContent"> 
+         	<textarea class="comments">Comment here</textarea>
+          	<a href="#" class="saveBtn">save</a>
+        </div>
 
+        <p class="slideBtn">▼</p> 
+ 
 
 </section> <!-- END BOX -->
 	
-	
+<section class="contentBox"><!-- Box -->	
 
-			
-<h2>State</h2>
+	<h2>State</h2>
 
-<p><%= Position.find_by_name("State Senate").name %></p>
-	<ul>
-	   <% @candidatelist.each do |candidate| %>
-	   <% if "2012-11-06" == candidate["electionDate"] %>
-	   <% if "State Senate" == candidate["electionOffice"] %>
-	   <li>
-	   <%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %>: <%=candidate["electionOffice"]  %>
-	   </li>
-	   <% end %>
-	   <% end %>
-	   <% end %>
-	   </br>
-	   <div>[THIS IS A COMMENT BOX]</div>
-	</ul>
+	<h3><%= Position.find_by_name("State Senate").name %></h3>
+	<ul class="candidates">
+		   <% @candidatelist.each do |candidate| %>
+		   <% if "2012-11-06" == candidate["electionDate"] %>
+		   <% if "State Senate" == candidate["electionOffice"] %>
+		   <li>
+		   <%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %><span class="party"><span class="district">Congressional District <%= candidate["electionDistrictName"] %>, </span><%= candidate["electionParties"] %></span> 
+				</li>
+		   </li>
+		   <% end %>
+		   <% end %>
+		   <% end %>
+		</ul>
+
+		<div class="slideContent"> 
+         	<textarea class="comments">Comment here</textarea>
+          	<a href="#" class="saveBtn">save</a>
+        </div>
+
+        <p class="slideBtn">▼</p> 
+ 
 	
-<p><%= Position.find_by_name("State House").name %></p>
-	<ul>
+	<h3><%= Position.find_by_name("State House").name %></h3>
+	<ul class="candidates">
 		  <% @candidatelist.each do |candidate| %>
 		  <% if "2012-11-06" == candidate["electionDate"] %>
 		  <% if "State House" == candidate["electionOffice"] %>
 		  <li>
-		  <%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %>: <%=candidate["electionOffice"]  %>
+		  <%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %><span class="party"><span class="district">Congressional District <%= candidate["electionDistrictName"] %>, </span><%= candidate["electionParties"] %></span> 
+				</li>
 		  </li>
 		  <% end %>
 		  <% end %>
 		  <% end %>
-		  </br>
-		  <div>[THIS IS A COMMENT BOX]</div>
 	</ul>
+	<div class="slideContent"> 
+
+		<textarea class="comments">Comment here</textarea>
+		<a href="#" class="saveBtn">save</a>
+	</div>
+
+	<p class="slideBtn">▼</p> 
 		
-<h2>County</h2>
-<h3><%= Position.find_by_name("Metropolitan Water Reclamation District Commissioners").name %></h3>
+</section> <!-- End Box -->
+
+<section class="contentBox"> <!-- Box -->	
+
+	<h2>County</h2>
+	
+	<h3><%= Position.find_by_name("Metropolitan Water Reclamation District Commissioners").name %></h3>
 		<h4><%= Position.find_by_name("Metropolitan Water Reclamation District Commissioners").note %></h4>
 			<ul class="candidates">
 				<li>Debra Shore <span class="party">Democratic</span></li>
@@ -135,188 +157,300 @@
 				<li>Karen Roothaan <span class="party">Green</span></li>
 				<li>Nasrin R. Khalili <span class="party">Green</span></li>
 			</ul>
-		
 
-<h3><%= Position.find_by_name("Clerk of the Circuit Court").name %></h3>
+	<div class="slideContent"> 
+		<textarea class="comments">Comment here</textarea>
+		<a href="#" class="saveBtn">save</a>
+	</div>
+
+	<p class="slideBtn">▼</p> 
+
+	<h3><%= Position.find_by_name("Clerk of the Circuit Court").name %></h3>
 			<ul class="candidates">
 				<li>Dorothy A. Brown <span class="party">Democratic</span></li>
 				<li>Diane S. Shapiro <span class="party">Republican</span></li>
 			</ul>
 
+	<div class="slideContent"> 
+		<textarea class="comments">Comment here</textarea>
+		<a href="#" class="saveBtn">save</a>
+	</div>
+		
+	<p class="slideBtn">▼</p> 
 
-<section class="office">
 	<h3><%= Position.find_by_name("Recorder").name %></h3>
-			<ul class="candidates">
-				<li>Karen A. Yarbrough <span class="party">Democratic</span></li>
-				<li>Sherri Griffith <span class="party">Republican</span></li>
-			</ul>
-</section>
+		<ul class="candidates">
+			<li>Karen A. Yarbrough <span class="party">Democratic</span></li>
+			<li>Sherri Griffith <span class="party">Republican</span></li>
+		</ul>
 
-<section class="office">
- 	<h3><%= Position.find_by_name("State's Attorney").name %></h3>
+	<div class="slideContent"> 
+		<textarea class="comments">Comment here</textarea>
+		<a href="#" class="saveBtn">save</a>
+	</div>
+
+	<p class="slideBtn">▼</p> 
+
+	<h3><%= Position.find_by_name("Recorder").name %></h3>
+		<ul class="candidates">
+			<li>Karen A. Yarbrough <span class="party">Democratic</span></li>
+			<li>Sherri Griffith <span class="party">Republican</span></li>
+		</ul>
+
+	<div class="slideContent"> 
+		<textarea class="comments">Comment here</textarea>
+		<a href="#" class="saveBtn">save</a>
+	</div>
+
+	<p class="slideBtn">▼</p> 
+
+	<h3><%= Position.find_by_name("State's Attorney").name %></h3>
+ 	
  	<ul class="candidates">
  		<li>Anita Alvarez <span class="party">Democratic</span></li>
  		<li>Lori S. Yokoyama <span class="party">Republican</span></li>
  	</ul>
- </section>
 
+ 	<div class="slideContent"> 
+		<textarea class="comments">Comment here</textarea>
+		<a href="#" class="saveBtn">save</a>
+	</div>
 
-<li class="level">
+	<p class="slideBtn">▼</p> 
+</section> <!-- End Box -->
+
+</div> <!-- End Col 1 -->
+
+<div class="col-2-3"> <!-- Col 2 -->
+
+<section class="contentBox"> <!-- Box -->	
+
 	<h2>Judicial</h2>
-	<section class="office">
-		<h3><%= Position.find_by_name("Judge, Illinois Supreme Court (Vacancy of Fitzgerald)").name %></h3>
-		<ul class="candidates">
+	
+	<h3><%= Position.find_by_name("Judge, Illinois Supreme Court (Vacancy of Fitzgerald)").name %></h3>
+
+	<ul class="candidates">
 			<li>Mary Jane Theis <span class="party">Democratic</span></li>
 			<li>James Gerard Riley <span class="party">Republican</span></li>
-		
-		</ul>
-	</section>
+	</ul>
 
-	<section class="office">
-		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Stralka)").name %></h3>
-		<ul class="candidates">
-			<li>Michael Tully Mullen <span class="party">Democratic</span></li>
-		</ul>
-	</section>
+	 <div class="slideContent"> 
+		<textarea class="comments">Comment here</textarea>
+		<a href="#" class="saveBtn">save</a>
+	</div>
 
-	<section class="office">
-		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Ward)").name %></h3>
-		<ul class="candidates">
-			<li>Elizabeth Mary Hayes <span class="party">Democratic</span></li>
-		</ul>
-	</section>
+	<p class="slideBtn">▼</p> 
 
-	<section class="office">
-		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Conlon)").name %></h3>
-		<ul class="candidates">
-			<li>Karen Lynn O'Malley <span class="party">Democratic</span></li>
-		</ul>
-	</section>
+	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Stralka)").name %></h3>
+	<ul class="candidates">
+		<li>Michael Tully Mullen <span class="party">Democratic</span></li>
+	</ul>
 
-	<section class="office">
-		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Jordan)").name %></h3>
-		<ul class="candidates">
-			<li>Jean Prendergast Rooney <span class="party">Democratic</span></li>
-		</ul>
-	</section>
+	<div class="slideContent"> 
+		<textarea class="comments">Comment here</textarea>
+		<a href="#" class="saveBtn">save</a>
+	</div>
 
-	<section class="office">
-		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Kirie Kinnaird)").name %></h3>
-		<ul class="candidates">
-			<li>Erica L. Reddick <span class="party">Democratic</span></li>
-		</ul>
-	</section>
+	<p class="slideBtn">▼</p> 
 
-	<section class="office">
-		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Moran)").name %></h3>
-		<ul class="candidates">
-			<li>Russell L. Hartigan <span class="party">Democratic</span></li>
-		</ul>
-	</section>
+	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Ward)").name %></h3>
+	<ul class="candidates">
+		<li>Elizabeth Mary Hayes <span class="party">Democratic</span></li>
+	</ul>
 
-	<section class="office">
-		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of O'Brien, Jr.)").name %></h3>
-		<ul class="candidates">
-			<li>Cynthia Ramirez <span class="party">Democratic</span></li>
-		</ul>
-	</section>
+	<div class="slideContent"> 
+		<textarea class="comments">Comment here</textarea>
+		<a href="#" class="saveBtn">save</a>
+	</div>
 
-	<section class="office">
-		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of O'Mara Frossard)").name %></h3>
-		<ul class="candidates">
-			<li>Diann Karen Marsalek <span class="party">Democratic</span></li>
-		</ul>
-	</section>
+	<p class="slideBtn">▼</p>
 
-	<section class="office">
-		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Pucinski)").name %></h3>
-		<ul class="candidates">
-			<li>Lorna Ellen Propes <span class="party">Democratic</span></li>
-		</ul>
-	</section>
+	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Conlon)").name %></h3>
+	<ul class="candidates">
+		<li>Karen Lynn O'Malley <span class="party">Democratic</span></li>
+	</ul>
 
-	<section class="office">
-		<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Simmons, Jr.)").name %></h3>
-		<ul class="candidates">
-			<li>Pamela M. Leeming <span class="party">Democratic</span></li>
-		</ul>
-	</section>
-	
-<li class="level">
-	<h2>Judicial Retention</h2>
-		<section class="office">
-			<h3><%= Position.find_by_name("Appellate Court").name %></h3>
-			<ul class="candidates yesno">
-			<li>James Fitzgerald Smith</li>
-		</ul>
-	</section>
+	<div class="slideContent"> 
+		<textarea class="comments">Comment here</textarea>
+		<a href="#" class="saveBtn">save</a>
+	</div>
 
-	<section class="office">
-		<h3><%= Position.find_by_name("Circuit Court").name %></h3>
-		<ul class="candidates yesno">
-			<li>Carole Kamin Bellows</li>
-			<li>Kathy M. Flanagan</li>
-			<li>Moshe Jacobius</li>
-			<li>Stuart F. Lubin</li>
-			<li>Marvin P. Luckman</li>
-			<li>Raymond Funderburk</li>
-			<li>Stuart E. Palmer</li>
-			<li>Martin S. Agran</li>
-			<li>Patricia Banks</li>
-			<li>Ronald F. Bartkowicz</li>
-			<li>Robert Lopez Cepero</li>
-			<li>Garritt E. Howard</li>
-			<li>Joseph G. Kazmierski, Jr.</li>
-			<li>E. Kenneth Wright, Jr.</li>
-			<li>Cynthia Brim</li>
-			<li>Rodney Hughes Brooks</li>
-			<li>Maureen Elizabeth Connors</li>
-			<li>Christopher Donnelly</li>
-			<li>James D. Egan</li>
-			<li>Catherine Marie Haberkorn</li>
-			<li>Lisa Ruble Murphy</li>
-			<li>Marya Nega</li>
-			<li>Lee Preston</li>
-			<li>Drella C. Savage</li>
-			<li>James M. Varga</li>
-			<li>Richard F. Walsh</li>
-			<li>Camille E. Willis</li>
-			<li>Marcia Maras</li>
-			<li>Peter Flynn</li>
-			<li>Paul A. Karkula</li>
-			<li>P. Scott Neville, Jr.</li>
-			<li>Maura Slattery Boyle</li>
-			<li>Mary Margaret Brosnahan</li>
-			<li>Matthew E. Coghlan</li>
-			<li>Loretta Eadie-Daniels</li>
-			<li>Joyce Marie Murphy Gorman</li>
-			<li>Joan Margaret O'Brien</li>
-			<li>Thomas David Roti</li>
-			<li>Colleen F. Sheehan</li>
-			<li>Pamela E. Hill-Veal</li>
-			<li>Orville E. Hambright</li>
-			<li>Michael J. Howlett, Jr.</li>
-			<li>Carl Anthony Walker</li>
-			<li>Daniel Patrick Brennan</li>
-			<li>Gloria Chevere</li>
-			<li>Grace G. Dickler</li>
-			<li>Ellen L. Flannigan</li>
-			<li>Carol M. Howard</li>
-			<li>Jill C. Marisie</li>
-			<li>James Michael McGing</li>
-			<li>Mike McHale</li>
-			<li>James Patrick Murphy</li>
-			<li>Thomas W. Murphy</li>
-			<li>Patrick W. "Pat" O'Brien</li>
-			<li>Ramon Ocasio III</li>
-			<li>Mary Colleen Roberts</li>
-			<li>Diane M. Shelley</li>
-		</ul>
-	</section>
-	</li>
-		</ul>
-	</section>
-</li>
-</ul>
+	<p class="slideBtn">▼</p>
+
+	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Jordan)").name %></h3>
+	<ul class="candidates">
+		<li>Jean Prendergast Rooney <span class="party">Democratic</span></li>
+	</ul>
+
+	<div class="slideContent"> 
+		<textarea class="comments">Comment here</textarea>
+		<a href="#" class="saveBtn">save</a>
+	</div>
+
+	<p class="slideBtn">▼</p>
+
+	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Kirie Kinnaird)").name %></h3>
+	<ul class="candidates">
+		<li>Erica L. Reddick <span class="party">Democratic</span></li>
+	</ul>
+
+	<div class="slideContent"> 
+		<textarea class="comments">Comment here</textarea>
+		<a href="#" class="saveBtn">save</a>
+	</div>
+
+	<p class="slideBtn">▼</p>
+
+	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Moran)").name %></h3>
+	<ul class="candidates">
+		<li>Russell L. Hartigan <span class="party">Democratic</span></li>
+	</ul>
+
+	<div class="slideContent"> 
+		<textarea class="comments">Comment here</textarea>
+		<a href="#" class="saveBtn">save</a>
+	</div>
+
+	<p class="slideBtn">▼</p>
+
+	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of O'Brien, Jr.)").name %></h3>
+	<ul class="candidates">
+		<li>Cynthia Ramirez <span class="party">Democratic</span></li>
+	</ul>
+
+		<div class="slideContent"> 
+		<textarea class="comments">Comment here</textarea>
+		<a href="#" class="saveBtn">save</a>
+	</div>
+
+	<p class="slideBtn">▼</p>
+
+	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of O'Mara Frossard)").name %></h3>
+	<ul class="candidates">
+		<li>Diann Karen Marsalek <span class="party">Democratic</span></li>
+	</ul>
+
+	<div class="slideContent"> 
+		<textarea class="comments">Comment here</textarea>
+		<a href="#" class="saveBtn">save</a>
+	</div>
+
+	<p class="slideBtn">▼</p>
+
+	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Pucinski)").name %></h3>
+	<ul class="candidates">
+		<li>Lorna Ellen Propes <span class="party">Democratic</span></li>
+	</ul>
+
+	<div class="slideContent"> 
+		<textarea class="comments">Comment here</textarea>
+		<a href="#" class="saveBtn">save</a>
+	</div>
+
+	<p class="slideBtn">▼</p>
+
+	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Simmons, Jr.)").name %></h3>
+	<ul class="candidates">
+		<li>Pamela M. Leeming <span class="party">Democratic</span></li>
+	</ul>
+
+	<div class="slideContent"> 
+		<textarea class="comments">Comment here</textarea>
+		<a href="#" class="saveBtn">save</a>
+	</div>
+
+	<p class="slideBtn">▼</p>
+
+</section> <!-- End Box -->
+</div> <!-- End Col 2 -->
+
+ <div class="col-3-3"><!-- Col 3 -->
+
+    <!-- Box -->
+    <section class="contentBox">
+      
+      <h2>Judicial Retention</h2>
+      
+      <h3><%= Position.find_by_name("Appellate Court").name %></h3>
+      <ul class="candidates">
+        <li>James Fitzgerald Smith</li>
+      </ul>
+
+      <div class="slideContent"> 
+        <textarea class="comments">Comment here</textarea>
+        <a href="#" class="saveBtn">save</a>
+      </div> 
+      <p class="slideBtn">▼</p> 
+
+	<h3><%= Position.find_by_name("Circuit Court").name %></h3>
+      <ul class="candidates">
+        <li>Carole Kamin Bellows</li>
+        <li>Kathy M. Flanagan</li>
+        <li>Moshe Jacobius</li>
+        <li>Stuart F. Lubin</li>
+        <li>Marvin P. Luckman</li>
+        <li>Raymond Funderburk</li>
+        <li>Stuart E. Palmer</li>
+        <li>Martin S. Agran</li>
+        <li>Patricia Banks</li>
+        <li>Ronald F. Bartkowicz</li>
+        <li>Robert Lopez Cepero</li>
+        <li>Garritt E. Howard</li>
+        <li>Joseph G. Kazmierski, Jr.</li>
+        <li>E. Kenneth Wright, Jr.</li>
+        <li>Cynthia Brim</li>
+        <li>Rodney Hughes Brooks</li>
+        <li>Maureen Elizabeth Connors</li>
+        <li>Christopher Donnelly</li>
+        <li>James D. Egan</li>
+        <li>Catherine Marie Haberkorn</li>
+        <li>Lisa Ruble Murphy</li>
+        <li>Marya Nega</li>
+        <li>Lee Preston</li>
+        <li>Drella C. Savage</li>
+        <li>James M. Varga</li>
+        <li>Richard F. Walsh</li>
+        <li>Camille E. Willis</li>
+        <li>Marcia Maras</li>
+        <li>Peter Flynn</li>
+        <li>Paul A. Karkula</li>
+        <li>P. Scott Neville, Jr.</li>
+        <li>Maura Slattery Boyle</li>
+        <li>Mary Margaret Brosnahan</li>
+        <li>Matthew E. Coghlan</li>
+        <li>Loretta Eadie-Daniels</li>
+        <li>Joyce Marie Murphy Gorman</li>
+        <li>Joan Margaret O'Brien</li>
+        <li>Thomas David Roti</li>
+        <li>Colleen F. Sheehan</li>
+        <li>Pamela E. Hill-Veal</li>
+        <li>Orville E. Hambright</li>
+        <li>Michael J. Howlett, Jr.</li>
+        <li>Carl Anthony Walker</li>
+        <li>Daniel Patrick Brennan</li>
+        <li>Gloria Chevere</li>
+        <li>Grace G. Dickler</li>
+        <li>Ellen L. Flannigan</li>
+        <li>Carol M. Howard</li>
+        <li>Jill C. Marisie</li>
+        <li>James Michael McGing</li>
+        <li>Mike McHale</li>
+        <li>James Patrick Murphy</li>
+        <li>Thomas W. Murphy</li>
+        <li>Patrick W. "Pat" O'Brien</li>
+        <li>Ramon Ocasio III</li>
+        <li>Mary Colleen Roberts</li>
+        <li>Diane M. Shelley</li>
+      </ul>
+
+      <div class="slideContent"> 
+        <textarea class="comments">Comment here</textarea>
+        <a href="#" class="saveBtn">save</a>
+      </div> 
+      <p class="slideBtn">▼</p> 
+   
+    </div>
+ </section>
+</div><!--  End Col 3 -->
 
 </div> <!-- Closing wrapper -->

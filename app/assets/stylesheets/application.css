@@ -149,6 +149,17 @@
   	box-sizing: border-box;
 	}
 
+.col-1-3 .candidates:last-child,
+.col-2-3 .office:last-child .candidates:last-child,
+.col-3-3 .candidates:last-child {
+	margin-bottom: 0;
+	}
+
+.col-3-3 .contentBox:last-child
+ {
+	margin-bottom: 0;
+	}
+
 /*LAYOUT END*/
 
 .contentBox {
@@ -209,6 +220,15 @@ a {
 	padding-left: 5px;
 	margin-bottom: 10px;
 	}
+
+.district {
+	font-size: 12px;
+	font-style: italic;
+	font-weight: bold;
+	display: inline block;
+	margin-bottom: 10px;
+	}
+
 
 /*TEXT END*/
 
@@ -377,15 +397,38 @@ a {
 
 /*MEDIA QUERIES BEGIN*/
 
+@media all and (min-width: 990px) and (max-width: 1500px) {
+	
+	/*text styles*/
+	.party {
+		display: block;
+		padding: 0;
+		line-height: 100%;
+		}
+
+/*	.district {
+		margin-bottom: 5px;
+		}*/
+	}
+
+@media all and (min-width: 1200px) and (max-width: 1500px) {
+
+	.profile {
+		background-color: pink;
+		width: 85%;
+		margin: 0 auto;
+	}
+}
+
 @media all and (min-width: 990px) {
 	
 	/*three-column layout*/	
 
 	.grid-pad {
-	  	padding: 0 25px;
+	  	padding: 60px 25px 0 25px;
 		}
 
-	/*.col-1-3,
+	.col-1-3,
 	.col-2-3,
 	.col-3-3 {
 		float:left;
@@ -399,7 +442,7 @@ a {
 		width: 32%;
 		padding-right: 0;
 		}
-*/
+
 	/*profile*/
 	.profile{
 		padding: 25px 0;
@@ -423,6 +466,21 @@ a {
 		width: 35%;
 		padding-left: 25px;
 		border-left: 1px dashed rgba(0, 0, 0, .1);
+		}
+
+	}
+
+@media all and (min-width: 660px) and (max-width: 989px) {
+	
+	/*one-column layout*/
+	.grid {
+		width: 660px;
+		margin-left: auto;
+		margin-right: auto;
+		}
+
+	.col-single .contentBox {
+	margin-bottom: 0;
 		}
 
 	}
