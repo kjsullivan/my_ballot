@@ -41,13 +41,18 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(params[:comment])
+    @comment.user_id = session[:id]
+    @position = Position.where(:id => params[:id].to_i)
+    @comment.position_id = session[:position_id]
+    session[:position_id] = nil
+    # @comment.position_id = @comment(params[:position_id])
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-        format.json { render json: @comment, status: :created, location: @comment }
+        format.html { redirect_to @comment.position, notice: 'Comment was successfully created.' }
+        format.json { render json: @comment.position, status: :created, location: @comment }
       else
-        format.html { render action: "new" }
+        format.html { render position_url }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
