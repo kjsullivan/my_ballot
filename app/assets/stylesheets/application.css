@@ -588,6 +588,20 @@ a {
 @media all and (max-width: 660px) {
 
 	/*layout*/	
+
+	.grid {
+		margin: 0px;
+		border-radius: 0;
+		}
+
+	.grid-pad {
+		padding: 75px 20px 20px 20px;
+		}
+
+	.contentBox {
+		margin-bottom: 20px;
+		}
+
 	.grid-single {
 		margin: 0px;
 		border-radius: 0;
@@ -596,8 +610,23 @@ a {
 	.grid-single-pad {
 		padding: 75px 20px 20px 20px;
 		}
+
+	/*logo*/
+	.logo {
+		width: 90%;
 	}
 
+	}
+
+@media all and (max-width: 450px){
+		/*text styles*/
+	.party {
+		display: block;
+		padding: 0;
+		line-height: 100%;
+		}
+	
+}
 
 /*MEDIA QUERIES END*/
 
