@@ -80,10 +80,14 @@
 				<% end %>
 				<% end %>
 				<% end %>
+				
 		</ul>
 				
 		<div class="slideContent"> 
-         	<textarea class="comments">Comment here</textarea>
+         	<textarea class="comments">
+<% Position.find_by_name("U.S. House").comments.each do |comment| %>
+			<%= comment.post %>
+			<% end %></textarea>
           	<a href="#" class="saveBtn">save</a>
         </div>
 

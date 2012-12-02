@@ -14,7 +14,8 @@ class PositionsController < ApplicationController
   # GET /positions/1.json
   def show
     @position = Position.find(params[:id])
-
+    @comment = Comment.new
+    session[:position_id] = @position.id
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @position }
