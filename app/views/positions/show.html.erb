@@ -14,7 +14,15 @@
   <b>Note:</b>
   <%= @position.note %>
 </p>
+<p>
+  <b>Comment:</b>
+	<% @position.comments.each do |comment| %>
+  <%= comment.post %>
+<% end %>
 
+</p>
+
+<%= render 'comments/form'%>
 
 <%= link_to 'Edit', edit_position_path(@position) %> |
 <%= link_to 'Back', positions_path %>
