@@ -63,7 +63,17 @@
 		</ul>
 		
 		<div class="slideContent"> 
-          <textarea class="comments">Comment here</textarea>
+          <textarea class="comments">	
+<% if Position.find_by_name("President").comments %>
+		<% Position.find_by_name("President").comments.each do |comment| %>
+		<%= comment.post %>
+		<% end %>
+<% else %>
+	<%= render 'comments/form'%>
+<% end %>
+
+
+</textarea>
           <a href="#" class="saveBtn">save</a>
         </div> 
         
@@ -176,7 +186,16 @@
 			</ul>
 
 	<div class="slideContent"> 
-		<textarea class="comments">Comment here</textarea>
+		<textarea class="comments">
+			<% if Position.find_by_name("Clerk of the Circuit Court").comments %>
+					<% Position.find_by_name("Clerk of the Circuit Court").comments.each do |comment| %>
+					<%= comment.post %>
+					<% end %>
+			<% else %>
+				<%= render 'comments/form'%>
+			<% end %>
+			
+		</textarea>
 		<a href="#" class="saveBtn">save</a>
 	</div>
 		

@@ -43,7 +43,6 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @comment.user_id = session[:id]
     @position = Position.where(:id => params[:id].to_i)
-
     @comment.position_id = session[:position_id]
     session[:position_id] = nil
     # @comment.position_id = @comment(params[:position_id])
