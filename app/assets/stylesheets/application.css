@@ -182,13 +182,11 @@
 	padding-top: 20px;
 	margin-bottom: 0;
 }
-
-
-
-
 /*LAYOUT END*/
 
-.contentBox {
+
+
+.contentBox, .homeContentBox {
 	background: rgba(255, 255, 255, 0.5);
 	box-shadow: inset 2px 2px 0 rgba(255, 255, 255, .1), 
 				2px 2px 0 rgba(255, 255, 255, .7);
@@ -196,6 +194,11 @@
 	padding: 20px;
 	border-radius: 10px;
 	}
+
+.homeContentBox {
+	width: 65%;
+	margin: 0 auto;
+}
 
 .candidates {
 	margin-top: 10px;
@@ -242,6 +245,13 @@ h3 {
 h4, h5 {
 	font-size: 14px;
 	}
+
+h6 {
+	font-size: 20px;
+	text-align: center;
+	color: rgba(0, 0, 0, 0.75);
+	text-shadow: 1px 1px white;
+}
 
 a {
 	color: #3380b8
@@ -449,7 +459,6 @@ a {
 /*END BIO STYLES*/
 
 
-/*THIS IS A FAKE STYLE AND PLEASE DELETE LATER END*/
 
 
 
@@ -546,7 +555,7 @@ a {
 		}
 
 	.col-single .contentBox {
-	margin-bottom: 0;
+		margin-bottom: 0;
 		}
 
 	}
@@ -602,6 +611,15 @@ a {
 /*MEDIA QUERIES END*/
 
 
+
+
+/*THIS IS A FAKE STYLE AND PLEASE DELETE LATER BEGIN*/
+
+.test {
+	margin-top: 50px;
+}
+
+/*THIS IS A FAKE STYLE AND PLEASE DELETE LATER END*/
 
 
 
