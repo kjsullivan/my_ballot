@@ -1,8 +1,16 @@
 $(document).ready(function(){
 
   $(".slideContent").hide();
-  $(".slideBtn").click(function(){
-    $(this).prev(".slideContent").slideToggle("slow");
+  //toggle the componenet with class msg_body
+  $(".slideBtn").click(function()
+  {
+    $(this).prev(".slideContent").slideToggle("slow", function(){
+      if($(this).is(":visible")){
+       $(this).next(".slideBtn").html("▲");
+      } else {
+       $(this).next(".slideBtn").html("▼");
+      }
+    });
   });
 
   $(".candidates li").on("click", function(){
