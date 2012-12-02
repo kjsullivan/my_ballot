@@ -414,7 +414,6 @@ a {
 @media all and (min-width: 1200px) and (max-width: 1500px) {
 
 	.profile {
-		background-color: pink;
 		width: 85%;
 		margin: 0 auto;
 	}
