@@ -201,7 +201,7 @@
 	margin: 10px auto;
 }
 
-input, .homeContentBox, .FindRegister {
+input, .homeContentBox, .FindRegister, .pageTitle, .aboutLinks {
 	text-align: center;
 }
 
@@ -216,18 +216,21 @@ input, .homeContentBox, .FindRegister {
 
 
 /*TEXT BEGIN*/
-h1, h2, h3, h4, h5, b, strong {
+h1, h2, h3, h4, h5, b, strong, .error {
 	font-weight: bold;
 	}
 
-h1 {
+h1, .error {
 	font-size: 20px;
 	line-height: 120%;
-}
+	}
+
+h1, h2, .error {
+	color: #d2232a;
+	}
 
 h1, h2 {
 	margin: 5px 0 20px 0;
-	color: #d2232a;
 	}
 
 h2 {
@@ -287,7 +290,6 @@ a {
 	display: inline block;
 	margin-bottom: 10px;
 	}
-
 
 /*TEXT END*/
 
@@ -529,9 +531,6 @@ a {
 	}
 
 /*END BIO STYLES*/
-
-
-
 
 
 /*MEDIA QUERIES BEGIN*/
