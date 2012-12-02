@@ -1,14 +1,29 @@
-<h1><%= @candidatebio["firstName"] %> <%= @candidatebio["middleName"] %> <%= @candidatebio["lastName"] %></h1>
-<img src="<%= @candidatebio['photo'] %>">
-<ul>                                  
-<li><b>DOB: </b><%= @candidatebio["birthDate"] %></li>
-<li><b>Birth Place: </b><%= @candidatebio["birthPlace"] %></li>
-<li><b>Family Info: </b><%= @candidatebio["family"] %></li>
-<li><b>Hometown: </b><%= @candidatebio["homeCity"] %>, <%= @candidatebio["homeState"] %></li>
-<li><b>Education Info: </b><%= @candidatebio["education"] %></li>
-<li><b>Profession: </b><%= @candidatebio["profession"] %></li>
-<li><b>Political Status: </b><%= @candidatebio["political"] %></li>
-<li><b>Religion: </b><%= @candidatebio["religion"] %></li>
-<li><b>Congressional Membership: </b><%= @candidatebio["congMembership"] %></li>
-<li><b>Organizational Membership: </b><%= @candidatebio["orgMembership"] %></li>
-</ul>
+<div class="grid-single grid-single-pad"> <!-- Main Grid -->
+<img src="/assets/myBallotLogo.png" class="logo-single" alt="My Ballot Logo">
+
+<div class="col-single"> <!-- Single Col -->
+
+    <!-- Box -->
+    <section class="contentBox">
+
+	    <img src="<%= @candidatebio['photo'] %>" alt="<%= @candidatebio["firstName"] %> <%= @candidatebio["middleName"] %> <%= @candidatebio["lastName"] %>" class="biophoto clearfix">
+
+		<h1><%= @candidatebio["firstName"] %> <%= @candidatebio["middleName"] %> <%= @candidatebio["lastName"] %></h1>
+		
+		<ul class="bio">  
+
+		<li><h3>Date of Birth</h3> <%= @candidatebio["birthDate"] %></li>
+		<li><h3>Birth Place</h3> <%= @candidatebio["birthPlace"] %></li>
+		<li><h3>Family Info</h3> <%= @candidatebio["family"] %></li>
+		<li><h3>Hometown</h3> <%= @candidatebio["homeCity"] %>, <%= @candidatebio["homeState"] %></li>
+		<li><h3>Education</h3> <%= @candidatebio["education"] %></li>
+		<li><h3>Political Status</h3> <%= @candidatebio["political"] %></li>
+		<li><h3>Religion</h3> <%= @candidatebio["religion"] %></li>
+		<li><h3>Congressional Membership</h3 ><%= @candidatebio["congMembership"] %></li>
+		<li><h3>Organizational Membership</h3> <%= @candidatebio["orgMembership"] %></li>
+		</ul>
+
+	</section> <!-- End contentBox -->
+	
+</div> <!-- End Single Col -->
+</div> <!-- End Main Grid -->

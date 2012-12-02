@@ -143,6 +143,23 @@
   	padding: 60px 25px 25px 25px;
 	}
 
+.grid-single {
+	background: rgba(255, 255, 255, 0.2);
+	box-shadow: 0px 0px 15px rgba(0, 0, 0, .1);
+	border-radius: 10px;
+	margin: 25px;
+	}
+
+.grid-single:after {
+  	content: "";
+  	display: table;
+  	clear: both;
+	}
+
+.grid-single-pad {
+  	padding: 50px 25px 25px 25px;
+	}
+
 *, *:after, *:before {
   	-webkit-box-sizing: border-box;
   	-moz-box-sizing: border-box;
@@ -159,6 +176,15 @@
  {
 	margin-bottom: 0;
 	}
+
+
+.col-single .contentBox {
+	padding-top: 20px;
+	margin-bottom: 0;
+}
+
+
+
 
 /*LAYOUT END*/
 
@@ -182,10 +208,18 @@ h1, h2, h3, h4, h5, b, strong {
 	font-weight: bold;
 	}
 
-h2 {
-	color: #d2232a;
-	font-size: 24px;
+h1 {
+	font-size: 20px;
+	line-height: 120%;
+}
+
+h1, h2 {
 	margin: 5px 0 20px 0;
+	color: #d2232a;
+	}
+
+h2 {
+	font-size: 24px;
 	padding-bottom: 20px;
  	border-bottom: 1px solid rgba(0, 0, 0, .1);
  	position: relative;
@@ -235,12 +269,22 @@ a {
 
 /*LOGO BEGIN*/
 
+
 .logo {
 	display: block;
 	max-width: 100%;
 	margin: 0 auto;
 	padding: 0 0 30px 0;
 	}
+
+.logo-single {
+	display: block;
+	width: 300px;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 0 0 30px 0;
+	}
+
 
 /*LOGO END*/
 
@@ -385,10 +429,24 @@ a {
 
 /*COMMENT SLIDER END*/
 
-/*THIS IS A FAKE STYLE AND PLEASE DELETE LATER BEGIN*/
-.test {
-	margin-top: 100px;
-}
+/*BIO STYLES BEGIN*/
+
+	.bio li {
+		margin-bottom: 12px;
+	}
+
+	.bio li:last-child {
+		margin-bottom: 0;
+	}
+
+	.biophoto {
+		float: right;
+		margin: 5px 0 15px 30px;
+		border-radius: 6px;
+		box-shadow: 2px 2px 1px rgba(255, 255, 255, .7);
+	}
+
+/*END BIO STYLES*/
 
 
 /*THIS IS A FAKE STYLE AND PLEASE DELETE LATER END*/
@@ -406,9 +464,6 @@ a {
 		line-height: 100%;
 		}
 
-/*	.district {
-		margin-bottom: 5px;
-		}*/
 	}
 
 @media all and (min-width: 1200px) and (max-width: 1500px) {
@@ -442,6 +497,16 @@ a {
 		padding-right: 0;
 		}
 
+	.grid-single {
+		width: 850px;
+		margin-left: auto;
+		margin-right: auto;
+		}
+
+	.grid-single-pad {
+	  	padding: 50px 25px 25px 25px;
+		}
+
 	/*profile*/
 	.profile{
 		padding: 25px 0;
@@ -467,6 +532,8 @@ a {
 		border-left: 1px dashed rgba(0, 0, 0, .1);
 		}
 
+
+
 	}
 
 @media all and (min-width: 660px) and (max-width: 989px) {
@@ -483,6 +550,7 @@ a {
 		}
 
 	}
+
 
 @media all and (max-width: 989px) {
 
@@ -507,6 +575,28 @@ a {
 		padding-right: 25px;
 		}
 }
+
+@media all and (min-width: 660px) and (max-width: 710px) {
+	.grid-single {
+		width: 660px;
+		margin-left: auto;
+		margin-right: auto;
+		}
+
+	}
+
+@media all and (max-width: 660px) {
+
+	/*layout*/	
+	.grid-single {
+		margin: 0px;
+		border-radius: 0;
+		}
+
+	.grid-single-pad {
+		padding: 75px 20px 20px 20px;
+		}
+	}
 
 
 /*MEDIA QUERIES END*/
