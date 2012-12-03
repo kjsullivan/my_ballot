@@ -1,9 +1,11 @@
+
 <div class="grid-single grid-single-pad"> <!-- main wrapper -->
 	<a href="/"><img src="/assets/myBallotLogo.png" alt="My Ballot Chicago Logo" class="logo"></a>
 	<div class="col-single"> <!-- Single Col -->
 	    <section class="homeContentBox"> <!-- Box -->
+
 			<%= render 'form' %>
-			<!-- <p class="error">Please enter a valid ZIP code!</p> -->
+			<p class="error"><%= flash[:notice] %></p>
 		</section> <!-- end Box -->
 		<div class="FindRegister">
 			<a class="button" href="http://www.elections.il.gov/votinginformation/registrationlookup.aspx" target="_blank">Find your polling location</a>
