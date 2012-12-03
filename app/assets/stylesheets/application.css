@@ -216,7 +216,7 @@ input, .homeContentBox, .FindRegister, .pageTitle, .aboutLinks {
 
 
 /*TEXT BEGIN*/
-h1, h2, h3, h4, h5, b, strong, {
+h1, h2, h3, h4, h5, b, strong {
 	font-weight: bold;
 	}
 
@@ -225,35 +225,8 @@ h1 {
 	line-height: 120%;
 	}
 
-.error {
-	font-size: 16px;
-	line-height: 120%;
-		color: #d2232a;
 
-	}
-
-p.error {
-	font-weight: bold;
-	margin-bottom: 10px;
-}
-
-ul.error {
-	margin-bottom: 20px;
-	padding-bottom: 30px;
- 	border-bottom: 1px solid rgba(0, 0, 0, .1);
- 	position: relative;
-}
-
-ul.error:after {
-  content:'';
-    position:absolute;
-    bottom:-2px;
-    left:0;
-    right:0;
-    border-bottom:1px solid rgba(255, 255, 255, .9);
-	}
-
-h1, h2, {
+h1, h2 {
 	color: #d2232a;
 	margin: 5px 0 20px 0;
 	}
@@ -298,7 +271,7 @@ h6 {
 }
 
 a {
-	color: #3380b8
+	color: #3380b8;
 	}
 
 .party {
@@ -315,6 +288,34 @@ a {
 	font-weight: bold;
 	display: inline block;
 	margin-bottom: 10px;
+	}
+
+.error {
+	font-size: 16px;
+	line-height: 120%;
+		color: #d2232a;
+
+	}
+
+p.error {
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+ul.error {
+	margin-bottom: 20px;
+	padding-bottom: 30px;
+ 	border-bottom: 1px solid rgba(0, 0, 0, .1);
+ 	position: relative;
+}
+
+ul.error:after {
+  content:'';
+    position:absolute;
+    bottom:-2px;
+    left:0;
+    right:0;
+    border-bottom:1px solid rgba(255, 255, 255, .9);
 	}
 
 /*TEXT END*/
