@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+ // slider js
+
   $(".slideContent").hide();
   //toggle the componenet with class msg_body
   $(".slideBtn").click(function()
@@ -12,6 +14,8 @@ $(document).ready(function(){
       }
     });
   });
+
+  // select js
 
   $(".candidates li").on("click", function(){
     $(this).siblings().removeClass('selected');

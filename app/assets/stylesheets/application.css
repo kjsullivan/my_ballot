@@ -198,7 +198,7 @@
 .homeContentBox {
 	padding-top: 30px;
 	width: 65%;
-	margin: 10px auto;
+	margin: 0 auto 10px auto;
 }
 
 input, .homeContentBox, .FindRegister, .pageTitle, .aboutLinks {
@@ -336,7 +336,7 @@ ul.error:after {
 	width: 300px;
 	max-width: 100%;
 	margin: 0 auto;
-	padding: 0 0 30px 0;
+	padding: 10px 0 30px 0;
 	}
 
 
@@ -538,7 +538,7 @@ ul.error:after {
 	text-align: center;
 	margin: 5px auto 20px;
 	width: 280px;
-	padding: 5px;
+	padding: 5px 15px;
 }
 
 .field .comments {
@@ -549,6 +549,7 @@ ul.error:after {
 
 .field .textinput {
 	width: 100%;
+	text-align: left;
 }
 
 .login .button {

@@ -1,6 +1,15 @@
-<h1>Editing user</h1>
+<div class="grid-single grid-single-pad"> <!-- main wrapper -->
+	<a href="/"><img src="/assets/myBallotLogo.png" alt="My Ballot Chicago Logo" class="logo-single"></a>
+	<div class="col-single"> <!-- Single Col -->
+	<section class="homeContentBox"> <!-- Box -->
+
+<h2>Edit Profile</h2>
 
 <%= render 'form' %>
 
 <%= link_to 'Back to Profile', @user %> |
 <%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+</section>
+</div>
+</div>
