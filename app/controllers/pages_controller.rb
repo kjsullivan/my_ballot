@@ -12,11 +12,15 @@ class PagesController < ApplicationController
   end
 
   def ballot
-    
-    if params["zip"] != nil
-        @zip = params["zip"].to_i
+
+      if((params["zip"] == nil) || (params["zip"] == "00000") || (params["zip"].length != 5) || (params["zip"].match(/\D/) != nil))
+        flash[:notice] = "Invalid Zipcode"
+        redirect_to root_path
+        return
       end
-      
+
+      @zip = params["zip"]   
+       
       s = Net::HTTP.get_response(URI.parse("http://api.votesmart.org/Candidates.getByZip?key=80ed23c61d678115ead4c4c5f2a3c055&zip5=#{@zip}")).body
       json = Hash.from_xml(s).to_json
       @candidatelist = JSON.parse(json)
@@ -27,7 +31,7 @@ class PagesController < ApplicationController
       @elections = JSON.parse(json)
       @elections = @elections["elections"]["election"]
   end
-
+ 
   def candidatebio
      @candidate_id = params[:candidate_id]
       b = Net::HTTP.get_response(URI.parse("http://api.votesmart.org/CandidateBio.getBio?key=80ed23c61d678115ead4c4c5f2a3c055&candidateId=#{@candidate_id}")).body
