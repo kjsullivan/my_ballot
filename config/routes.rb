@@ -12,7 +12,6 @@ MyBallot::Application.routes.draw do
 
   get "/logout" => 'Sessions#destroy', :as => 'logout'
 
-  
   root :to => 'Pages#home'
   
   get "/" => 'Pages#home', :as => 'home'
@@ -27,8 +26,5 @@ MyBallot::Application.routes.draw do
 
   get "/about" => 'Pages#about', :as => 'about'
 
-  
- 
-  
   
 end
