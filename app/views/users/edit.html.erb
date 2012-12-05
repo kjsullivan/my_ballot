@@ -7,8 +7,10 @@
 
 <%= render 'form' %>
 
+<div class="bottomLinks">
 <%= link_to 'Back to Profile', @user %> |
 <%= link_to 'Delete Account', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
 
 </section>
 </div>

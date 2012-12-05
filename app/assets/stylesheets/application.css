@@ -196,8 +196,8 @@
 	}
 
 .homeContentBox {
-	padding-top: 30px;
-	width: 65%;
+	padding-top: 40px;
+	width: 500px;
 	margin: 0 auto 10px auto;
 }
 
@@ -209,10 +209,37 @@ input, .homeContentBox, .FindRegister, .pageTitle, .aboutLinks {
 	margin: 60px 0 30px;
 }
 
-.candidates {
+.candidates,
+.candidatesYN,
+.multi {
 	margin-top: 10px;
 	margin-bottom: 15px;
 	}
+
+.candidates li,
+.multi li {
+	padding-left: 8px;
+	margin-bottom: 5px;
+}
+
+.candidatesYN li {
+	margin-bottom: 5px;
+	position: relative;
+}
+
+.choice {
+	display: inline;
+	position: absolute;
+	right: 0;
+}
+
+.choice li {
+	display: inline-block;
+	line-height: 120%;
+	text-align: center;
+	padding-top: 1px;
+	width: 20px;
+}
 
 
 /*TEXT BEGIN*/
@@ -244,7 +271,7 @@ h2:after {
     bottom:-2px;
     left:0;
     right:0;
-    border-bottom:1px solid rgba(255, 255, 255, .9);
+    border-bottom:1px solid rgba(255, 255, 255, .);
 	}
 
 .homeContentBox h2,
@@ -265,6 +292,7 @@ h4, h5 {
 
 h6 {
 	font-size: 20px;
+	line-height: 130%;
 	text-align: center;
 	color: rgba(0, 0, 0, 0.75);
 	text-shadow: 1px 1px white;
@@ -279,16 +307,16 @@ a {
 	font-style: italic;
 	display: inline block;
 	padding-left: 5px;
-	margin-bottom: 10px;
-	}
+/*	margin-bottom: 10px;
+*/	}
 
 .district {
 	font-size: 12px;
 	font-style: italic;
 	font-weight: bold;
 	display: inline block;
-	margin-bottom: 10px;
-	}
+/*	margin-bottom: 10px;
+*/	}
 
 .error {
 	font-size: 16px;
@@ -318,6 +346,22 @@ ul.error:after {
     border-bottom:1px solid rgba(255, 255, 255, .9);
 	}
 
+.bottomLinks {
+	margin-top: 20px;
+}
+
+	.selected {
+		font-weight: bold;
+		background: rgba(255, 255, 255, .7);
+		padding: 5px 5px 3px 0;
+	}
+
+	.YNselected {
+		font-weight: bold;
+		background: rgba(255, 255, 255, .9);
+		border-radius: 20px;
+	}
+
 /*TEXT END*/
 
 
@@ -339,6 +383,10 @@ ul.error:after {
 	padding: 10px 0 30px 0;
 	}
 
+.grid-single .logo {
+	width: 450px;
+	padding-top: 5px;
+}
 
 /*LOGO END*/
 
@@ -588,15 +636,26 @@ ul.error:after {
 
 /*MEDIA QUERIES BEGIN*/
 
-@media all and (min-width: 990px) and (max-width: 1500px) {
+@media all and (min-width: 1000px) and (max-width: 1500px) {
 	
 	/*text styles*/
 	.party {
 		display: block;
 		padding: 0;
-		line-height: 100%;
 		}
 
+		.candidates li, .candidatesYN li, .multi li {
+		line-height: 120%;
+		margin-bottom: 8px;
+
+	}
+
+		.selected {
+		padding-bottom: 8px;
+		padding-right: 10px;
+		padding-top: 8px;
+		margin-top: 8px;
+	}
 	}
 
 @media all and (min-width: 1200px) and (max-width: 1500px) {
@@ -692,6 +751,7 @@ ul.error:after {
 		margin-bottom: 0;
 		}
 
+
 	}
 
 
@@ -719,12 +779,15 @@ ul.error:after {
 		}
 }
 
+
 @media all and (min-width: 660px) and (max-width: 710px) {
 	.grid-single {
 		width: 660px;
 		margin-left: auto;
 		margin-right: auto;
 		}
+
+ 
 
 	}
 
@@ -759,18 +822,90 @@ ul.error:after {
 		width: 90%;
 	}
 
+
+
 	}
 
-@media all and (max-width: 450px){
+@media all and (max-width: 530px) {
+
+		/*form box*/
+ 	 .homeContentBox {
+ 	 	width: 100%;
+ 	 }
+
+ 	 .FindRegister {
+ 	 	margin: 35px 0 0 0;
+ 	 }
+
+ 	 .FindRegister .button {
+ 	 	display: block;
+ 	 	width: 85%;
+ 	 	margin-left: auto;
+ 	 	margin-right: auto;
+ 	 }
+
+
+
+ 	 h6 {
+ 	 	margin-bottom: 10px;
+ 	 }
+
+ 	 .ZIPinput {
+ 	 	width: 95%;
+ 	 	margin-bottom: 10px;
+ 	 	margin-top: 10px;
+ 	 }
+
+ 	 	.grid-single .logo {
+		width: 300px;
+		padding-top: 10px;
+	}
+
+
+}
+
+@media all and (max-width: 500px){
 		/*text styles*/
 	.party {
 		display: block;
 		padding: 0;
-		line-height: 100%;
 		}
-	
+
+		.candidates li, .candidatesYN li, .multi li {
+		line-height: 120%;
+		margin-bottom: 8px;
+
+	}
+
+		.selected {
+		padding-bottom: 8px;
+		padding-right: 10px;
+		padding-top: 8px;
+		margin-top: 8px;
+	}
+
+	 .FindRegister .button {
+ 	 	width: 100%;
+ 	 }
+
+
 }
 
+
+@media all and (max-width: 430px){
+	 	 	body {
+		font-size: 14px;
+		line-height: 150%;
+		}
+
+	h3 {
+		font-size: 17px;
+		}
+
+	.choice li {
+		width: 18px;
+	}	
+}
 /*MEDIA QUERIES END*/
 
 

@@ -17,25 +17,61 @@ $(document).ready(function(){
 
   // select js
 
+
+ $(".multi li").on("click", function(){
+    $(this).toggleClass("selected");
+  });
+  
   $(".candidates li").on("click", function(){
     $(this).siblings().removeClass('selected');
     $(this).toggleClass("selected");
   });
 
-  // enquire.register("screen and (max-width: 500px)", function() {
-  //   $(".calendar ul").hide();
-  //   $(".calendar h3").click(function(){
-  //     $(".calendar ul").slideToggle("slow");
-  //   });
-  // }).listen();
+   $(".choice li").on("click", function(){
+    $(this).siblings().removeClass('YNselected');
+    $(this).toggleClass("YNselected");
+  });
 
-  // enquire.register("screen and (max-width: 500px)", function() {
-  //   $(".person ul").hide();
-  //   $(".person h3").click(function(){
-  //     $(".person ul").slideToggle("slow");
-  //   });
-  // }).listen();
 
+
+  // enable media queries js
+  enquire.register("screen and (min-width:500px)", {
+      match: function() {
+        $(".calendar ul").show();
+      }
+  }).listen();
+
+  enquire.register("screen and (min-width:500px)", {
+      match: function() {
+        $(".person ul").show();
+      }
+  }).listen();
+
+  enquire.register("screen and (max-width:500px)", {
+      match: function() {
+        $(".calendar ul").hide();
+        $(".calendar h3").on("click", function(){
+          $(".calendar ul").slideToggle("slow");
+        });
+      },
+
+      unmatch: function () {
+        $(".calendar h3").off("click");
+      }
+  }).listen();
+
+    enquire.register("screen and (max-width:500px)", {
+      match: function() {
+        $(".person ul").hide();
+        $(".person h3").on("click", function(){
+          $(".person ul").slideToggle("slow");
+        });
+      },
+
+      unmatch: function () {
+        $(".person h3").off("click");
+      }
+  }).listen();
 	 
 });
 
