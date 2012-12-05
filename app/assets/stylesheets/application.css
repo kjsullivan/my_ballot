@@ -271,7 +271,7 @@ h2:after {
     bottom:-2px;
     left:0;
     right:0;
-    border-bottom:1px solid rgba(255, 255, 255, .);
+    border-bottom:1px solid rgba(255, 255, 255, .9);
 	}
 
 .homeContentBox h2,
@@ -358,7 +358,7 @@ ul.error:after {
 
 	.YNselected {
 		font-weight: bold;
-		background: rgba(255, 255, 255, .9);
+		background: white /* rgba(153, 199, 232, .5)*/;
 		border-radius: 20px;
 	}
 
@@ -393,7 +393,8 @@ ul.error:after {
 /*PROFILE BEGIN*/
 
 .profile {
-	padding: 25px 0;	
+/*	background: rgba(255, 255, 255, .8);
+*/	padding: 25px 0;	
 	margin: 0 auto 5px auto;
 	border-top:1px solid rgba(255, 255, 255, .9);
  	border-bottom:1px solid rgba(0, 0, 0, .1);
@@ -403,7 +404,7 @@ ul.error:after {
 }
 
 .profile:after {
-  	content:'';
+  content:'';
     position:absolute;
     bottom:-2px;
     left:0;
@@ -412,12 +413,31 @@ ul.error:after {
 }
 
 .profile:before {
-  	content:'';
+  content:'';
     position:absolute;
     top: -2px;
     left:0;
     right:0;
     border-top:1px solid rgba(0, 0, 0, .1);
+}
+
+.number {
+	color: #99c7e8;
+	font-size: 100px;
+	line-height: 100%;
+	margin: 5px 0 10px 0;
+	text-shadow: 1px 2px white;
+	border-bottom:1px solid rgba(0, 0, 0, .1);
+ 	position: relative;
+}
+
+.number:after {
+  content:'';
+    position:absolute;
+    bottom:-2px;
+    left:0;
+    right:0;
+    border-bottom:1px solid rgba(255, 255, 255, .9);
 }
 
 .profile ul {
@@ -432,39 +452,22 @@ ul.error:after {
 	margin-bottom: 0;
 }
 
-	/*PERSON BEGIN*/
+.person-info {
+	padding-left: 135px;
+}
 
-	.idphoto {
-		display: block;
-		float: left;
-		margin: 0;
-		border-radius: 6px;
-		box-shadow: 2px 2px 1px rgba(255, 255, 255, .7);
-	}
-
-	.person-info {
-		padding-left: 135px;
-	}
-	/*PERSON END*/
-
-	/*COUNTER BEGIN*/
+.idphoto {
+	display: block;
+	float: left;
+	margin: 0;
+	border-radius: 6px;
+	box-shadow: 2px 2px 1px rgba(255, 255, 255, .7);
+}
 
 	.voteCounter {
-	text-align: center;
-	font-weight: bold;
+		text-align: center;
+		font-weight: bold;
 	}
-
-	.number {
-	color: #99c7e8;
-	font-size: 100px;
-	line-height: 100%;
-	margin: 5px 0 10px 0;
-	text-shadow: 1px 2px white;
-	border-bottom:1px dashed rgba(0, 0, 0, .1);
- 	position: relative;
-	}
-
-	/*COUNTER END*/
 
 /*PROFILE END*/
 
@@ -661,7 +664,7 @@ ul.error:after {
 @media all and (min-width: 1200px) and (max-width: 1500px) {
 
 	.profile {
-		width: 85%;
+		width: 80%;
 		margin: 0 auto;
 	}
 }
@@ -700,9 +703,6 @@ ul.error:after {
 		}
 
 	/*profile*/
-	.profile{
-		padding: 25px 0;
-		}
 
 	.profileContent {
 		overflow: hidden;
@@ -856,6 +856,14 @@ ul.error:after {
  	 	margin-top: 10px;
  	 }
 
+ 	.login .textinput,
+	.field .textinput {
+		width: 100%;
+	}
+
+
+
+
  	 	.grid-single .logo {
 		width: 300px;
 		padding-top: 10px;
@@ -889,6 +897,116 @@ ul.error:after {
  	 }
 
 
+ 	/* profile box*/
+
+ 		.profile {
+		padding: 17px 0;
+	}
+
+	.profileContent {
+		padding: 0;
+	}
+
+	.idphoto {
+		display: none;
+	}
+
+	.person-info {
+		padding-left: 0;
+	}
+
+	.person {
+		margin-bottom: 0;
+		border-bottom: none;
+	}
+
+	.voteCounter {
+		float: none;
+		padding: 0;
+		margin: 0;
+		border-left: none;
+/*		background: rgba(255, 255, 255, .7);
+*/		border-top: 1px dashed rgba(0, 0, 0, .1);
+		border-bottom: 1px dashed rgba(0, 0, 0, .1);
+		padding: 15px 15px 15px 20px;
+		text-align: left;
+	}
+
+	.voteCounter h3 {
+			display: none;
+		}
+
+	.number {
+		display: inline-block;
+		line-height: 100%;
+		font-size: 22px;
+		border-bottom: none;
+		margin: 0;
+		padding-right: 5px;
+
+	}
+
+	.number:after {
+		border: none;
+	}
+
+	.voteCounter p {
+		display: inline-block;
+		line-height: 100%;
+		font-size: 22px;
+	}
+
+	.calendar, .person {
+		padding: 0 15px 0 0;
+		margin: 0;
+	}
+
+	.calendar ul {
+		margin: 20px 0 0 20px;
+	}
+
+	.person ul {
+		margin: 0px 0 20px 20px;
+	}
+
+	.calendar h3,
+	.person h3 {
+		display: block;
+		float: none;
+/*		background: rgba(255, 255, 255, .7);
+*//*		border-left: 1px dashed rgba(0, 0, 0, .1);
+		border-right: 1px dashed rgba(0, 0, 0, .1);*/
+				padding: 15px 15px 15px 20px;
+
+		line-height: 100%;
+		font-size: 22px;
+		text-align: left;
+	}
+
+	.calendar h3 {
+		padding-bottom: 0;
+	}
+
+	.person h3 {
+		padding-top: 0;
+	}
+
+	.calendar h3:before,
+	.person h3:before {
+		color: #99c7e8;
+		content: "+";
+		display: inline-block;
+		padding-right: 10px;
+	}
+
+	.calender h3 {
+		border-bottom: 1px dashed rgba(0, 0, 0, .1);
+	}
+
+
+	
+
+
 }
 
 
@@ -905,6 +1023,14 @@ ul.error:after {
 	.choice li {
 		width: 18px;
 	}	
+
+	.field .comments {
+	height: 200px;
+	}
+
+	h1 {
+		font-size: 19px;
+	}
 }
 /*MEDIA QUERIES END*/
 

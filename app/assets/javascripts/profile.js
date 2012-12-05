@@ -35,7 +35,7 @@ $(document).ready(function(){
 
 
   // enable media queries js
-  enquire.register("screen and (min-width:500px)", {
+enquire.register("screen and (min-width:500px)", {
       match: function() {
         $(".calendar ul").show();
       }
