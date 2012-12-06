@@ -218,13 +218,16 @@ input, .homeContentBox, .FindRegister, .pageTitle, .aboutLinks {
 
 .candidates li,
 .multi li {
-	padding-left: 8px;
-	margin-bottom: 5px;
+	padding-left: 22px;
+	margin-bottom: 10px;
+	position: relative;
+	line-height: 100%;
 }
 
 .candidatesYN li {
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 	position: relative;
+	line-height: 100%;
 }
 
 .choice {
@@ -233,13 +236,6 @@ input, .homeContentBox, .FindRegister, .pageTitle, .aboutLinks {
 	right: 0;
 }
 
-.choice li {
-	display: inline-block;
-	line-height: 120%;
-	text-align: center;
-	padding-top: 1px;
-	width: 20px;
-}
 
 
 /*TEXT BEGIN*/
@@ -313,8 +309,8 @@ a {
 .district {
 	font-size: 12px;
 	font-style: italic;
-	font-weight: bold;
-	display: inline block;
+/*	font-weight: bold;
+*/	display: inline block;
 /*	margin-bottom: 10px;
 */	}
 
@@ -352,14 +348,48 @@ ul.error:after {
 
 	.selected {
 		font-weight: bold;
-		background: rgba(255, 255, 255, .7);
-		padding: 5px 5px 3px 0;
 	}
 
-	.YNselected {
+	.dot, .multi-dot {
+		display: inline-block;
+		position: absolute;
+		left: 0;
+		top: 3px;
+		width: 12px;
+		height: 12px;
+		border-radius: 12px;
+		background: rgba(0, 0, 0, .1);
+		cursor: pointer;
+	}
+
+	.selected .dot, .selected .multi-dot {
+		background: #99c7e8;
+	}
+
+	.choice li {
+		width: 20px;
+		height: 20px;
+		border-radius: 10px;
+		background: rgba(0, 0, 0, .1);
+		color: rgba(0, 0, 0, .5);
+	display: inline-block;
+	line-height: 120%;
+	text-align: center;
+	padding-top: 1px;
+	text-shadow: 1px 1px rgba(255, 255, 255, .5);
+	cursor: pointer;
+
+}
+
+
+	.choice li:first-child {
+		margin-right: 8px;
+	}
+
+	.choice .YNselected {
+		background: #99c7e8;
 		font-weight: bold;
-		background: white /* rgba(153, 199, 232, .5)*/;
-		border-radius: 20px;
+		color: rgba(0, 0, 0, .75);
 	}
 
 /*TEXT END*/
@@ -653,21 +683,13 @@ ul.error:after {
 
 	}
 
-		.selected {
+/*		.selected {
 		padding-bottom: 8px;
 		padding-right: 10px;
 		padding-top: 8px;
 		margin-top: 8px;
+	}*/
 	}
-	}
-
-@media all and (min-width: 1200px) and (max-width: 1500px) {
-
-	.profile {
-		width: 80%;
-		margin: 0 auto;
-	}
-}
 
 @media all and (min-width: 990px) {
 	
@@ -776,6 +798,7 @@ ul.error:after {
 
 	.calendar {
 		padding-right: 25px;
+		
 		}
 }
 
@@ -885,12 +908,12 @@ ul.error:after {
 
 	}
 
-		.selected {
+/*		.selected {
 		padding-bottom: 8px;
 		padding-right: 10px;
 		padding-top: 8px;
 		margin-top: 8px;
-	}
+	}*/
 
 	 .FindRegister .button {
  	 	width: 100%;
@@ -981,6 +1004,7 @@ ul.error:after {
 		line-height: 100%;
 		font-size: 22px;
 		text-align: left;
+		cursor: pointer;
 	}
 
 	.calendar h3 {
@@ -1004,13 +1028,14 @@ ul.error:after {
 	}
 
 
-	
 
 
 }
 
 
 @media all and (max-width: 430px){
+
+
 	 	 	body {
 		font-size: 14px;
 		line-height: 150%;
@@ -1030,6 +1055,64 @@ ul.error:after {
 
 	h1 {
 		font-size: 19px;
+	}
+
+	.dot, .multi-dot {
+		width: 10px;
+		height: 10px;
+		border-radius: 10px;
+		left: 0;
+		top: 3px;
+	}
+
+	.candidates li,
+	.multi li {
+	padding-left: 18px;
+}
+
+.grid-pad {
+  	padding-left: 15px;
+  	padding-right: 15px;
+	}
+
+.contentBox {
+	margin-bottom: 15px;
+}
+
+	.choice li {
+		width: 18px;
+		height: 18px;
+	padding-top: 1px;
+	box-shadow: none;
+}
+
+.calendar h3, 
+.person h3, .voteCounter {
+	padding-left: 15px;
+}
+
+.calendar ul, .person ul {
+	margin-left: 15px;
+}
+
+
+}
+
+@media all and (max-width: 375px){
+		nav li, footer li {
+		background: none;
+	}
+
+	nav li {
+				padding: 10px 20px;
+
+	}
+	nav li:first-child {
+		padding-left: 0;
+	}
+
+	nav li:last-child {
+		padding-right: 0;
 	}
 }
 /*MEDIA QUERIES END*/

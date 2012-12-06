@@ -15,6 +15,8 @@ $(document).ready(function(){
     });
   });
 
+
+
   // select js
 
 
@@ -22,15 +24,25 @@ $(document).ready(function(){
     $(this).toggleClass("selected");
   });
   
-  $(".candidates li").on("click", function(){
-    $(this).siblings().removeClass('selected');
-    $(this).toggleClass("selected");
+  // $(".candidates li .dot").on("click", function(){
+  //   $(this).siblings().removeClass('dotSelected');
+  //   $(this).toggleClass("dotSelected");
+  // });
+
+  $(".dot").on("click", function(){
+    $(this).parent().siblings().removeClass("selected");
+    $(this).parent().toggleClass("selected");
+  });
+
+    $(".multi li.dot").on("click", function(){
+    $(this).parent().toggleClass("selected");
   });
 
    $(".choice li").on("click", function(){
     $(this).siblings().removeClass('YNselected');
     $(this).toggleClass("YNselected");
   });
+
 
 
 

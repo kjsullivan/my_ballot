@@ -51,7 +51,7 @@
 		<% @candidatelist.each do |candidate| %>
 			<% if "2012-11-06" == candidate["electionDate"] %>
 			<% if "President" == candidate["electionOffice"] %>
-			<li>
+			<li><span class="dot">&nbsp;</span>
 			<%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %> 
 			<% if candidate["runningMateName"].present? %>
 			/ <%= candidate["runningMateName"] %><% end %><span class="party"><%= candidate["electionParties"] %></span>
@@ -83,7 +83,7 @@
 			<% @candidatelist.each do |candidate| %>
 				<% if "2012-11-06" == candidate["electionDate"] %>
 				<% if "U.S. House" == candidate["electionOffice"] %>
-				<li>
+				<li><span class="dot">&nbsp;</span>
 				<%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %><span class="party"><span class="district">Congressional District <%= candidate["electionDistrictName"] %>, </span><%= candidate["electionParties"] %></span> 
 				</li>
 				<% end %>
@@ -114,7 +114,7 @@
 		   <% @candidatelist.each do |candidate| %>
 		   <% if "2012-11-06" == candidate["electionDate"] %>
 		   <% if "State Senate" == candidate["electionOffice"] %>
-		   <li>
+		   <li><span class="dot">&nbsp;</span>
 		   <%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %><span class="party"><span class="district">State Senate District <%= candidate["electionDistrictName"] %>, </span><%= candidate["electionParties"] %></span> 
 				</li>
 		   </li>
@@ -136,7 +136,7 @@
 		  <% @candidatelist.each do |candidate| %>
 		  <% if "2012-11-06" == candidate["electionDate"] %>
 		  <% if "State House" == candidate["electionOffice"] %>
-		  <li>
+		  <li><span class="dot">&nbsp;</span>
 		  <%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %><span class="party"><span class="district">State House District <%= candidate["electionDistrictName"] %>, </span><%= candidate["electionParties"] %></span> 
 				</li>
 		  </li>
@@ -161,14 +161,14 @@
 	<h3><%= Position.find_by_name("Metropolitan Water Reclamation District Commissioners").name %></h3>
 		<h4><%= Position.find_by_name("Metropolitan Water Reclamation District Commissioners").note %></h4>
 			<ul class="multi">
-				<li>Debra Shore <span class="party">Democratic</span></li>
-				<li>Kari K. Steele <span class="party">Democratic</span></li>
-				<li>Patrick Daley Thompson <span class="party">Democratic</span></li>
-				<li>Harold "Noonie" Ward <span class="party">Republican</span></li>
-				<li>Carl Segvich <span class="party">Republican</span></li>
-				<li>Dave Ehrlich <span class="party">Green</span></li>
-				<li>Karen Roothaan <span class="party">Green</span></li>
-				<li>Nasrin R. Khalili <span class="party">Green</span></li>
+				<li><span class="multi-dot">&nbsp;</span>Debra Shore <span class="party">Democratic</span></li>
+				<li><span class="multi-dot">&nbsp;</span>Kari K. Steele <span class="party">Democratic</span></li>
+				<li><span class="multi-dot">&nbsp;</span>Patrick Daley Thompson <span class="party">Democratic</span></li>
+				<li><span class="multi-dot">&nbsp;</span>Harold "Noonie" Ward <span class="party">Republican</span></li>
+				<li><span class="multi-dot">&nbsp;</span>Carl Segvich <span class="party">Republican</span></li>
+				<li><span class="multi-dot">&nbsp;</span>Dave Ehrlich <span class="party">Green</span></li>
+				<li><span class="multi-dot">&nbsp;</span>Karen Roothaan <span class="party">Green</span></li>
+				<li><span class="multi-dot">&nbsp;</span>Nasrin R. Khalili <span class="party">Green</span></li>
 			</ul>
 
 	<div class="slideContent"> 
@@ -180,8 +180,8 @@
 
 	<h3><%= Position.find_by_name("Clerk of the Circuit Court").name %></h3>
 			<ul class="candidates">
-				<li>Dorothy A. Brown <span class="party">Democratic</span></li>
-				<li>Diane S. Shapiro <span class="party">Republican</span></li>
+				<li><span class="dot">&nbsp;</span>Dorothy A. Brown <span class="party">Democratic</span></li>
+				<li><span class="dot">&nbsp;</span>Diane S. Shapiro <span class="party">Republican</span></li>
 			</ul>
 
 	<div class="slideContent"> 
@@ -202,8 +202,8 @@
 
 	<h3><%= Position.find_by_name("Recorder").name %></h3>
 		<ul class="candidates">
-			<li>Karen A. Yarbrough <span class="party">Democratic</span></li>
-			<li>Sherri Griffith <span class="party">Republican</span></li>
+			<li><span class="dot">&nbsp;</span>Karen A. Yarbrough <span class="party">Democratic</span></li>
+			<li><span class="dot">&nbsp;</span>Sherri Griffith <span class="party">Republican</span></li>
 		</ul>
 
 	<div class="slideContent"> 
@@ -229,8 +229,8 @@
 	<h3><%= Position.find_by_name("State's Attorney").name %></h3>
  	
  	<ul class="candidates">
- 		<li>Anita Alvarez <span class="party">Democratic</span></li>
- 		<li>Lori S. Yokoyama <span class="party">Republican</span></li>
+ 		<li><span class="dot">&nbsp;</span>Anita Alvarez <span class="party">Democratic</span></li>
+ 		<li><span class="dot">&nbsp;</span>Lori S. Yokoyama <span class="party">Republican</span></li>
  	</ul>
 
  	<div class="slideContent"> 
@@ -252,8 +252,8 @@
 	<h3><%= Position.find_by_name("Judge, Illinois Supreme Court (Vacancy of Fitzgerald)").name %></h3>
 
 	<ul class="candidates">
-			<li>Mary Jane Theis <span class="party">Democratic</span></li>
-			<li>James Gerard Riley <span class="party">Republican</span></li>
+			<li><span class="dot">&nbsp;</span>Mary Jane Theis <span class="party">Democratic</span></li>
+			<li><span class="dot">&nbsp;</span>James Gerard Riley <span class="party">Republican</span></li>
 	</ul>
 
 	 <div class="slideContent"> 
@@ -265,7 +265,7 @@
 
 	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Stralka)").name %></h3>
 	<ul class="candidates">
-		<li>Michael Tully Mullen <span class="party">Democratic</span></li>
+		<li><span class="dot">&nbsp;</span>Michael Tully Mullen <span class="party">Democratic</span></li>
 	</ul>
 
 	<div class="slideContent"> 
@@ -277,7 +277,7 @@
 
 	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Ward)").name %></h3>
 	<ul class="candidates">
-		<li>Elizabeth Mary Hayes <span class="party">Democratic</span></li>
+		<li><span class="dot">&nbsp;</span>Elizabeth Mary Hayes <span class="party">Democratic</span></li>
 	</ul>
 
 	<div class="slideContent"> 
@@ -289,7 +289,7 @@
 
 	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Conlon)").name %></h3>
 	<ul class="candidates">
-		<li>Karen Lynn O'Malley <span class="party">Democratic</span></li>
+		<li><span class="dot">&nbsp;</span>Karen Lynn O'Malley <span class="party">Democratic</span></li>
 	</ul>
 
 	<div class="slideContent"> 
@@ -301,7 +301,7 @@
 
 	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Jordan)").name %></h3>
 	<ul class="candidates">
-		<li>Jean Prendergast Rooney <span class="party">Democratic</span></li>
+		<li><span class="dot">&nbsp;</span>Jean Prendergast Rooney <span class="party">Democratic</span></li>
 	</ul>
 
 	<div class="slideContent"> 
@@ -313,7 +313,7 @@
 
 	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Kirie Kinnaird)").name %></h3>
 	<ul class="candidates">
-		<li>Erica L. Reddick <span class="party">Democratic</span></li>
+		<li><span class="dot">&nbsp;</span>Erica L. Reddick <span class="party">Democratic</span></li>
 	</ul>
 
 	<div class="slideContent"> 
@@ -325,7 +325,7 @@
 
 	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Moran)").name %></h3>
 	<ul class="candidates">
-		<li>Russell L. Hartigan <span class="party">Democratic</span></li>
+		<li><span class="dot">&nbsp;</span>Russell L. Hartigan <span class="party">Democratic</span></li>
 	</ul>
 
 	<div class="slideContent"> 
@@ -337,7 +337,7 @@
 
 	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of O'Brien, Jr.)").name %></h3>
 	<ul class="candidates">
-		<li>Cynthia Ramirez <span class="party">Democratic</span></li>
+		<li><span class="dot">&nbsp;</span>Cynthia Ramirez <span class="party">Democratic</span></li>
 	</ul>
 
 		<div class="slideContent"> 
@@ -349,7 +349,7 @@
 
 	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of O'Mara Frossard)").name %></h3>
 	<ul class="candidates">
-		<li>Diann Karen Marsalek <span class="party">Democratic</span></li>
+		<li><span class="dot">&nbsp;</span>Diann Karen Marsalek <span class="party">Democratic</span></li>
 	</ul>
 
 	<div class="slideContent"> 
@@ -361,7 +361,7 @@
 
 	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Pucinski)").name %></h3>
 	<ul class="candidates">
-		<li>Lorna Ellen Propes <span class="party">Democratic</span></li>
+		<li>L<span class="dot">&nbsp;</span>orna Ellen Propes <span class="party">Democratic</span></li>
 	</ul>
 
 	<div class="slideContent"> 
@@ -373,7 +373,7 @@
 
 	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Simmons, Jr.)").name %></h3>
 	<ul class="candidates">
-		<li>Pamela M. Leeming <span class="party">Democratic</span></li>
+		<li><span class="dot">&nbsp;</span>Pamela M. Leeming <span class="party">Democratic</span></li>
 	</ul>
 
 	<div class="slideContent"> 
@@ -395,7 +395,7 @@
       
       <h3><%= Position.find_by_name("Appellate Court").name %></h3>
       <ul class="candidatesYN">
-        <li>James Fitzgerald Smith<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
+        <li>James Fitzgerald Smith<ul class="choice"><li>Y</li><li>N</li></ul></li>
       </ul>
 
       <div class="slideContent"> 
@@ -406,63 +406,63 @@
 
 	<h3><%= Position.find_by_name("Circuit Court").name %></h3>
       <ul class="candidatesYN">
-        <li>Carole Kamin Bellows<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Kathy M. Flanagan<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Moshe Jacobius<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Stuart F. Lubin<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Marvin P. Luckman<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Raymond Funderburk<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Stuart E. Palmer<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Martin S. Agran<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Patricia Banks<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Ronald F. Bartkowicz<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Robert Lopez Cepero<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Garritt E. Howard<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Joseph G. Kazmierski, Jr.<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>E. Kenneth Wright, Jr.<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Cynthia Brim<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Rodney Hughes Brooks<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Maureen Elizabeth Connors<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Christopher Donnelly<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>James D. Egan<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Catherine Marie Haberkorn<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Lisa Ruble Murphy<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Marya Nega<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Lee Preston<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Drella C. Savage<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>James M. Varga<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Richard F. Walsh<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Camille E. Willis<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Marcia Maras<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Peter Flynn<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Paul A. Karkula<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>P. Scott Neville, Jr.<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Maura Slattery Boyle<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Mary Margaret Brosnahan<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Matthew E. Coghlan<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Loretta Eadie-Daniels<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Joyce Marie Murphy Gorman<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Joan Margaret O'Brien<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Thomas David Roti<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Colleen F. Sheehan<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Pamela E. Hill-Veal<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Orville E. Hambright<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Michael J. Howlett, Jr.<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Carl Anthony Walker<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Daniel Patrick Brennan<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Gloria Chevere<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Grace G. Dickler<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Ellen L. Flannigan<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Carol M. Howard<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Jill C. Marisie<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>James Michael McGing<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Mike McHale<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>James Patrick Murphy<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Thomas W. Murphy<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Patrick W. "Pat" O'Brien<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Ramon Ocasio III<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Mary Colleen Roberts<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
-        <li>Diane M. Shelley<ul class="choice"><li>Y</li> | <li>N</li></ul></li>
+        <li>Carole Kamin Bellows<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Kathy M. Flanagan<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Moshe Jacobius<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Stuart F. Lubin<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Marvin P. Luckman<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Raymond Funderburk<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Stuart E. Palmer<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Martin S. Agran<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Patricia Banks<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Ronald F. Bartkowicz<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Robert Lopez Cepero<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Garritt E. Howard<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Joseph G. Kazmierski, Jr.<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>E. Kenneth Wright, Jr.<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Cynthia Brim<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Rodney Hughes Brooks<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Maureen Elizabeth Connors<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Christopher Donnelly<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>James D. Egan<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Catherine Marie Haberkorn<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Lisa Ruble Murphy<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Marya Nega<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Lee Preston<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Drella C. Savage<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>James M. Varga<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Richard F. Walsh<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Camille E. Willis<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Marcia Maras<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Peter Flynn<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Paul A. Karkula<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>P. Scott Neville, Jr.<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Maura Slattery Boyle<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Mary Margaret Brosnahan<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Matthew E. Coghlan<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Loretta Eadie-Daniels<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Joyce Marie Murphy Gorman<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Joan Margaret O'Brien<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Thomas David Roti<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Colleen F. Sheehan<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Pamela E. Hill-Veal<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Orville E. Hambright<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Michael J. Howlett, Jr.<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Carl Anthony Walker<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Daniel Patrick Brennan<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Gloria Chevere<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Grace G. Dickler<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Ellen L. Flannigan<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Carol M. Howard<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Jill C. Marisie<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>James Michael McGing<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Mike McHale<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>James Patrick Murphy<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Thomas W. Murphy<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Patrick W. "Pat" O'Brien<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Ramon Ocasio III<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Mary Colleen Roberts<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Diane M. Shelley<ul class="choice"><li>Y</li><li>N</li></ul></li>
       </ul>
 
       <div class="slideContent"> 
