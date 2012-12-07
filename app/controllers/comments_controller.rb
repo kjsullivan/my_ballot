@@ -51,6 +51,7 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html { redirect_to @comment.user, notice: 'Comment was successfully created.' }
         format.json { render json: @comment.user, status: :created, location: @comment }
+        format.js
       else
         format.html { render position_url }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -67,6 +68,7 @@ class CommentsController < ApplicationController
       if @comment.update_attributes(params[:comment])
         format.html { redirect_to @comment.user, notice: 'Comment was successfully updated.' }
         format.json { head :no_content }
+        format.js
       else
         format.html { render action: "edit" }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
