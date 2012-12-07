@@ -45,8 +45,8 @@
 <section class="contentBox"><!-- Box -->
 
 	<h2>Federal</h2>
-
-	<h3><%= Position.find_by_name("President").name %> / Vice President</h3>
+	<% position = Position.find_by_name("President") %>
+	<h3><%= position.name %> / Vice President</h3>
 		<ul class="candidates">
 		<% @candidatelist.each do |candidate| %>
 			<% if "2012-11-06" == candidate["electionDate"] %>
@@ -60,21 +60,42 @@
 			<% end %>
 			<% end %>
 		</ul>
-		
+
+		<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
 		<div class="slideContent"> 
-          <textarea class="comments">	
-<% if Position.find_by_name("President").comments %>
-		<% Position.find_by_name("President").comments.each do |comment| %>
-		<%= comment.post %>
-		<% end %>
-<% else %>
-	<%= render 'comments/form'%>
-<% end %>
+			<%= form_for(@comment) do |f| %>
+			  <% if @comment.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+			
+			      <ul>
+			      <% @comment.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			   <!-- <a href="#" class="saveBtn">save</a> --> 
+			  <div class="actions">
+			    <%= f.submit %>
+		      </div>
 
-
-</textarea>
-          <a href="#" class="saveBtn">save</a>
-        </div> 
+			  <div class="field">
+			  	
+			    <%= f.label "Who Are You Thinking?" %><br />
+			    <%= f.text_area :post %>
+			    <%= f.hidden_field :position_id, :value => position.id %>
+			    <%= f.hidden_field :user_id, :value => session[:id] %>
+			
+			  </div>
+			  <% end %> 
+   		</div> 
         
         <p class="slideBtn">▼</p> 
 
