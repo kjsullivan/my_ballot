@@ -15,8 +15,6 @@ $(document).ready(function(){
     });
   });
 
-
-
   // select js
 
 
@@ -42,8 +40,6 @@ $(document).ready(function(){
     $(this).siblings().removeClass('YNselected');
     $(this).toggleClass("YNselected");
   });
-
-
 
 
   // enable media queries js

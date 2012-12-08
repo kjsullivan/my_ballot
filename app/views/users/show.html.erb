@@ -43,25 +43,317 @@
 <div class="col-1-3"> <!-- Col 1 -->
 
 <section class="contentBox"><!-- Box -->
-
+<!-- President -->
 	<h2>Federal</h2>
 	<% position = Position.find_by_name("President") %>
 	<h3><%= position.name %> / Vice President</h3>
 		<ul class="candidates">
 		<% @candidatelist.each do |candidate| %>
 			<% if "2012-11-06" == candidate["electionDate"] %>
-			<% if "President" == candidate["electionOffice"] %>
-			<li><span class="dot">&nbsp;</span>
-			<%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %> 
-			<% if candidate["runningMateName"].present? %>
-			/ <%= candidate["runningMateName"] %><% end %><span class="party"><%= candidate["electionParties"] %></span>
-			</li>
+				<% if "President" == candidate["electionOffice"] %>
+					<li><span class="dot">&nbsp;</span>
+						<%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %> 
+					<% if candidate["runningMateName"].present? %>
+					/ <%= candidate["runningMateName"] %><% end %><span class="party"><%= candidate["electionParties"] %></span>
+					</li>
+				<% end %>
 			<% end %>
-			<% end %>
-			<% end %>
+		<% end %>
 		</ul>
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+	   		<% @comment = c %>
+		<% else %>
+	   		<% @comment = Comment.new %>
+		<% end %> 	
 
-		<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+	<div class="slideContent"> 
+		<%= form_for(@comment, :remote => true) do |f| %>
+		  <% if @comment.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+		      <ul>
+		      <% @comment.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+		 <!-- <a href="#" class="saveBtn">save</a> --> 
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+
+		<div class="field"> 	
+			<%= f.label "Who Are You Thinking?" %><br />
+			<%= f.text_area :post %>
+			<%= f.hidden_field :position_id, :value => position.id %>
+			<%= f.hidden_field :user_id, :value => session[:id] %>	
+		<% end %>
+		</div> 
+   	</div>        
+    <p class="slideBtn">▼</p> 
+
+<!-- U.S. House -->
+    <% position = Position.find_by_name("U.S. House") %>
+	<h3><%= position.name %></h3>
+	<ul class="candidates">
+		<% @candidatelist.each do |candidate| %>
+			<% if "2012-11-06" == candidate["electionDate"] %>
+				<% if "U.S. House" == candidate["electionOffice"] %>
+					<li><span class="dot">&nbsp;</span>
+					<%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %><span class="party"><span class="district">Congressional District <%= candidate["electionDistrictName"] %>, </span><%= candidate["electionParties"] %></span> 
+					</li>
+				<% end %>
+			<% end %>
+		<% end %>				
+	</ul>
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+	   		<% @comment = c %>
+		<% else %>
+	   		<% @comment = Comment.new %>
+		<% end %> 	
+
+	<div class="slideContent"> 
+		<%= form_for(@comment, :remote => true) do |f| %>
+		  <% if @comment.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+		      <ul>
+		      <% @comment.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+		 <!-- <a href="#" class="saveBtn">save</a> --> 
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+
+		<div class="field"> 	
+			<%= f.label "Who Are You Thinking?" %><br />
+			<%= f.text_area :post %>
+			<%= f.hidden_field :position_id, :value => position.id %>
+			<%= f.hidden_field :user_id, :value => session[:id] %>	
+		<% end %>
+		</div> 
+   	</div>        
+    <p class="slideBtn">▼</p> 
+
+</section> <!-- END BOX -->
+
+<section class="contentBox"><!-- Box -->	
+
+	<h2>State</h2>
+<!-- State Senate -->
+	<% position = Position.find_by_name("State Senate") %>
+	<h3><%= position.name %></h3>
+	<ul class="candidates">
+		<% @candidatelist.each do |candidate| %>
+	   		<% if "2012-11-06" == candidate["electionDate"] %>
+	   			<% if "State Senate" == candidate["electionOffice"] %>
+		   			<li><span class="dot">&nbsp;</span>
+		   				<%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %><span class="party"><span class="district">State Senate District <%= candidate["electionDistrictName"] %>, </span><%= candidate["electionParties"] %></span> 
+					</li>
+		   		<% end %>
+		   	<% end %>
+		<% end %>
+	</ul>
+
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+	   		<% @comment = c %>
+		<% else %>
+	   		<% @comment = Comment.new %>
+		<% end %> 	
+
+	<div class="slideContent"> 
+		<%= form_for(@comment, :remote => true) do |f| %>
+		  <% if @comment.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+		      <ul>
+		      <% @comment.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+		 <!-- <a href="#" class="saveBtn">save</a> --> 
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+
+		<div class="field"> 	
+			<%= f.label "Who Are You Thinking?" %><br />
+			<%= f.text_area :post %>
+			<%= f.hidden_field :position_id, :value => position.id %>
+			<%= f.hidden_field :user_id, :value => session[:id] %>	
+		<% end %>
+		</div> 
+   	</div>        
+    <p class="slideBtn">▼</p> 
+
+ <!-- State House -->
+	<% position = Position.find_by_name("State House") %>
+	<h3><%= position.name %></h3>
+	<ul class="candidates">
+		  <% @candidatelist.each do |candidate| %>
+		  <% if "2012-11-06" == candidate["electionDate"] %>
+		  <% if "State House" == candidate["electionOffice"] %>
+		  <li><span class="dot">&nbsp;</span>
+		  <%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %><span class="party"><span class="district">State House District <%= candidate["electionDistrictName"] %>, </span><%= candidate["electionParties"] %></span> 
+				</li>
+		  </li>
+		  <% end %>
+		  <% end %>
+		  <% end %>
+	</ul>
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
+		<div class="slideContent"> 
+		<%= form_for(@comment, :remote => true) do |f| %>
+		  <% if @comment.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+		      <ul>
+		      <% @comment.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+		 <!-- <a href="#" class="saveBtn">save</a> --> 
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+
+		<div class="field"> 	
+			<%= f.label "Who Are You Thinking?" %><br />
+			<%= f.text_area :post %>
+			<%= f.hidden_field :position_id, :value => position.id %>
+			<%= f.hidden_field :user_id, :value => session[:id] %>	
+		<% end %>
+		</div> 
+   	</div>        
+    <p class="slideBtn">▼</p>  
+		
+</section> <!-- End Box -->
+
+<section class="contentBox"> <!-- Box -->	
+
+	<h2>County</h2>
+<!-- Metropolita Water Reclamation Distric Commissioners -->
+	<% position = Position.find_by_name("Metropolitan Water Reclamation District Commissioners") %>
+	<h3><%= position.name %></h3>
+		<h4><%= Position.find_by_name("Metropolitan Water Reclamation District Commissioners").note %></h4>
+			<ul class="multi">
+				<li><span class="multi-dot">&nbsp;</span>Debra Shore <span class="party">Democratic</span></li>
+				<li><span class="multi-dot">&nbsp;</span>Kari K. Steele <span class="party">Democratic</span></li>
+				<li><span class="multi-dot">&nbsp;</span>Patrick Daley Thompson <span class="party">Democratic</span></li>
+				<li><span class="multi-dot">&nbsp;</span>Harold "Noonie" Ward <span class="party">Republican</span></li>
+				<li><span class="multi-dot">&nbsp;</span>Carl Segvich <span class="party">Republican</span></li>
+				<li><span class="multi-dot">&nbsp;</span>Dave Ehrlich <span class="party">Green</span></li>
+				<li><span class="multi-dot">&nbsp;</span>Karen Roothaan <span class="party">Green</span></li>
+				<li><span class="multi-dot">&nbsp;</span>Nasrin R. Khalili <span class="party">Green</span></li>
+			</ul>
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
+		<div class="slideContent"> 
+		<%= form_for(@comment, :remote => true) do |f| %>
+		  <% if @comment.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+		      <ul>
+		      <% @comment.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+		 <!-- <a href="#" class="saveBtn">save</a> --> 
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+
+		<div class="field"> 	
+			<%= f.label "Who Are You Thinking?" %><br />
+			<%= f.text_area :post %>
+			<%= f.hidden_field :position_id, :value => position.id %>
+			<%= f.hidden_field :user_id, :value => session[:id] %>	
+		<% end %>
+		</div> 
+   	</div>        
+    <p class="slideBtn">▼</p> 
+
+<!-- Clerk of the Circuit Court -->
+	<% position = Position.find_by_name("Clerk of the Circuit Court") %>
+	<h3><%= position.name %></h3>
+			<ul class="candidates">
+				<li><span class="dot">&nbsp;</span>Dorothy A. Brown <span class="party">Democratic</span></li>
+				<li><span class="dot">&nbsp;</span>Diane S. Shapiro <span class="party">Republican</span></li>
+			</ul>
+
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
+		<div class="slideContent"> 
+		<%= form_for(@comment, :remote => true) do |f| %>
+		  <% if @comment.errors.any? %>
+		    <div id="error_explanation">
+		      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+		      <ul>
+		      <% @comment.errors.full_messages.each do |msg| %>
+		        <li><%= msg %></li>
+		      <% end %>
+		      </ul>
+		    </div>
+		  <% end %>
+		 <!-- <a href="#" class="saveBtn">save</a> --> 
+		<div class="actions">
+			<%= f.submit %>
+		</div>
+
+		<div class="field"> 	
+			<%= f.label "Who Are You Thinking?" %><br />
+			<%= f.text_area :post %>
+			<%= f.hidden_field :position_id, :value => position.id %>
+			<%= f.hidden_field :user_id, :value => session[:id] %>	
+		<% end %>
+		</div> 
+   	</div>        
+    <p class="slideBtn">▼</p> 
+
+<!-- Recorder -->
+	<% position = Position.find_by_name("Recorder") %>
+	<h3><%= position.name %></h3>
+		<ul class="candidates">
+			<li><span class="dot">&nbsp;</span>Karen A. Yarbrough <span class="party">Democratic</span></li>
+			<li><span class="dot">&nbsp;</span>Sherri Griffith <span class="party">Republican</span></li>
+		</ul>
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
 		<% if c %> 
 		   <% @comment = c %>
 		<% else %>
@@ -86,7 +378,51 @@
 			    <%= f.submit %>
 		      </div>
 
-		   
+			  <div class="field">
+			  	
+			    <%= f.label "Who Are You Thinking?" %><br />
+			    <%= f.text_area :post %>
+			    <%= f.hidden_field :position_id, :value => position.id %>
+			    <%= f.hidden_field :user_id, :value => session[:id] %>
+			
+			  </div>
+			  <% end %> 
+   		</div>
+		<p class="slideBtn">▼</p> 
+
+  <!-- State's Attorney -->
+	<% position = Position.find_by_name("State's Attorney") %>
+	<h3><%= position.name %></h3>
+ 	
+ 	<ul class="candidates">
+ 		<li><span class="dot">&nbsp;</span>Anita Alvarez <span class="party">Democratic</span></li>
+ 		<li><span class="dot">&nbsp;</span>Lori S. Yokoyama <span class="party">Republican</span></li>
+ 	</ul>
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
+		<div class="slideContent"> 
+			<%= form_for(@comment, :remote => true) do |f| %>
+			  <% if @comment.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+			
+			      <ul>
+			      <% @comment.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			   <!-- <a href="#" class="saveBtn">save</a> --> 
+			  <div class="actions">
+			    <%= f.submit %>
+		      </div>
 
 			  <div class="field">
 			  	
@@ -97,171 +433,10 @@
 			
 			  </div>
 			  <% end %> 
-   		</div> 
-        
-        <p class="slideBtn">▼</p> 
+   		</div>
+		<p class="slideBtn">▼</p> 
 
-	<h3><%= Position.find_by_name("U.S. House").name %></h3>
-		<ul class="candidates">
-			<% @candidatelist.each do |candidate| %>
-				<% if "2012-11-06" == candidate["electionDate"] %>
-				<% if "U.S. House" == candidate["electionOffice"] %>
-				<li><span class="dot">&nbsp;</span>
-				<%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %><span class="party"><span class="district">Congressional District <%= candidate["electionDistrictName"] %>, </span><%= candidate["electionParties"] %></span> 
-				</li>
-				<% end %>
-				<% end %>
-				<% end %>
-				
-		</ul>
-				
-		<div class="slideContent"> 
-         	<textarea class="comments">
-<% Position.find_by_name("U.S. House").comments.each do |comment| %>
-			<%= comment.post %>
-			<% end %></textarea>
-          	<a href="#" class="saveBtn">save</a>
-        </div>
-
-        <p class="slideBtn">▼</p> 
- 
-
-</section> <!-- END BOX -->
-	
-<section class="contentBox"><!-- Box -->	
-
-	<h2>State</h2>
-
-	<h3><%= Position.find_by_name("State Senate").name %></h3>
-	<ul class="candidates">
-		   <% @candidatelist.each do |candidate| %>
-		   <% if "2012-11-06" == candidate["electionDate"] %>
-		   <% if "State Senate" == candidate["electionOffice"] %>
-		   <li><span class="dot">&nbsp;</span>
-		   <%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %><span class="party"><span class="district">State Senate District <%= candidate["electionDistrictName"] %>, </span><%= candidate["electionParties"] %></span> 
-				</li>
-		   </li>
-		   <% end %>
-		   <% end %>
-		   <% end %>
-		</ul>
-
-		<div class="slideContent"> 
-         	<textarea class="comments">Comment here</textarea>
-          	<a href="#" class="saveBtn">save</a>
-        </div>
-
-        <p class="slideBtn">▼</p> 
- 
-	
-	<h3><%= Position.find_by_name("State House").name %></h3>
-	<ul class="candidates">
-		  <% @candidatelist.each do |candidate| %>
-		  <% if "2012-11-06" == candidate["electionDate"] %>
-		  <% if "State House" == candidate["electionOffice"] %>
-		  <li><span class="dot">&nbsp;</span>
-		  <%= link_to "#{candidate['ballotName']}", candidatebio_url(:candidate_id => "#{candidate['candidateId']}") %><span class="party"><span class="district">State House District <%= candidate["electionDistrictName"] %>, </span><%= candidate["electionParties"] %></span> 
-				</li>
-		  </li>
-		  <% end %>
-		  <% end %>
-		  <% end %>
-	</ul>
-	<div class="slideContent"> 
-
-		<textarea class="comments">Comment here</textarea>
-		<a href="#" class="saveBtn">save</a>
-	</div>
-
-	<p class="slideBtn">▼</p> 
-		
-</section> <!-- End Box -->
-
-<section class="contentBox"> <!-- Box -->	
-
-	<h2>County</h2>
-	
-	<h3><%= Position.find_by_name("Metropolitan Water Reclamation District Commissioners").name %></h3>
-		<h4><%= Position.find_by_name("Metropolitan Water Reclamation District Commissioners").note %></h4>
-			<ul class="multi">
-				<li><span class="multi-dot">&nbsp;</span>Debra Shore <span class="party">Democratic</span></li>
-				<li><span class="multi-dot">&nbsp;</span>Kari K. Steele <span class="party">Democratic</span></li>
-				<li><span class="multi-dot">&nbsp;</span>Patrick Daley Thompson <span class="party">Democratic</span></li>
-				<li><span class="multi-dot">&nbsp;</span>Harold "Noonie" Ward <span class="party">Republican</span></li>
-				<li><span class="multi-dot">&nbsp;</span>Carl Segvich <span class="party">Republican</span></li>
-				<li><span class="multi-dot">&nbsp;</span>Dave Ehrlich <span class="party">Green</span></li>
-				<li><span class="multi-dot">&nbsp;</span>Karen Roothaan <span class="party">Green</span></li>
-				<li><span class="multi-dot">&nbsp;</span>Nasrin R. Khalili <span class="party">Green</span></li>
-			</ul>
-
-	<div class="slideContent"> 
-		<textarea class="comments">Comment here</textarea>
-		<a href="#" class="saveBtn">save</a>
-	</div>
-
-	<p class="slideBtn">▼</p> 
-
-	<h3><%= Position.find_by_name("Clerk of the Circuit Court").name %></h3>
-			<ul class="candidates">
-				<li><span class="dot">&nbsp;</span>Dorothy A. Brown <span class="party">Democratic</span></li>
-				<li><span class="dot">&nbsp;</span>Diane S. Shapiro <span class="party">Republican</span></li>
-			</ul>
-
-	<div class="slideContent"> 
-		<textarea class="comments">
-			<% if Position.find_by_name("Clerk of the Circuit Court").comments %>
-					<% Position.find_by_name("Clerk of the Circuit Court").comments.each do |comment| %>
-					<%= comment.post %>
-					<% end %>
-			<% else %>
-				<%= render 'comments/form'%>
-			<% end %>
-			
-		</textarea>
-		<a href="#" class="saveBtn">save</a>
-	</div>
-		
-	<p class="slideBtn">▼</p> 
-
-	<h3><%= Position.find_by_name("Recorder").name %></h3>
-		<ul class="candidates">
-			<li><span class="dot">&nbsp;</span>Karen A. Yarbrough <span class="party">Democratic</span></li>
-			<li><span class="dot">&nbsp;</span>Sherri Griffith <span class="party">Republican</span></li>
-		</ul>
-
-	<div class="slideContent"> 
-		<textarea class="comments">Comment here</textarea>
-		<a href="#" class="saveBtn">save</a>
-	</div>
-
-	<p class="slideBtn">▼</p> 
-
-<!-- 	<h3><%= Position.find_by_name("Recorder").name %></h3>
-		<ul class="candidates">
-			<li>Karen A. Yarbrough <span class="party">Democratic</span></li>
-			<li>Sherri Griffith <span class="party">Republican</span></li>
-		</ul>
-
-	<div class="slideContent"> 
-		<textarea class="comments">Comment here</textarea>
-		<a href="#" class="saveBtn">save</a>
-	</div>
-
-	<p class="slideBtn">▼</p>  -->
-
-	<h3><%= Position.find_by_name("State's Attorney").name %></h3>
- 	
- 	<ul class="candidates">
- 		<li><span class="dot">&nbsp;</span>Anita Alvarez <span class="party">Democratic</span></li>
- 		<li><span class="dot">&nbsp;</span>Lori S. Yokoyama <span class="party">Republican</span></li>
- 	</ul>
-
- 	<div class="slideContent"> 
-		<textarea class="comments">Comment here</textarea>
-		<a href="#" class="saveBtn">save</a>
-	</div>
-
-	<p class="slideBtn">▼</p> 
+<!-- Section Two Starts -->	
 </section> <!-- End Box -->
 
 </div> <!-- End Col 1 -->
@@ -271,140 +446,500 @@
 <section class="contentBox"> <!-- Box -->	
 
 	<h2>Judicial</h2>
-	
-	<h3><%= Position.find_by_name("Judge, Illinois Supreme Court (Vacancy of Fitzgerald)").name %></h3>
-
-	<ul class="candidates">
+<!-- Judge, Illinois Supreme Court (Vacany of Fitzgerald) -->
+	<% position = Position.find_by_name("Judge, Illinois Supreme Court (Vacancy of Fitzgerald)") %>
+	<h3><%= position.name %></h3>
+		<ul class="candidates">
 			<li><span class="dot">&nbsp;</span>Mary Jane Theis <span class="party">Democratic</span></li>
 			<li><span class="dot">&nbsp;</span>James Gerard Riley <span class="party">Republican</span></li>
-	</ul>
+		</ul>
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
+		<div class="slideContent"> 
+			<%= form_for(@comment, :remote => true) do |f| %>
+			  <% if @comment.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+			
+			      <ul>
+			      <% @comment.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			   <!-- <a href="#" class="saveBtn">save</a> --> 
+			  <div class="actions">
+			    <%= f.submit %>
+		      </div>
 
-	 <div class="slideContent"> 
-		<textarea class="comments">Comment here</textarea>
-		<a href="#" class="saveBtn">save</a>
-	</div>
+			  <div class="field">
+			  	
+			    <%= f.label "Who Are You Thinking?" %><br />
+			    <%= f.text_area :post %>
+			    <%= f.hidden_field :position_id, :value => position.id %>
+			    <%= f.hidden_field :user_id, :value => session[:id] %>
+			
+			  </div>
+			  <% end %> 
+   		</div>
+		<p class="slideBtn">▼</p> 
 
-	<p class="slideBtn">▼</p> 
-
-	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Stralka)").name %></h3>
+<!-- Judge, Cook County Judicial Circuit (Vacancy of Stralka) -->
+	<% position = Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Stralka)") %>
+	<h3><%= position.name %></h3>
 	<ul class="candidates">
 		<li><span class="dot">&nbsp;</span>Michael Tully Mullen <span class="party">Democratic</span></li>
 	</ul>
 
-	<div class="slideContent"> 
-		<textarea class="comments">Comment here</textarea>
-		<a href="#" class="saveBtn">save</a>
-	</div>
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
+		<div class="slideContent"> 
+			<%= form_for(@comment, :remote => true) do |f| %>
+			  <% if @comment.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+			
+			      <ul>
+			      <% @comment.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			   <!-- <a href="#" class="saveBtn">save</a> --> 
+			  <div class="actions">
+			    <%= f.submit %>
+		      </div>
 
-	<p class="slideBtn">▼</p> 
+			  <div class="field">
+			  	
+			    <%= f.label "Who Are You Thinking?" %><br />
+			    <%= f.text_area :post %>
+			    <%= f.hidden_field :position_id, :value => position.id %>
+			    <%= f.hidden_field :user_id, :value => session[:id] %>
+			
+			  </div>
+			  <% end %> 
+   		</div>
+		<p class="slideBtn">▼</p> 
 
-	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Ward)").name %></h3>
+<!-- Judge, Cook County Judicial Circuit (Vacancy of Ward) -->
+	<% position = Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Ward)") %>
+	<h3><%= position.name %></h3>
 	<ul class="candidates">
 		<li><span class="dot">&nbsp;</span>Elizabeth Mary Hayes <span class="party">Democratic</span></li>
 	</ul>
 
-	<div class="slideContent"> 
-		<textarea class="comments">Comment here</textarea>
-		<a href="#" class="saveBtn">save</a>
-	</div>
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
+		<div class="slideContent"> 
+			<%= form_for(@comment, :remote => true) do |f| %>
+			  <% if @comment.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+			
+			      <ul>
+			      <% @comment.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			   <!-- <a href="#" class="saveBtn">save</a> --> 
+			  <div class="actions">
+			    <%= f.submit %>
+		      </div>
 
-	<p class="slideBtn">▼</p>
+			  <div class="field">
+			  	
+			    <%= f.label "Who Are You Thinking?" %><br />
+			    <%= f.text_area :post %>
+			    <%= f.hidden_field :position_id, :value => position.id %>
+			    <%= f.hidden_field :user_id, :value => session[:id] %>
+			
+			  </div>
+			  <% end %> 
+   		</div>
+		<p class="slideBtn">▼</p>
 
-	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Conlon)").name %></h3>
+<!-- Judge, Cook County Judicial Circuit (Vacancy of Conlon) -->
+	<% position = Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Conlon)") %>
+	<h3><%= position.name %></h3>
 	<ul class="candidates">
 		<li><span class="dot">&nbsp;</span>Karen Lynn O'Malley <span class="party">Democratic</span></li>
 	</ul>
 
-	<div class="slideContent"> 
-		<textarea class="comments">Comment here</textarea>
-		<a href="#" class="saveBtn">save</a>
-	</div>
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
+		<div class="slideContent"> 
+			<%= form_for(@comment, :remote => true) do |f| %>
+			  <% if @comment.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+			
+			      <ul>
+			      <% @comment.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			   <!-- <a href="#" class="saveBtn">save</a> --> 
+			  <div class="actions">
+			    <%= f.submit %>
+		      </div>
 
-	<p class="slideBtn">▼</p>
+			  <div class="field">
+			  	
+			    <%= f.label "Who Are You Thinking?" %><br />
+			    <%= f.text_area :post %>
+			    <%= f.hidden_field :position_id, :value => position.id %>
+			    <%= f.hidden_field :user_id, :value => session[:id] %>
+			
+			  </div>
+			  <% end %> 
+   		</div>
+		<p class="slideBtn">▼</p> 
 
-	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Jordan)").name %></h3>
+<!-- Judge, Cook County Judicial Circuit (Vacancy of Jordan) -->
+	<% position = Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Jordan)") %>
+	<h3><%= position.name %></h3>
 	<ul class="candidates">
 		<li><span class="dot">&nbsp;</span>Jean Prendergast Rooney <span class="party">Democratic</span></li>
 	</ul>
 
-	<div class="slideContent"> 
-		<textarea class="comments">Comment here</textarea>
-		<a href="#" class="saveBtn">save</a>
-	</div>
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
+		<div class="slideContent"> 
+			<%= form_for(@comment, :remote => true) do |f| %>
+			  <% if @comment.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+			
+			      <ul>
+			      <% @comment.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			   <!-- <a href="#" class="saveBtn">save</a> --> 
+			  <div class="actions">
+			    <%= f.submit %>
+		      </div>
 
-	<p class="slideBtn">▼</p>
+			  <div class="field">
+			  	
+			    <%= f.label "Who Are You Thinking?" %><br />
+			    <%= f.text_area :post %>
+			    <%= f.hidden_field :position_id, :value => position.id %>
+			    <%= f.hidden_field :user_id, :value => session[:id] %>
+			
+			  </div>
+			  <% end %> 
+   		</div>
+		<p class="slideBtn">▼</p>
 
-	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Kirie Kinnaird)").name %></h3>
+<!-- Judge, Cook County Judicial Circuit (Kirie Kinnaird) -->
+	<% position = Position.find_by_name("Judge, Cook County Judicial Circuit (Kirie Kinnaird)") %>
+	<h3><%= position.name %></h3>
 	<ul class="candidates">
 		<li><span class="dot">&nbsp;</span>Erica L. Reddick <span class="party">Democratic</span></li>
 	</ul>
 
-	<div class="slideContent"> 
-		<textarea class="comments">Comment here</textarea>
-		<a href="#" class="saveBtn">save</a>
-	</div>
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
+		<div class="slideContent"> 
+			<%= form_for(@comment, :remote => true) do |f| %>
+			  <% if @comment.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+			
+			      <ul>
+			      <% @comment.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			   <!-- <a href="#" class="saveBtn">save</a> --> 
+			  <div class="actions">
+			    <%= f.submit %>
+		      </div>
 
-	<p class="slideBtn">▼</p>
+			  <div class="field">
+			  	
+			    <%= f.label "Who Are You Thinking?" %><br />
+			    <%= f.text_area :post %>
+			    <%= f.hidden_field :position_id, :value => position.id %>
+			    <%= f.hidden_field :user_id, :value => session[:id] %>
+			
+			  </div>
+			  <% end %> 
+   		</div>
+		<p class="slideBtn">▼</p>
 
-	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Moran)").name %></h3>
+<!-- Judge, Cook County Judicial Circuit (Vacancy of Moran) -->
+	<% position = Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Moran)") %>
+	<h3><%= position.name %></h3>		
 	<ul class="candidates">
 		<li><span class="dot">&nbsp;</span>Russell L. Hartigan <span class="party">Democratic</span></li>
 	</ul>
 
-	<div class="slideContent"> 
-		<textarea class="comments">Comment here</textarea>
-		<a href="#" class="saveBtn">save</a>
-	</div>
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
+		<div class="slideContent"> 
+			<%= form_for(@comment, :remote => true) do |f| %>
+			  <% if @comment.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+			
+			      <ul>
+			      <% @comment.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			   <!-- <a href="#" class="saveBtn">save</a> --> 
+			  <div class="actions">
+			    <%= f.submit %>
+		      </div>
 
-	<p class="slideBtn">▼</p>
+			  <div class="field">
+			  	
+			    <%= f.label "Who Are You Thinking?" %><br />
+			    <%= f.text_area :post %>
+			    <%= f.hidden_field :position_id, :value => position.id %>
+			    <%= f.hidden_field :user_id, :value => session[:id] %>
+			
+			  </div>
+			  <% end %> 
+   		</div>
+		<p class="slideBtn">▼</p>
 
-	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of O'Brien, Jr.)").name %></h3>
+<!-- Judge, Cook County Judicial Circuit (Vacancy of O'Brien, Jr.) -->
+	<% position = Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of O'Brien, Jr.)") %>
+	<h3><%= position.name %></h3>
 	<ul class="candidates">
 		<li><span class="dot">&nbsp;</span>Cynthia Ramirez <span class="party">Democratic</span></li>
 	</ul>
 
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
 		<div class="slideContent"> 
-		<textarea class="comments">Comment here</textarea>
-		<a href="#" class="saveBtn">save</a>
-	</div>
+			<%= form_for(@comment, :remote => true) do |f| %>
+			  <% if @comment.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+			
+			      <ul>
+			      <% @comment.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			   <!-- <a href="#" class="saveBtn">save</a> --> 
+			  <div class="actions">
+			    <%= f.submit %>
+		      </div>
 
-	<p class="slideBtn">▼</p>
+			  <div class="field">
+			  	
+			    <%= f.label "Who Are You Thinking?" %><br />
+			    <%= f.text_area :post %>
+			    <%= f.hidden_field :position_id, :value => position.id %>
+			    <%= f.hidden_field :user_id, :value => session[:id] %>
+			
+			  </div>
+			  <% end %> 
+   		</div>
+		<p class="slideBtn">▼</p>
 
-	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of O'Mara Frossard)").name %></h3>
+<!-- Judge, Cook County Judicial Circuit (Vacancy of O'Mara Frossard) -->
+	<% position = Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of O'Mara Frossard)") %>
+	<h3><%= position.name %></h3>
 	<ul class="candidates">
 		<li><span class="dot">&nbsp;</span>Diann Karen Marsalek <span class="party">Democratic</span></li>
 	</ul>
 
-	<div class="slideContent"> 
-		<textarea class="comments">Comment here</textarea>
-		<a href="#" class="saveBtn">save</a>
-	</div>
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
+		<div class="slideContent"> 
+			<%= form_for(@comment, :remote => true) do |f| %>
+			  <% if @comment.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+			
+			      <ul>
+			      <% @comment.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			   <!-- <a href="#" class="saveBtn">save</a> --> 
+			  <div class="actions">
+			    <%= f.submit %>
+		      </div>
 
-	<p class="slideBtn">▼</p>
+			  <div class="field">
+			  	
+			    <%= f.label "Who Are You Thinking?" %><br />
+			    <%= f.text_area :post %>
+			    <%= f.hidden_field :position_id, :value => position.id %>
+			    <%= f.hidden_field :user_id, :value => session[:id] %>
+			
+			  </div>
+			  <% end %> 
+   		</div>
+		<p class="slideBtn">▼</p>
 
-	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Pucinski)").name %></h3>
+<!-- Judge, Cook County Judicial Circuit (Vacancy of Pucinski) -->
+	<% position = Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Pucinski)") %>
+	<h3><%= position.name %></h3>
 	<ul class="candidates">
 		<li>L<span class="dot">&nbsp;</span>orna Ellen Propes <span class="party">Democratic</span></li>
 	</ul>
 
-	<div class="slideContent"> 
-		<textarea class="comments">Comment here</textarea>
-		<a href="#" class="saveBtn">save</a>
-	</div>
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
+		<div class="slideContent"> 
+			<%= form_for(@comment, :remote => true) do |f| %>
+			  <% if @comment.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+			
+			      <ul>
+			      <% @comment.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			   <!-- <a href="#" class="saveBtn">save</a> --> 
+			  <div class="actions">
+			    <%= f.submit %>
+		      </div>
 
-	<p class="slideBtn">▼</p>
+			  <div class="field">
+			  	
+			    <%= f.label "Who Are You Thinking?" %><br />
+			    <%= f.text_area :post %>
+			    <%= f.hidden_field :position_id, :value => position.id %>
+			    <%= f.hidden_field :user_id, :value => session[:id] %>
+			
+			  </div>
+			  <% end %> 
+   		</div>
+		<p class="slideBtn">▼</p>
 
-	<h3><%= Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Simmons, Jr.)").name %></h3>
+<!-- Judge, Cook County Judicial Circuit (Vacancy of Simmons, Jr.) -->
+	<% position = Position.find_by_name("Judge, Cook County Judicial Circuit (Vacancy of Simmons, Jr.)") %>
+	<h3><%= position.name %></h3>	
 	<ul class="candidates">
 		<li><span class="dot">&nbsp;</span>Pamela M. Leeming <span class="party">Democratic</span></li>
 	</ul>
 
-	<div class="slideContent"> 
-		<textarea class="comments">Comment here</textarea>
-		<a href="#" class="saveBtn">save</a>
-	</div>
+<!-- Comment Box -->
+	<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
+		<div class="slideContent"> 
+			<%= form_for(@comment, :remote => true) do |f| %>
+			  <% if @comment.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+			
+			      <ul>
+			      <% @comment.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			   <!-- <a href="#" class="saveBtn">save</a> --> 
+			  <div class="actions">
+			    <%= f.submit %>
+		      </div>
 
-	<p class="slideBtn">▼</p>
+			  <div class="field">
+			  	
+			    <%= f.label "Who Are You Thinking?" %><br />
+			    <%= f.text_area :post %>
+			    <%= f.hidden_field :position_id, :value => position.id %>
+			    <%= f.hidden_field :user_id, :value => session[:id] %>
+			
+			  </div>
+			  <% end %> 
+   		</div>
+		<p class="slideBtn">▼</p>
 
 </section> <!-- End Box -->
 </div> <!-- End Col 2 -->
@@ -415,19 +950,55 @@
     <section class="contentBox">
       
       <h2>Judicial Retention</h2>
-      
-      <h3><%= Position.find_by_name("Appellate Court").name %></h3>
+
+<!-- Appellate Court -->
+      <% position = Position.find_by_name("Appellate Court") %>
+	  <h3><%= position.name %></h3>
       <ul class="candidatesYN">
         <li>James Fitzgerald Smith<ul class="choice"><li>Y</li><li>N</li></ul></li>
       </ul>
 
-      <div class="slideContent"> 
-        <textarea class="comments">Comment here</textarea>
-        <a href="#" class="saveBtn">save</a>
-      </div> 
-      <p class="slideBtn">▼</p> 
+<!-- Comment Box -->
+<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
+		<div class="slideContent"> 
+			<%= form_for(@comment, :remote => true) do |f| %>
+			  <% if @comment.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+			
+			      <ul>
+			      <% @comment.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			   <!-- <a href="#" class="saveBtn">save</a> --> 
+			  <div class="actions">
+			    <%= f.submit %>
+		      </div>
 
-	<h3><%= Position.find_by_name("Circuit Court").name %></h3>
+			  <div class="field">
+			  	
+			    <%= f.label "Who Are You Thinking?" %><br />
+			    <%= f.text_area :post %>
+			    <%= f.hidden_field :position_id, :value => position.id %>
+			    <%= f.hidden_field :user_id, :value => session[:id] %>
+			
+			  </div>
+			  <% end %> 
+   		</div>
+		<p class="slideBtn">▼</p>
+
+<!-- Circuit Court -->
+    <% position = Position.find_by_name("Circuit Court") %>
+	<h3><%= position.name %></h3>
       <ul class="candidatesYN">
         <li>Carole Kamin Bellows<ul class="choice"><li>Y</li><li>N</li></ul></li>
         <li>Kathy M. Flanagan<ul class="choice"><li>Y</li><li>N</li></ul></li>
@@ -488,14 +1059,47 @@
         <li>Diane M. Shelley<ul class="choice"><li>Y</li><li>N</li></ul></li>
       </ul>
 
-      <div class="slideContent"> 
-        <textarea class="comments">Comment here</textarea>
-        <a href="#" class="saveBtn">save</a>
-      </div> 
-      <p class="slideBtn">▼</p> 
+<% c = Comment.where("position_id" => "#{position.id}", "user_id" => "#{session[:id]}").last %>
+		<% if c %> 
+		   <% @comment = c %>
+		<% else %>
+		   <% @comment = Comment.new %>
+		<% end %> 	
+	
+		<div class="slideContent"> 
+			<%= form_for(@comment, :remote => true) do |f| %>
+			  <% if @comment.errors.any? %>
+			    <div id="error_explanation">
+			      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+			
+			      <ul>
+			      <% @comment.errors.full_messages.each do |msg| %>
+			        <li><%= msg %></li>
+			      <% end %>
+			      </ul>
+			    </div>
+			  <% end %>
+			   <!-- <a href="#" class="saveBtn">save</a> --> 
+			  <div class="actions">
+			    <%= f.submit %>
+		      </div>
+
+			  <div class="field">
+			  	
+			    <%= f.label "Who Are You Thinking?" %><br />
+			    <%= f.text_area :post %>
+			    <%= f.hidden_field :position_id, :value => position.id %>
+			    <%= f.hidden_field :user_id, :value => session[:id] %>
+			
+			  </div>
+			  <% end %> 
+   		</div>
+		<p class="slideBtn">▼</p> 
    
     </div>
  </section>
 </div><!--  End Col 3 -->
 
 </div> <!-- Closing wrapper -->
+
+
