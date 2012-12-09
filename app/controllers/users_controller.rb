@@ -113,11 +113,11 @@ class UsersController < ApplicationController
     end
   end
 
-def votes
-  $('ul.candidates li').click(function(){ $.ajax({
-  url: '/echo/html/',
-  type: 'PUT'}) }when any of the candidates are selected it will decrease the number of votes...
-end
+# def votes
+#   $('ul.candidates li').click(function(){ $.ajax({
+#   url: '/echo/html/',
+#   type: 'PUT'}) }when any of the candidates are selected it will decrease the number of votes...
+# end
 
 
 
