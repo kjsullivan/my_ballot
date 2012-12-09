@@ -41,11 +41,6 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(params[:comment])
-    @comment.user_id = session[:id] 
-    @comment.position_id = Position.where(:id => params[:id].to_i)
-
-    # how does it know position_id and user_id were nil..bc it knows it is waiting for these two fields because those are the labels in the comments model.
-    #whichever person is logged in, that is their comment
 
     respond_to do |format|
       if @comment.save

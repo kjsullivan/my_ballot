@@ -26,5 +26,6 @@ MyBallot::Application.routes.draw do
 
   get "/about" => 'Pages#about', :as => 'about'
 
+  get "/users/update_votes"  => 'Users#votes', :as => 'vote'
   
 end
