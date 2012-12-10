@@ -17,6 +17,13 @@ $(document).ready(function(){
 
   // select js
 
+  var voteCount = parseInt($('.number').text());
+
+  $(".dot").on("click", function(){
+    voteCount--;
+    $('.number').text(voteCount);
+  });
+
 
  $(".multi li").on("click", function(){
     $(this).toggleClass("selected");
