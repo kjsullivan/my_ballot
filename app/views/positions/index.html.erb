@@ -4,11 +4,11 @@
 <div class="col-single"> <!-- Single Col -->
 
     <!-- Box -->
-    <section class="contentBox">
+   
 
-<h1>Listing positions</h1>
+<h2 class="pageTitle">Positions</h2>
 
-<table>
+<!-- <table>
   <tr>
     <th>Name</th>
 	<th>Note</th>
@@ -32,8 +32,23 @@
 
   </tr>
 <% end %>
-</table>
+</table> -->
 
-</section>
+<% @positions.each do |position| %>
+  <section class="contentBox Positions">
+    <h1><%= position.name %></h1>
+    <p><%= position.note %></p>
+    <p><%= position.description %></p>
+      <% if admin %>
+      <%= link_to 'Show', position %>
+      <%= link_to 'Edit', edit_position_path(position) %>
+      <%= link_to 'Destroy', position, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+
+    <p>HELLO JELLO</p>
+  </section>
+<% end %>
+
+
 </div>
 </div>

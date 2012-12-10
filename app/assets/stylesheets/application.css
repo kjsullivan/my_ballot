@@ -99,6 +99,7 @@
 		background-color: #3380b8;
 	}
 
+
 	nav li, footer li {
 		display: inline-block;
 		color: white;
@@ -113,6 +114,13 @@
 		margin-right: 0;
 		padding-right: 0;
 		}
+
+	footer li.copyright {
+		background-image: none;
+		text-transform: none;
+		padding: 0 30px 0 0;
+	}
+
 
 	nav a, footer a {
 		color: white;
@@ -182,6 +190,12 @@
 	padding-top: 20px;
 	margin-bottom: 0;
 }
+
+.contentBox.Positions+.FindRegister {
+	margin-top: 40px;
+	margin-bottom: 15px;
+}
+
 /*LAYOUT END*/
 
 
@@ -201,12 +215,36 @@
 	margin: 0 auto 10px auto;
 }
 
+.contentBox.Positions {
+	margin-bottom: 25px;
+}
+
+.contentBox.Positions:last-child {
+	margin-bottom: 0;
+}
+
 input, .homeContentBox, .FindRegister, .pageTitle, .aboutLinks {
 	text-align: center;
 }
 
 .FindRegister {
 	margin: 60px 0 30px;
+}
+
+.contentBox.Positions+.FindRegister {
+	margin: 30px 0 20px 0;
+	padding-top: 40px;
+	border-top: 1px solid rgba(255, 255, 255, .9);
+	position: relative;
+}
+
+.contentBox.Positions+.FindRegister:before {
+  content:'';
+    position:absolute;
+    top:-2px;
+    left:0;
+    right:0;
+    border-top:1px solid rgba(0, 0, 0, .1);
 }
 
 .candidates,
@@ -236,7 +274,20 @@ input, .homeContentBox, .FindRegister, .pageTitle, .aboutLinks {
 	right: 0;
 }
 
+.plainBallot .candidates li,
+.plainBallot .multi li,
+.plainBallot .candidatesYN li {
+	padding-left: 0;
+}
 
+.plainBallot .candidates:last-child,
+.plainBallot .multi:last-child{
+	margin-bottom: -10px;
+}
+
+.plainBallot ul.candidatesYN:last-child{
+	margin-bottom: -10px;
+}
 
 /*TEXT BEGIN*/
 h1, h2, h3, h4, h5, b, strong {
@@ -253,6 +304,14 @@ h1, h2 {
 	color: #d2232a;
 	margin: 5px 0 20px 0;
 	}
+
+.contentBox.Positions h1 {
+	color: rgba(0, 0, 0, .75);
+}
+
+.contentBox.Positions.About h1 {
+	color: #d2232a;
+}
 
 h2 {
 	font-size: 24px;
@@ -281,6 +340,14 @@ h3 {
 	font-size: 19px;
 	position: relative;
 	}
+
+.teambio {
+	margin-bottom: 30px;
+}
+
+.teambio:last-child {
+	margin-bottom: 0;
+}
 
 h4, h5 {
 	font-size: 14px;
@@ -392,6 +459,21 @@ ul.error:after {
 		color: rgba(0, 0, 0, .75);
 	}
 
+	h3+p{
+		margin-top: 10px;
+	}
+
+	.contentBox p {
+		margin-bottom: 10px;
+	}
+
+	.contentBox p:last-child {
+		margin-bottom: 0px;
+	}
+
+
+
+
 /*TEXT END*/
 
 
@@ -486,7 +568,7 @@ ul.error:after {
 	padding-left: 135px;
 }
 
-.idphoto {
+.idphoto, .teamphoto {
 	display: block;
 	float: left;
 	margin: 0;
@@ -494,22 +576,26 @@ ul.error:after {
 	box-shadow: 2px 2px 1px rgba(255, 255, 255, .7);
 }
 
+
+.teamphoto {
+	margin: 0 15px 0 0;
+}
 	.voteCounter {
 		text-align: center;
 		font-weight: bold;
 	}
+
 
 /*PROFILE END*/
 
 /*COMMENT SLIDER BEGIN*/
 
 	.slideContent {
-		height: 225px;
 		display: none;
-		text-align: center;
 		}
 
-	input, .comments, .button {
+
+	input, .slideContent textarea, .button {
 		border-radius: 10px;
 		border: none;
 		box-shadow: inset 1px 1px 0px rgba(0, 0, 0, .05), 
@@ -522,12 +608,57 @@ ul.error:after {
 
 		/*text style for input for some browsers*/
 		font-family: 'Droid Sans', sans-serif;
-		color: rgba(0, 0, 0, .3);
+		color: rgba(0, 0, 0, .6);
 		/*line-height: 1em;*/
 		}
 
-	input, .comments {
+	.slideContent textarea {
+		width: 100%;
+		height: 180px;
+		margin: 0;
+		font-size: 14px;
+		margin: 15px 0 10px;
+	}	
+
+	.label {
+		display: block;
+		text-align: center;
+		padding-top: 12px;
+		font-size: 16px;
+		border-top: 1px solid rgba(0, 0, 0, .1);
+		position: relative;
+	}
+
+	.label:before {
+	content:'';
+    top: 0;
+    left:0;
+    right:0;
+    border-top: 1px solid rgba(255, 255, 255, .9);
+     position:absolute;
+
+    	}
+
+	.actions {
+		text-align: center;
+	}
+
+	.Commentsbutton {
+		background: transparent;
+		box-shadow: none;
 		padding: 0;
+		margin: 0 0 10px 0;
+		font-weight: bold;
+		color: #d2232a;
+		cursor: pointer;
+		font-size: 16px;
+	}
+
+	.Commentsbutton:hover {
+		color: #b90a11;
+	}
+
+	input, .slideContent textarea {
 		padding: 15px;
 
 	}
@@ -536,14 +667,6 @@ ul.error:after {
 		margin: 15px 8px;
 		font-size: 18px;
 	}
-
-	.comments {
-		width: 100%;
-		height: 180px;
-		margin: 0;
-		font-size: 14px;
-	}
-
 
 
 	.button {
@@ -562,13 +685,6 @@ ul.error:after {
 	.ZIPinput {
 		width: 60%;
 	}
-
-	.saveBtn {
-		display: block;
-		margin-top: 15px;
-		font-weight: bold;
-		color: #d2232a;
-		}
 	 
 	.slideBtn {
 		font-size: 14px;
@@ -580,6 +696,7 @@ ul.error:after {
 		padding: 0;
 		border-top:1px solid rgba(255, 255, 255, .9);
 	 	position: relative;
+	 	cursor: pointer;
 		}
 
 	.slideBtn:last-of-type {
@@ -680,16 +797,76 @@ ul.error:after {
 		.candidates li, .candidatesYN li, .multi li {
 		line-height: 120%;
 		margin-bottom: 8px;
+		}
+}
 
+@media all and (min-width: 1250px) {
+		/*profile*/
+
+	.profileContent {
+		overflow: hidden;
 	}
 
-/*		.selected {
-		padding-bottom: 8px;
-		padding-right: 10px;
-		padding-top: 8px;
-		margin-top: 8px;
-	}*/
+	.person {
+		float: left;
+		width: 42%;
+		padding-right: 25px;
+		border-right: 1px dashed rgba(0, 0, 0, .1);
+		margin-bottom: -1000px;
+		padding-bottom: 1000px;
+		}
+
+	.voteCounter {
+		float: left;
+		width: 16%;
+		padding: 0 25px;
+		margin-bottom: -1000px;
+		padding-bottom: 1000px;
+		}
+
+	.calendar {
+		float: right;
+		width: 42%;
+		padding-left: 25px;
+		border-left: 1px dashed rgba(0, 0, 0, .1);
+		margin-bottom: -1000px;
+		padding-bottom: 1000px;
+		}
+}
+@media all and (min-width: 990px) and (max-width: 1250px) {
+	/*profile*/
+
+	.profileContent {
+		overflow: hidden;
 	}
+
+	.person {
+		float: left;
+		width: 40%;
+		padding-right: 25px;
+		border-right: 1px dashed rgba(0, 0, 0, .1);
+		margin-bottom: -1000px;
+		padding-bottom: 1000px;
+		}
+
+	.voteCounter {
+		float: left;
+		width: 20%;
+		padding: 0 25px;
+		margin-bottom: -1000px;
+		padding-bottom: 1000px;
+		}
+
+	.calendar {
+		float: right;
+		width: 40%;
+		padding-left: 25px;
+		border-left: 1px dashed rgba(0, 0, 0, .1);
+		margin-bottom: -1000px;
+		padding-bottom: 1000px;
+		}
+
+}
 
 @media all and (min-width: 990px) {
 	
@@ -724,39 +901,6 @@ ul.error:after {
 	  	padding: 50px 25px 25px 25px;
 		}
 
-	/*profile*/
-
-	.profileContent {
-		overflow: hidden;
-	}
-
-	.person {
-		float: left;
-		width: 45%;
-		padding-right: 25px;
-		border-right: 1px dashed rgba(0, 0, 0, .1);
-		margin-bottom: -1000px;
-		padding-bottom: 1000px;
-		}
-
-	.voteCounter {
-		float: left;
-		width: 20%;
-		padding: 0 25px;
-		margin-bottom: -1000px;
-		padding-bottom: 1000px;
-		}
-
-	.calendar {
-		float: right;
-		width: 35%;
-		padding-left: 25px;
-		border-left: 1px dashed rgba(0, 0, 0, .1);
-		margin-bottom: -1000px;
-		padding-bottom: 1000px;
-		}
-
-
 
 	}
 
@@ -773,6 +917,9 @@ ul.error:after {
 		margin-bottom: 0;
 		}
 
+	.contentBox.Positions {
+		margin-bottom: 25px;
+	}
 
 	}
 
@@ -794,12 +941,20 @@ ul.error:after {
 		border-left: 1px dashed rgba(0, 0, 0, .1);
 		margin-left: 25px;
 		float: right;
+		margin-bottom: -1000px;
+		padding-bottom: 1000px;
 		}
 
 	.calendar {
-		padding-right: 25px;
-		
+		float: left;	
+		margin-bottom: -1000px;
+		padding-bottom: 1000px;	
 		}
+
+	.profileContent {
+		overflow: hidden;
+	}
+
 }
 
 
@@ -840,6 +995,12 @@ ul.error:after {
 		padding: 75px 20px 20px 20px;
 		}
 
+	.contentBox.Positions {
+		margin-bottom: 20px;
+	}
+
+
+
 	/*logo*/
 	.logo {
 		width: 90%;
@@ -848,6 +1009,14 @@ ul.error:after {
 
 
 	}
+
+@media all and (max-width: 560px) and (min-width: 500px) {
+
+	.calendar {
+		width: 62%;
+	}
+
+}
 
 @media all and (max-width: 530px) {
 
@@ -858,6 +1027,11 @@ ul.error:after {
 
  	 .FindRegister {
  	 	margin: 35px 0 0 0;
+ 	 }
+
+ 	 .contentBox.Positions+.FindRegister {
+ 	 	padding-top: 10px;
+ 	 	margin-top: 30px;
  	 }
 
  	 .FindRegister .button {
@@ -938,9 +1112,13 @@ ul.error:after {
 		padding-left: 0;
 	}
 
+	.person-info.team {
+		padding-left: 135px;
+	}
+
 	.person {
-		margin-bottom: 0;
-		border-bottom: none;
+		padding: 0 15px 0 0;
+		margin: 0;
 	}
 
 	.voteCounter {
@@ -948,10 +1126,8 @@ ul.error:after {
 		padding: 0;
 		margin: 0;
 		border-left: none;
-/*		background: rgba(255, 255, 255, .7);
-*/		border-top: 1px dashed rgba(0, 0, 0, .1);
-		border-bottom: 1px dashed rgba(0, 0, 0, .1);
-		padding: 15px 15px 15px 20px;
+		border-top: 1px dashed rgba(0, 0, 0, .1);
+		padding: 15px 15px 0 20px;
 		text-align: left;
 	}
 
@@ -979,13 +1155,14 @@ ul.error:after {
 		font-size: 22px;
 	}
 
-	.calendar, .person {
-		padding: 0 15px 0 0;
+	.calendar {
+		float: none;
+		padding: 0 15px 15px 0;
 		margin: 0;
 	}
 
 	.calendar ul {
-		margin: 20px 0 0 20px;
+		margin: 20px 0 5px 20px;
 	}
 
 	.person ul {
@@ -1070,14 +1247,26 @@ ul.error:after {
 	padding-left: 18px;
 }
 
-.grid-pad {
+.grid-pad, .grid-single-pad {
   	padding-left: 15px;
   	padding-right: 15px;
 	}
 
-.contentBox {
+.contentBox, .contentBox.Positions {
 	margin-bottom: 15px;
 }
+
+.contentBox:last-child, .contentBox.Positions:last-child {
+	margin-bottom: 0;
+}
+
+/*.contentBox {
+	margin-bottom: 15px;
+}
+
+.contentBox.Positions {
+	margin-bottom: 15px;
+}*/
 
 	.choice li {
 		width: 18px;
@@ -1098,20 +1287,20 @@ ul.error:after {
 
 }
 
-@media all and (max-width: 375px){
+@media all and (max-width: 400px){
 		nav li, footer li {
 		background: none;
 	}
 
-	nav li {
-				padding: 10px 20px;
+	nav li, footer li, footer li.copyright {
+				padding: 10px 15px;
 
 	}
-	nav li:first-child {
+	nav li:first-child, footer li.copyright {
 		padding-left: 0;
 	}
 
-	nav li:last-child {
+	nav li:last-child, footer li:last-child {
 		padding-right: 0;
 	}
 }
