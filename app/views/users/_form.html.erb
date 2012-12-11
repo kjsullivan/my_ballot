@@ -12,34 +12,34 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :first_name %><br />
+    <%= f.label :first_name, "First Name" %><br />
     <%= f.text_field :first_name, :class => "textinput" %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
+    <%= f.label :last_name, "Last Name" %><br />
     <%= f.text_field :last_name, :class => "textinput" %>
   </div>
   <div class="field">
-    <%= f.label :zipcode %><br />
+    <%= f.label :zipcode, "ZIP Code" %><br />
     <%= f.text_field :zipcode, :class => "textinput" %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :description, "About Me" %><br />
     <%= f.text_area :description, :class => "comments" %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, "Email" %><br />
     <%= f.text_field :email, :class => "textinput" %>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :password, "Password" %><br />
     <%= f.password_field :password, :class => "textinput" %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, "Confirm Password" %><br />
     <%= f.password_field :password_confirmation, :class => "textinput" %>
   </div>
   <div class="actions">
-    <%= f.submit "Create Account", :class => "button" %>
+    <%= f.submit :class => "button" %>
   </div>
 <% end %>
