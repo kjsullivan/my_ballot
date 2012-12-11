@@ -14,9 +14,9 @@
 			<ul>
 				<li><b>Email:</b> <%= @user.email %></li>
 				<li><b>ZIP Code:</b> <%= @user.zipcode %></li>
-				<li><b>Description:</b> <%= @user.description %></li>
-				<li><%= link_to 'Edit', edit_user_path(@user) %> |
-			<%= link_to 'Back', users_path %></li>
+				<li><b>Bio:</b> <%= @user.description %></li>
+				<li><%= link_to 'Edit Profile', edit_user_path(@user) %> |
+			<span class="thing"><a href="#">View Instructions</a></span></li>
 			</ul>
 	</section> <!-- Close person-info -->
 	</section> <!-- Close person -->
@@ -24,9 +24,12 @@
 	<section class="calendar">
 		<h3>Calendar</h3>
 			<ul>
-				<% @elections.each do |election|%>
-				<li><b><%= election["name"]  %></b></li>
-				<% end %>
+				<li><strong>Military and Overseas Absentee Ballot applications due:</strong> October 29, 2012</li>
+				<li><strong>Absentee Ballot applications due:</strong> November 1, 2012</li>
+				<li><strong>Grace Period Voter Registration:</strong> Through November 3, 2012</li>
+				<li><strong>Early Voting:</strong> Through November 3, 2012</li>
+				<li><strong>Absentee Ballots postmarked:</strong> By November 5, 2012</li>
+				<li><strong>General Election Day:</strong> November 6, 2012</li>
 			</ul>
 	</section> <!-- Close calendar -->
 
@@ -39,6 +42,14 @@
 </div> <!-- Close profileContent, clearfix -->
 </div> <!-- Close profile -->
 
+<section class="directionsBox">
+	<h2>How to use MyBallot<span class="exit">x</span></h2>
+	<p>Welcome to MyBallot! Here's what will be on your ballot for the next election.</p>
+	<p><strong>Read</strong> about the candidates in the federal and state races by clicking on their names. If you'd like to learn more about the candidates and positions up for election or have questions about voting procedure, visit our <a href="/resources">Resources page</a>.</p>
+	<p>To <strong>save your vote</strong> for each position, click on the dot by your preferred candidate or select yes or no on judicial retention. As you cast your votes, the counter at the top of the page will let you know how many decisions remain on your ballot.</p>
+	<p>You can also <strong>take notes</strong> on each office by clicking on the red triangle below the candidates to reveal a comment panel.</p>
+
+</section>
 
 <div class="col-1-3"> <!-- Col 1 -->
 
@@ -937,7 +948,7 @@
       <% position = Position.find_by_name("Appellate Court") %>
 	  <h3><%= position.name %></h3>
       <ul class="candidatesYN">
-        <li>James Fitzgerald Smith<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>James Fitzgerald Smith<ul class="choice script"><li>Y</li><li>N</li></ul></li>
       </ul>
 
 <!-- Comment Box -->
@@ -980,63 +991,63 @@
     <% position = Position.find_by_name("Circuit Court") %>
 	<h3><%= position.name %></h3>
       <ul class="candidatesYN">
-        <li>Carole Kamin Bellows<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Kathy M. Flanagan<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Moshe Jacobius<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Stuart F. Lubin<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Marvin P. Luckman<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Raymond Funderburk<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Stuart E. Palmer<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Martin S. Agran<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Patricia Banks<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Ronald F. Bartkowicz<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Robert Lopez Cepero<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Garritt E. Howard<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Joseph G. Kazmierski, Jr.<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>E. Kenneth Wright, Jr.<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Cynthia Brim<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Rodney Hughes Brooks<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Maureen Elizabeth Connors<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Christopher Donnelly<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>James D. Egan<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Catherine Marie Haberkorn<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Lisa Ruble Murphy<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Marya Nega<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Lee Preston<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Drella C. Savage<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>James M. Varga<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Richard F. Walsh<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Camille E. Willis<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Marcia Maras<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Peter Flynn<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Paul A. Karkula<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>P. Scott Neville, Jr.<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Maura Slattery Boyle<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Mary Margaret Brosnahan<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Matthew E. Coghlan<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Loretta Eadie-Daniels<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Joyce Marie Murphy Gorman<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Joan Margaret O'Brien<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Thomas David Roti<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Colleen F. Sheehan<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Pamela E. Hill-Veal<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Orville E. Hambright<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Michael J. Howlett, Jr.<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Carl Anthony Walker<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Daniel Patrick Brennan<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Gloria Chevere<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Grace G. Dickler<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Ellen L. Flannigan<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Carol M. Howard<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Jill C. Marisie<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>James Michael McGing<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Mike McHale<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>James Patrick Murphy<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Thomas W. Murphy<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Patrick W. "Pat" O'Brien<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Ramon Ocasio III<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Mary Colleen Roberts<ul class="choice"><li>Y</li><li>N</li></ul></li>
-        <li>Diane M. Shelley<ul class="choice"><li>Y</li><li>N</li></ul></li>
+        <li>Carole Kamin Bellows<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Kathy M. Flanagan<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Moshe Jacobius<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Stuart F. Lubin<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Marvin P. Luckman<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Raymond Funderburk<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Stuart E. Palmer<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Martin S. Agran<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Patricia Banks<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Ronald F. Bartkowicz<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Robert Lopez Cepero<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Garritt E. Howard<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Joseph G. Kazmierski, Jr.<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>E. Kenneth Wright, Jr.<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Cynthia Brim<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Rodney Hughes Brooks<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Maureen Elizabeth Connors<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Christopher Donnelly<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>James D. Egan<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Catherine Marie Haberkorn<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Lisa Ruble Murphy<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Marya Nega<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Lee Preston<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Drella C. Savage<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>James M. Varga<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Richard F. Walsh<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Camille E. Willis<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Marcia Maras<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Peter Flynn<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Paul A. Karkula<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>P. Scott Neville, Jr.<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Maura Slattery Boyle<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Mary Margaret Brosnahan<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Matthew E. Coghlan<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Loretta Eadie-Daniels<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Joyce Marie Murphy Gorman<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Joan Margaret O'Brien<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Thomas David Roti<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Colleen F. Sheehan<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Pamela E. Hill-Veal<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Orville E. Hambright<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Michael J. Howlett, Jr.<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Carl Anthony Walker<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Daniel Patrick Brennan<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Gloria Chevere<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Grace G. Dickler<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Ellen L. Flannigan<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Carol M. Howard<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Jill C. Marisie<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>James Michael McGing<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Mike McHale<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>James Patrick Murphy<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Thomas W. Murphy<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Patrick W. "Pat" O'Brien<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Ramon Ocasio III<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Mary Colleen Roberts<ul class="choice script"><li>Y</li><li>N</li></ul></li>
+        <li>Diane M. Shelley<ul class="choice script"><li>Y</li><li>N</li></ul></li>
       </ul>
 
 <!-- Comment Box -->

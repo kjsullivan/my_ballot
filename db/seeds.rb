@@ -7,7 +7,7 @@
         {:name => "U.S. House"},
         {:name => "State Senate"},
         {:name => "State House"},
-        {:name => "Metropolitan Water Reclamation District Commissioners", :note => "Vote for up to three candidates (6-year term)"},
+        {:name => "Metropolitan Water Reclamation District Commissioners", :note => "Vote for up to three candidates", :description => "6-year term"},
         {:name => "Clerk of the Circuit Court" },
         {:name => "Recorder"},
         {:name => "State's Attorney"},
@@ -22,8 +22,8 @@
         {:name => "Judge, Cook County Judicial Circuit (Vacancy of O'Mara Frossard)"},
         {:name => "Judge, Cook County Judicial Circuit (Vacancy of Pucinski)"},
         {:name => "Judge, Cook County Judicial Circuit (Vacancy of Simmons, Jr.)"},
-        {:name => "Appellate Court"},
-        {:name => "Circuit Court"}
+        {:name => "Appellate Court", :note => "Vote yes or no for each Judge"},
+        {:name => "Circuit Court", :note => "Vote yes or no for each Judge"}
   ]
   
   Position.create positions
