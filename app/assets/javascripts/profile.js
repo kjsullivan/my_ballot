@@ -43,9 +43,19 @@ $(document).ready(function(){
     $(this).parent().toggleClass("selected");
   });
 
-   $(".choice li").on("click", function(){
+   $(".choice.script li").on("click", function(){
     $(this).siblings().removeClass('YNselected');
     $(this).toggleClass("YNselected");
+  });
+
+     //directions box close
+
+  $(".exit").on("click", function(){
+    $(".directionsBox").hide();
+  });
+
+  $(".thing").on("click", function (){
+    $(".directionsBox").show();
   });
 
 
@@ -87,6 +97,9 @@ enquire.register("screen and (min-width:500px)", {
         $(".person h3").off("click");
       }
   }).listen();
+
+
+
 	 
 });
 
