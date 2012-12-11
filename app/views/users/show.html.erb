@@ -14,7 +14,7 @@
 			<ul>
 				<li><b>Email:</b> <%= @user.email %></li>
 				<li><b>ZIP Code:</b> <%= @user.zipcode %></li>
-				<li><b>Description:</b> <%= @user.description %></li>
+				<li><b>Bio:</b> <%= @user.description %></li>
 				<li><%= link_to 'Edit Profile', edit_user_path(@user) %> |
 			<span class="thing"><a href="#">View Instructions</a></span></li>
 			</ul>
@@ -24,9 +24,12 @@
 	<section class="calendar">
 		<h3>Calendar</h3>
 			<ul>
-				<% @elections.each do |election|%>
-				<li><b><%= election["name"]  %></b></li>
-				<% end %>
+				<li><strong>Military and Overseas Absentee Ballot applications due:</strong> October 29, 2012</li>
+				<li><strong>Absentee Ballot applications due:</strong> November 1, 2012</li>
+				<li><strong>Grace Period Voter Registration:</strong> Through November 3, 2012</li>
+				<li><strong>Early Voting:</strong> Through November 3, 2012</li>
+				<li><strong>Absentee Ballots postmarked:</strong> By November 5, 2012</li>
+				<li><strong>General Election Day:</strong> November 6, 2012</li>
 			</ul>
 	</section> <!-- Close calendar -->
 
@@ -41,10 +44,10 @@
 
 <section class="directionsBox">
 	<h2>How to use MyBallot<span class="exit">x</span></h2>
-	<p>Faworki icing sweet candy bonbon chocolate candy chocolate bar oat cake. Chocolate cotton candy sugar plum.</p>
-	<p>Carrot cake cake oat cake cotton candy. Applicake biscuit pie sugar plum. Faworki fruitcake tart.</p>
-	<p>Pastry jujubes sesame snaps chocolate cake faworki liquorice soufflé brownie. Gummi bears halvah chocolate bar cotton candy cheesecake tootsie roll brownie dessert jelly. Tiramisu applicake topping chocolate bar wypas tiramisu bear claw cheesecake jelly-o.
-Gummi bears dragée candy canes icing sweet cookie toffee ice cream. </p>
+	<p>Welcome to MyBallot! Here's what will be on your ballot for the next election.</p>
+	<p><strong>Read</strong> about the candidates in the federal and state races by clicking on their names. If you'd like to learn more about the candidates and positions up for election or have questions about voting procedure, visit our <a href="/resources">Resources page</a>.</p>
+	<p>To <strong>save your vote</strong> for each position, click on the dot by your preferred candidate or select yes or no on judicial retention. As you cast your votes, the counter at the top of the page will let you know how many decisions remain on your ballot.</p>
+	<p>You can also <strong>take notes</strong> on each office by clicking on the red triangle below the candidates to reveal a comment panel.</p>
 
 </section>
 
