@@ -35,17 +35,107 @@
 </table> -->
 
 <% @positions.each do |position| %>
-  <section class="contentBox Positions">
+<!--   <section class="contentBox Positions">
     <h1><%= position.name %></h1>
     <p><%= position.note %></p>
-    <p><%= position.description %></p>
+    <p><%= position.description %></p> -->
       <% if admin %>
       <%= link_to 'Show', position %>
       <%= link_to 'Edit', edit_position_path(position) %>
       <%= link_to 'Destroy', position, method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
-  </section>
+  <!-- </section> -->
 <% end %>
+
+<section class="contentBox Positions">
+  <h1>President</h1>
+
+<p>The President of the United States of America (POTUS) iis the head of state and head of government of the United States. The president leads the executive branch of the federal government and is the commander-in-chief of the United States Armed Forces.</p>
+
+<p>The president is indirectly elected by the people through the Electoral College to a four-year term, and is one of only two nationally elected federal officers, the other being the Vice President of the United States. The Twenty-second Amendment, adopted in 1951, prohibits anyone from ever being elected to the presidency for a third full term.</p>
+
+<p class="source">Sources: <a href="http://en.wikipedia.org/wiki/President_of_the_United_States">Wikipedia</a></p>
+</section>
+
+
+<section class="contentBox Positions">
+  <h1>United States House of Representatives</h1>
+
+ <p>The House is one of Congress’s two chambers (the other is the U.S. Senate), and part of the federal government’s legislative branch. The House has several exclusive powers: the power to initiate revenue bills, to impeach officials, and to elect the U.S. President in case there is no majority in the Electoral College.</p>
+
+<p>The number of voting representatives in the House is fixed by law at no more than 435, proportionally representing the population of the 50 states. Illinois has 18 congressional districts; all 18 seats are up for election this year.</p> 
+
+<p>Each representative is elected to a two-year term serving the people of a specific congressional district. Among other duties, representatives introduce bills and resolutions, offer amendments and serve on committees.  Each representative must  be at least twenty-five years old; have been a citizen of the United States for the past seven years; and be (at the time of the election) an inhabitant of the state they represent. Members are not required to live in the district they represent, but they traditionally do. </p>
+
+<p class="source">Sources: <a href="http://en.wikipedia.org/wiki/United_States_House_of_Representatives">Wikipedia</a>, <a href="http://www.house.gov/content/learn/">U.S. House of Representatives official site</a>, <a href="http://ballotpedia.org/wiki/index.php/United_States_House_of_Representatives_elections_in_Illinois,_2012">Ballotpedia</a></p>
+</section>
+
+<section class="contentBox Positions">
+  <h1>Illinois State Senate</h1>
+
+<p>The Illlinois State Senate is the upper house of the Illinois General Assembly, the legislative branch of the government of the state ofIllinois. </p>
+
+<p>The Illinois Senate is made up of 59 senators elected from individual legislative districts determined by population. Under the Illinois Constitution of 1970, senators are divided into three groups, each group having a two-year term at a different part of the decade between censuses, with the rest of the decade being taken up by two four-year terms. Depending on the election year, roughly ⅓, ⅔, or all of the senate seats may have terms ending. Each member represents an average of 217,468 residents, as of the 2010 Census.</p>
+
+<p>To be eligible to serve as a member of the General Assembly, a person must be a United States citizen, at least 21 years old, and a resident of his or her district for the two years preceding his election or appointment.</p>
+
+
+<p class="source">Sources: <a href="http://ballotpedia.org/wiki/index.php/Illinois_State_Senate
+">Ballotpedia</a></p>
+</section>
+
+<section class="contentBox Positions">
+  <h1>Illinois House of Representatives</h1>
+
+<p>The Illinois House of Representatives is the lower house of the Illinois General Assembly, the state legislature of the U.S. state of Illinois. The state House of Representatives is made of 118 representatives elected from individual legislative districts for a two-year term with no limits. House districts are formed by dividing each Senate district in half. </p>
+
+<p>To be eligible to serve as a member of the General Assembly, a person must be a United States citizen, at least 21 years old, and a resident of his or her district for the two years preceding his election or appointment.</p>
+
+<p class="source">Sources: <a href="http://ballotpedia.org/wiki/index.php/Illinois_House_of_Representatives">Ballotpedia</a></p>
+</section>
+
+<section class="contentBox Positions">
+<h1>Metropolitan Water Reclamation District Commissioners</h1>
+
+<p>Metropolitan Water Reclamation District of Greater Chicago (MWRD) serves the City of Chicago and 125 suburban communities, and is primarily responsible for wastewater treatment and managing stormwater runoff and flooding, as well as other environmental issues affecting area waterways. It is the fifth largest governing body in the state of Illinois.</p>
+
+<p>The District's territory covers approximately 91% of land area of Cook County and serves an area of 883 square miles. The MWRD operates the largest wastewater treatment plant in the world and employs nearly 2,000 people; its budget is larger than the CTA’s. </p>
+
+<p>Although its name may imply otherwise, it is not a part of the City of Chicago's local government, but an independent agency of state government governed by a nine-member Board of Commissioners, elected at large for six-year terms. Terms are staggered so that three commission chairs are open every two years. MWRD commissioner terms are part-time positions paying $70,000 per year with health care and pension benefits. </p>
+
+<p class="source">Sources: <a href="http://en.wikipedia.org/wiki/Metropolitan_Water_Reclamation_District_of_Greater_Chicago">Wikipedia</a>; The Chicago Reader, “<a href="http://www.chicagoreader.com/Bleader/archives/2010/02/01/the-guardians-of-our-wastewater">The Guardians of Our Wastewater</a>“; Gapers Block, “<a href="http://gapersblock.com/mechanics/2012/10/31/metropolitan-water-reclamation-district/">The Bottom of the Ballot: Metropolitan Water Reclamation District</a>”</p>
+</section>
+
+<section class="contentBox Positions">
+<h1>Clerk of the Circuit Court</h1>
+
+<p>The Circuit Court of Cook County is the largest of the 22 circuits in Illinois as well as one of the largest unified court systems in the world. More than 2.4 million cases are filed every year. To accommodate its vast caseload, the Circuit Court of Cook County is organized into three functional departments: County, Municipal and Juvenile Justice and Child Protection.</p>
+
+<p>The Circuit Court Clerk is responsible for managing court records, including recording court decisions, making them accessible to the public, and handling fines and other transactions.</p>
+
+<p class="source">Sources: <a href="http://en.wikipedia.org/wiki/Circuit_Court_of_Cook_County">Wikipedia</a>; Gapers Block, “<a href="http://gapersblock.com/mechanics/2012/11/02/bottom-of-the-ballot-cook-county-offices/">The Bottom of the Ballot: Cook County Offices</a>"</p>
+
+</section>
+
+<section class="contentBox Positions">
+  <h1>Recorder</h1>
+
+<p>The Recorder of Deeds manages a publicly-accessible database of property deeds, mortgages, liens and other records, especially those relating to real estate ownership that provide persons other than the owner of a property with real rights over that property. The Office of the Recorder of Deeds creates public records of land transactions as well as federal and State tax liens, articles of incorporation, and Uniform Commercial Code fillings. </p>
+
+<p class="source">Sources: <a href="http://en.wikipedia.org/wiki/Recorder_of_deeds">Wikipedia</a>; Gapers Block, “<a href="http://gapersblock.com/mechanics/2012/11/02/bottom-of-the-ballot-cook-county-offices/">The Bottom of the Ballot: Cook County Offices</a>"; <a href="http://www.cookcountygov.com/portal/server.pt/community/recorder_of_deeds___registrar_of_titles/279/recorder_of_deeds___registrar_of_titles">Cook County official site </a></p>
+</section>
+
+<section class="contentBox Positions">
+  <h1>State’s Attorney</h1>
+
+<p>The State's Attorney heads up the office that prosecutes crimes committed in Cook County and serves as legal counsel for county agencies and officials.</p>
+
+<p>Cook County State's Attorney is second largest prosecutor's office in the United States. The office, which serves Cook County, Illinois, has nearly 900 attorneys and 1,600 employees, and has an annual operating budget of approximately $123 million for fiscal year 2011. </p>
+
+<p>In addition to direct criminal prosecution, the State’s Attorney’s Office files legal actions to enforce child support orders, protect consumers and the elderly from exploitation, and assist thousands of victims of domestic violence every year.  The Office is divided into seven bureaus: Criminal Prosecutions, Juvenile Justice, Narcotics, Special Prosecutions, Civil Actions, Investigations and Administrative Services.</p>
+
+<p class="source">Sources: <a href="http://en.wikipedia.org/wiki/Cook_County_State's_Attorney">Wikipedia</a>; Gapers Block, “<a href="http://gapersblock.com/mechanics/2012/11/02/bottom-of-the-ballot-cook-county-offices/">The Bottom of the Ballot: Cook County Offices</a>"; <a href="http://www.statesattorney.org/index2/about_the_office.html">Cook County State’s Attorney’s Office</a></p>
+</section>
 
 <section class="contentBox Positions">
 <h1>Judicial Elections</h1>
@@ -83,7 +173,7 @@
   <h1>Judicial Retention</h1>
   <p>Judges are elected for a specific term. Once that term expires, judges must run for retention in order to retain their positions. In order to remain on the bench for another term, they must receive at least 60% voter approval. All Cook County Circuit Court judges who are facing retention will be on the ballot in Chicago. Retention elections are non-partisan; existing judges do not campaign with the affiliation of either the Democratic or Republican Party. They may seek endorsements from individuals such as alderman or others, but they do not receive party endorsement. Judges running for retention must use their own money or raise money from individuals; they may not seek money from political parties.</p>
 
-<p class="source">Sources: <a href="http://www.voteforjudges.org">VoteForJudges.org</a>, Gapers Block; "<a href="http://gapersblock.com/mechanics/2012/10/30/judging-the-judges/">The Bottom of the Ballot: Judging the Judges</a>"</p>
+<p class="source">Sources: <a href="http://www.voteforjudges.org">VoteForJudges.org</a>; Gapers Block, "<a href="http://gapersblock.com/mechanics/2012/10/30/judging-the-judges/">The Bottom of the Ballot: Judging the Judges</a>"</p>
 </section>
 </div>
 </div>

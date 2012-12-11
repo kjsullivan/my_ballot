@@ -385,6 +385,10 @@ a {
 /*	margin-bottom: 10px;
 */	}
 
+.source {
+	line-height: 140%;
+}
+
 .judgeHeader {
 	font-weight: bold;
 	margin-top: 20px;
