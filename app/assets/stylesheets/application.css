@@ -377,13 +377,18 @@ a {
 /*	margin-bottom: 10px;
 */	}
 
-.district {
+.district, .source {
 	font-size: 12px;
 	font-style: italic;
 /*	font-weight: bold;
 */	display: inline block;
 /*	margin-bottom: 10px;
 */	}
+
+.judgeHeader {
+	font-weight: bold;
+	margin-top: 20px;
+}
 
 .error {
 	font-size: 16px;
@@ -1013,6 +1018,7 @@ ul.error:after {
 		}
 
 	.calendar {
+			width: 65%;
 		float: left;	
 		margin-bottom: -1000px;
 		padding-bottom: 1000px;	
@@ -1219,6 +1225,7 @@ ul.error:after {
 	}
 
 	.calendar {
+		width: 100%;
 		float: none;
 		padding: 0 15px 15px 0;
 		margin: 0;
