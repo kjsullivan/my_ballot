@@ -24,6 +24,15 @@ $(document).ready(function(){
     $('.number').text(voteCount);
   });
 
+  // $(".multidot").on("click", function(){
+  //   voteCount--;
+  //   $('.number').text(voteCount);
+  // });
+
+  $(".choice.script li").on("click", function(){
+    voteCount--;
+    $('.number').text(voteCount);
+  });
 
  $(".multi li").on("click", function(){
     $(this).toggleClass("selected");
