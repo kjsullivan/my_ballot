@@ -103,7 +103,6 @@
 	nav li, footer li {
 		display: inline-block;
 		color: white;
-		font-weight: normal;
 		font-size: 14px;
 		text-shadow: 1px 1px rgba(0, 0, 0, .1);
 		padding: 10px 30px 10px 20px;
@@ -179,12 +178,6 @@
 .col-3-3 .candidates:last-child {
 	margin-bottom: 0;
 	}
-
-.col-3-3 .contentBox:last-child
- {
-	margin-bottom: 0;
-	}
-
 
 .col-single .contentBox {
 	padding-top: 20px;
@@ -644,7 +637,7 @@ ul.error:after {
 		}
 
 
-	input, .slideContent textarea, .button {
+	input, .slideContent textarea, .button, .field textarea {
 		border-radius: 10px;
 		border: none;
 		box-shadow: inset 1px 1px 0px rgba(0, 0, 0, .05), 
@@ -731,8 +724,14 @@ ul.error:after {
 		background-color: #3380b8;
 	}
 
-	.ZIPinput {
+	input.ZIPinput {
 		width: 60%;
+		font-family: 'Droid Sans', sans-serif;
+		color: rgba(0, 0, 0, .6);
+		font-weight: normal;
+		text-align: center;
+		line-height: 120%;
+		height: 50px;
 	}
 	 
 	.slideBtn {
@@ -775,8 +774,11 @@ ul.error:after {
 }
 
 .field {
-	font-weight: bold;
 	text-align: left;
+}
+
+.field label {
+	font-weight: bold;
 }
 
 .login .textinput,
@@ -786,18 +788,23 @@ ul.error:after {
 	margin: 5px auto 20px;
 	width: 280px;
 	padding: 5px 15px;
+	font-weight: normal;
+
 }
 
-.field .comments {
+.field textarea {
 	width: 100%;
 	height: 140px;
 	margin: 5px auto 20px;
+	padding: 15px;
+	font-size: 18px;
 	}
 
 .field .textinput {
 	width: 100%;
 	text-align: left;
 }
+
 
 .login .button {
 	display: inline;
@@ -851,7 +858,7 @@ ul.error:after {
 	
 }
 
-@media all and (min-width: 1250px) {
+@media all and (min-width: 1350px) {
 		/*profile*/
 
 	.profileContent {
@@ -887,7 +894,7 @@ ul.error:after {
 		padding-bottom: 1000px;
 		}
 }
-@media all and (min-width: 990px) and (max-width: 1250px) {
+@media all and (min-width: 990px) and (max-width: 1350px) {
 	/*profile*/
 
 	.profileContent {
@@ -997,6 +1004,11 @@ ul.error:after {
 		margin-bottom: 25px;
 	}
 
+	.col-3-3 .contentBox:last-child
+ {
+	margin-bottom: 0;
+	}
+
 	}
 
 
@@ -1072,6 +1084,10 @@ ul.error:after {
 		padding: 75px 20px 20px 20px;
 		}
 
+.col-3-3 .contentBox:last-child
+ {
+	margin-bottom: 0;
+	}
 
 
 	/*logo*/
