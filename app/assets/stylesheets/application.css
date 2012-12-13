@@ -607,7 +607,7 @@ ul.error:after {
 }
 
 .person-info {
-	padding-left: 175px;
+	padding-left: 135px;
 }
 
 .idphoto, .teamphoto {
@@ -621,8 +621,8 @@ ul.error:after {
 
 .teamphoto {
 	margin: 0 15px 0 0;
-	width: 150px;
-	height: 150px;
+/*	width: 150px;
+	height: 150px;*/
 	border-radius: 10px;
 }
 	.voteCounter {
