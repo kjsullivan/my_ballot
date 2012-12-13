@@ -621,6 +621,9 @@ ul.error:after {
 
 .teamphoto {
 	margin: 0 15px 0 0;
+/*	width: 150px;
+	height: 150px;*/
+	border-radius: 10px;
 }
 	.voteCounter {
 		text-align: center;
@@ -795,7 +798,7 @@ ul.error:after {
 .field textarea {
 	width: 100%;
 	height: 140px;
-	margin: 5px auto 20px;
+	margin: 5px auto 15px;
 	padding: 15px;
 	font-size: 18px;
 	}
@@ -815,7 +818,81 @@ ul.error:after {
 	color: white;
 	text-shadow: 0px 0px 5px rgba(0, 0, 0, .3);
 }
+/*
+input[type="file"]{
+   -webkit-appearance: none;
+   text-align: left;
+   -webkit-rtl-ordering:  left;
 
+}*/
+
+.file-wrapper {
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.file-wrapper .button {
+   -webkit-appearance: none;
+   display: inline-block;
+   float: right;
+   margin: 5px 0 15px;
+   padding: 13px;
+	background-color: #99c7e8;
+	text-decoration: none;
+	font-weight: bold;
+	color: white;
+	text-shadow: 0px 0px 5px rgba(0, 0, 0, .3);
+	border-radius: 10px;
+	border: none;
+	box-shadow: inset 1px 1px 0px rgba(0, 0, 0, .05), 
+					inset 2px 2px 6px rgba(0, 0, 0, .05), 
+					2px 2px 0 rgba(255, 255, 255, .3),
+					inset -1px -1px 0px rgba(0, 0, 0, .05); 				
+}
+
+.file-wrapper .button:hover {
+	background-color: #3380b8;
+}
+
+.file-wrapper input {
+  cursor: pointer;
+  height: 100%;
+  position: absolute;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  right: 0;
+  top: 0;
+  filter: alpha(opacity=1);
+  -moz-opacity: 0.01;
+  opacity: 0.01;
+    font-size: 100px;
+
+}
+
+.filebox {
+	border-radius: 10px;
+	display: inline-block;
+	float: left;
+	border: none;
+	box-shadow: inset 1px 1px 0px rgba(0, 0, 0, .05), 
+					inset 2px 2px 6px rgba(0, 0, 0, .05), 
+					2px 2px 0 rgba(255, 255, 255, .3),
+					inset -1px -1px 0px rgba(0, 0, 0, .05); 
+				
+	background-color: rgba(255, 255, 255, .6);
+	overflow:hidden;
+	margin: 5px 10px 0 0;
+	padding: 13px;
+	height: 50px;
+	width: 66%;
+	color: rgba(0, 0, 0, .6);
+	font-size: 18px;
+	line-height: 120%;
+}
 /*login styles end*/
 
 /*COMMENT SLIDER END*/
@@ -1156,6 +1233,25 @@ ul.error:after {
 	}
 
 
+	.field .comments {
+	height: 180px;
+	}
+
+.filebox {
+	width: 54%;
+	margin-right: 0;
+}
+
+.file-wrapper .button {
+	float: left;
+	margin-left: 15px;
+}
+
+
+}
+
+@media all and (max-width: 510px){
+
 }
 
 @media all and (max-width: 500px){
@@ -1295,8 +1391,6 @@ ul.error:after {
 	}
 
 
-
-
 }
 
 
@@ -1316,9 +1410,6 @@ ul.error:after {
 		width: 18px;
 	}	
 
-	.field .comments {
-	height: 200px;
-	}
 
 	h1 {
 		font-size: 19px;
@@ -1374,6 +1465,14 @@ ul.error:after {
 	margin-left: 15px;
 }
 
+	.filebox {
+	/*	float: none;*/
+		width: 49%;
+		overflow: hidden;
+/*		margin-bottom: 0;
+*/	}
+
+
 
 }
 
@@ -1392,6 +1491,20 @@ ul.error:after {
 
 	nav li:last-child, footer li:last-child {
 		padding-right: 0;
+	}
+
+	.filebox {
+		float: none;
+		width: 100%;
+		margin-bottom: 0;
+	}
+
+	.file-wrapper .button {
+		display: block;
+		text-align: center;
+		float: none;
+		width: 100%;
+		margin: 5px 0 20px 0;
 	}
 }
 /*MEDIA QUERIES END*/
